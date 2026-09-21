@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lists! A Fun Coding Adventure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --purple:#7C3AED;
+    --pink:#EC4899;
+    --yellow:#FBBF24;
+    --teal:#14B8A6;
+    --cream:#FFF9F0;
+    --ink:#2B2140;
+    --card:#ffffff;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-padding-top:env(safe-area-inset-top,0px); scroll-behavior:smooth;}
+  html,body{height:100%;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 10% 5%, #ffe9c7 0%, transparent 35%),
+      radial-gradient(circle at 90% 15%, #ffd7ec 0%, transparent 40%),
+      var(--cream);
+    font-family:'Nunito', sans-serif;
+    color:var(--ink);
+    line-height:1.6;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:28px 20px 80px;}
+
+  header.hero{
+    text-align:left;
+    padding:36px 28px;
+    background:linear-gradient(135deg, var(--purple), var(--pink));
+    border-radius:28px;
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+    margin-bottom:36px;
+  }
+  header.hero::after{
+    content:"🧺 🍓 🎈 📚 🎨";
+    position:absolute;
+    right:-10px; bottom:-18px;
+    font-size:2.4rem;
+    opacity:.55;
+    letter-spacing:6px;
+  }
+  header.hero h1{
+    font-family:'Baloo 2', sans-serif;
+    font-size:2.4rem;
+    margin:0 0 8px;
+    line-height:1.15;
+  }
+  header.hero p{
+    font-size:1.05rem;
+    max-width:32ch;
+    margin:0;
+    opacity:.95;
+  }
+  .for-tag{
+    display:inline-block;
+    background:rgba(255,255,255,.22);
+    padding:4px 12px;
+    border-radius:999px;
+    font-size:.85rem;
+    font-weight:700;
+    margin-bottom:14px;
+  }
+
+  h2.chapter{
+    font-family:'Baloo 2', sans-serif;
+    font-size:1.5rem;
+    margin:52px 0 14px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .num{
+    flex:0 0 auto;
+    width:38px; height:38px;
+    border-radius:12px;
+    display:grid; place-items:center;
+    color:#fff;
+    font-family:'Baloo 2', sans-serif;
+    font-size:1.1rem;
+  }
+  .n1{background:var(--purple);}
+  .n2{background:var(--pink);}
+  .n3{background:var(--teal);}
+  .n4{background:var(--yellow); color:var(--ink);}
+  .n5{background:var(--purple);}
+  .n6{background:var(--pink);}
+
+  p{margin:0 0 14px; max-width:65ch;}
+
+  .card{
+    background:var(--card);
+    border-radius:20px;
+    padding:20px 22px;
+    box-shadow:0 6px 0 rgba(124,58,237,.08);
+    margin-bottom:16px;
+  }
+
+  code, pre{
+    font-family:ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  pre{
+    background:#241934;
+    color:#f4ecff;
+    padding:16px 18px;
+    border-radius:14px;
+    overflow-x:auto;
+    font-size:.95rem;
+    margin:0 0 14px;
+  }
+  pre .c1{color:#7ee8c7;}
+  pre .c2{color:#ffd27e;}
+  code.inline{
+    background:#f1e8ff;
+    color:var(--purple);
+    padding:2px 7px;
+    border-radius:6px;
+    font-weight:700;
+    font-size:.92em;
+  }
+
+  .basket{
+    display:flex; flex-wrap:wrap; gap:10px;
+    margin:10px 0 16px;
+  }
+  .item{
+    background:var(--yellow);
+    color:var(--ink);
+    padding:10px 16px;
+    border-radius:14px;
+    font-weight:800;
+    font-family:'Baloo 2', sans-serif;
+    position:relative;
+  }
+  .item .idx{
+    position:absolute; top:-12px; left:50%; transform:translateX(-50%);
+    background:var(--ink); color:#fff;
+    font-family:'Nunito';
+    font-size:.7rem; font-weight:800;
+    padding:1px 7px; border-radius:8px;
+  }
+  .item.pink{background:var(--pink); color:#fff;}
+  .item.teal{background:var(--teal); color:#fff;}
+
+  .tip{
+    border-left:5px solid var(--teal);
+    background:#eafbf6;
+    padding:12px 16px;
+    border-radius:0 14px 14px 0;
+    margin:14px 0;
+    font-weight:700;
+  }
+  .tip::before{content:"💡 "; }
+
+  .try{
+    border:2px dashed var(--purple);
+    border-radius:16px;
+    padding:16px 18px;
+    margin:18px 0;
+    background:#faf5ff;
+  }
+  .try h3{
+    font-family:'Baloo 2', sans-serif;
+    margin:0 0 8px;
+    color:var(--purple);
+    font-size:1.05rem;
+  }
+
+  details.reveal{margin-top:8px;}
+  details.reveal summary{
+    cursor:pointer;
+    font-weight:800;
+    color:var(--pink);
+    list-style:none;
+  }
+  details.reveal summary::-webkit-details-marker{display:none;}
+  details.reveal summary::before{content:"👉 "; }
+  details.reveal[open] summary::before{content:"👇 ";}
+  details.reveal .answer{
+    margin-top:10px;
+    background:#fff0f7;
+    border-radius:12px;
+    padding:12px 14px;
+  }
+
+  .recap{
+    background:linear-gradient(135deg, var(--teal), #0d9488);
+    color:#fff;
+    border-radius:20px;
+    padding:22px 24px;
+    margin-top:52px;
+  }
+  .recap h2{
+    font-family:'Baloo 2', sans-serif;
+    margin-top:0;
+  }
+  .recap ul{margin:0; padding-left:20px;}
+  .recap li{margin-bottom:8px;}
+
+  footer{
+    text-align:center;
+    margin-top:48px;
+    font-size:.9rem;
+    color:#8b7fa8;
+  }
+
+  @media (max-width:480px){
+    header.hero h1{font-size:1.9rem;}
+    .wrap{padding:20px 14px 60px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="for-tag">Made just for you</span>
+    <h1>Lists: your very own magic basket 🧺</h1>
+    <p>A slow, friendly guide to Python lists — one idea at a time, no rushing.</p>
+  </header>
+
+  <p>Hi Eniola! 👋 Today we're learning about <strong>lists</strong> — one of the most useful tools in coding. A list is just a way to keep a bunch of things together in one place, kind of like a basket. Let's go step by step.</p>
+
+  <h2 class="chapter"><span class="num n1">1</span> What even is a list?</h2>
+  <div class="card">
+    <p>Imagine a basket where you keep your favorite fruits. In Python, we write that basket like this:</p>
+    <pre>fruits = <span class="c2">[</span>"mango", "banana", "orange"<span class="c2">]</span></pre>
+    <p>The square brackets <code class="inline">[ ]</code> are the basket. The words inside, separated by commas, are the things in the basket. That's it — you just made a list!</p>
+    <div class="basket">
+      <div class="item">mango</div>
+      <div class="item pink">banana</div>
+      <div class="item teal">orange</div>
+    </div>
+    <div class="tip">A list can hold words, numbers, or even other lists — anything you like.</div>
+  </div>
+
+  <h2 class="chapter"><span class="num n2">2</span> Finding things by their spot (index)</h2>
+  <div class="card">
+    <p>Every item in a list has a numbered spot, called an <strong>index</strong>. Here's the trick: Python starts counting from <code class="inline">0</code>, not 1.</p>
+    <div class="basket">
+      <div class="item"><span class="idx">0</span>mango</div>
+      <div class="item pink"><span class="idx">1</span>banana</div>
+      <div class="item teal"><span class="idx">2</span>orange</div>
+    </div>
+    <pre>print(fruits[0])  <span class="c1"># mango</span>
+print(fruits[1])  <span class="c1"># banana</span>
+print(fruits[2])  <span class="c1"># orange</span></pre>
+    <p>So <code class="inline">fruits[0]</code> means "give me whatever is in spot 0" — which is mango.</p>
+    <div class="try">
+      <h3>Try it in your head 🧠</h3>
+      <p>What do you think <code class="inline">fruits[2]</code> prints?</p>
+      <details class="reveal">
+        <summary>Reveal the answer</summary>
+        <div class="answer">It prints <code class="inline">orange</code>, because orange sits at spot 2 (remember, we start counting from 0!).</div>
+      </details>
+    </div>
+  </div>
+
+  <h2 class="chapter"><span class="num n3">3</span> Adding new items</h2>
+  <div class="card">
+    <p>Want to add a new fruit to your basket? Use <code class="inline">.append()</code> — it means "add this to the end."</p>
+    <pre>fruits.append("pineapple")
+print(fruits)
+<span class="c1"># ['mango', 'banana', 'orange', 'pineapple']</span></pre>
+    <div class="basket">
+      <div class="item">mango</div>
+      <div class="item pink">banana</div>
+      <div class="item teal">orange</div>
+      <div class="item" style="background:#d9c2ff;">pineapple</div>
+    </div>
+    <div class="tip">Think of <code class="inline">.append()</code> as gently placing something on top of the basket.</div>
+  </div>
+
+  <h2 class="chapter"><span class="num n4">4</span> Removing items</h2>
+  <div class="card">
+    <p>Changed your mind about banana? Use <code class="inline">.remove()</code> to take it out.</p>
+    <pre>fruits.remove("banana")
+print(fruits)
+<span class="c1"># ['mango', 'orange', 'pineapple']</span></pre>
+    <p>Python looks through the basket, finds "banana", and lifts it out. Everything else stays exactly where it was.</p>
+    <div class="try">
+      <h3>Quick check ✏️</h3>
+      <p>After removing banana, what is <code class="inline">fruits[1]</code> now?</p>
+      <details class="reveal">
+        <summary>Reveal the answer</summary>
+        <div class="answer">It's <code class="inline">orange</code> — because once banana leaves, everything shifts up one spot, so orange moves from spot 2 into spot 1.</div>
+      </details>
+    </div>
+  </div>
+
+  <h2 class="chapter"><span class="num n5">5</span> Looking at every item (looping)</h2>
+  <div class="card">
+    <p>What if you want to say hello to every fruit, one by one? That's what a <strong>for loop</strong> is for.</p>
+    <pre><span class="c2">for</span> fruit <span class="c2">in</span> fruits:
+    print("I love", fruit)</pre>
+    <p>This reads almost like English: <em>"for each fruit in the list, print a message about it."</em> Python will run the print line once for every single item.</p>
+    <div class="tip">The loop automatically stops when it reaches the end of the list — no counting needed!</div>
+  </div>
+
+  <h2 class="chapter"><span class="num n6">6</span> How many things are in the basket?</h2>
+  <div class="card">
+    <p>Use <code class="inline">len()</code> — short for "length" — to count the items.</p>
+    <pre>print(len(fruits))  <span class="c1"># 3</span></pre>
+    <div class="try">
+      <h3>Last challenge 🌟</h3>
+      <p>If you <code class="inline">.append("grape")</code> to a list that had 3 items, what does <code class="inline">len()</code> return now?</p>
+      <details class="reveal">
+        <summary>Reveal the answer</summary>
+        <div class="answer">It returns <code class="inline">4</code> — appending adds one more item, so the length grows by 1.</div>
+      </details>
+    </div>
+  </div>
+
+  <div class="recap">
+    <h2>You just learned 🎉</h2>
+    <ul>
+      <li><code>[ ]</code> makes a list — your basket of items</li>
+      <li>Each item has an index, starting from <strong>0</strong></li>
+      <li><code>.append()</code> adds an item to the end</li>
+      <li><code>.remove()</code> takes an item out</li>
+      <li><code>for item in list:</code> visits every item, one by one</li>
+      <li><code>len()</code> tells you how many items are inside</li>
+    </ul>
+  </div>
+
+  <footer>Made with 💜 for a curious 13-year-old coder. Keep going — you've got this!</footer>
+
+</div>
+</body>
+</html>
