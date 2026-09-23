@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Zion's Number Bond Garden</title>
+<title>Zion's Numbers to 10 Garden</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
@@ -90,8 +90,8 @@
 <div class="wrap">
   <header>
     <div class="kicker">Zion's math practice</div>
-    <h1>Number Bond Garden 🌻</h1>
-    <div class="sub">100 friendly number bonds to grow — bonds to 5, 10, 20, missing wholes, and doubles.</div>
+    <h1>Numbers to 10 Garden 🌻</h1>
+    <div class="sub">100 friendly questions to grow — counting, comparing, before &amp; after, between, and one more/one less.</div>
   </header>
 
   <div class="progress-row"><span id="pos">Question 1 of 100</span><span id="scoreLabel">Score: 0</span></div>
@@ -123,28 +123,50 @@ function makeBond(whole,a,b,missing,tag){
   return {whole,a,b,missing,tag,answer:String(answer),options:opts};
 }
 
-function bondsTo(total){
-  const a=ri(0,total); const b=total-a;
-  const missing = Math.random()<0.5 ? 'a' : 'b';
-  return makeBond(total,a,b,missing,`Bonds to ${total}`);
+function withOptions(answer,text,tag,visual,gen,minV,maxV,count){
+  const opts=shuffle(uniqueDistractors(answer,gen,count||3,minV,maxV).map(String));
+  return {tag,text,visual,answer:String(answer),options:opts};
 }
-function missingWhole(){
-  const a=ri(0,10), b=ri(0,10);
-  return makeBond(a+b,a,b,'whole','Find the whole');
-}
-function doublesBond(){
+function qCounting(){
   const n=ri(1,10);
-  const missing = Math.random()<0.5 ? 'whole' : (Math.random()<0.5?'a':'b');
-  return makeBond(2*n,n,n,missing,'Doubles');
+  return withOptions(n,'How many dots are there?','Counting',{type:'dots',n},()=>ri(1,10),0,10);
+}
+function qCompare(){
+  let a=ri(0,10), b=ri(0,10);
+  while(b===a) b=ri(0,10);
+  const bigger=Math.random()<0.5;
+  const answer=bigger?Math.max(a,b):Math.min(a,b);
+  const text=`Which number is ${bigger?'bigger':'smaller'}: ${a} or ${b}?`;
+  const opts=shuffle([String(a),String(b)]);
+  return {tag:'Comparing',text,visual:null,answer:String(answer),options:opts};
+}
+function qBeforeAfter(){
+  const before=Math.random()<0.5;
+  const n=before?ri(1,10):ri(0,9);
+  const answer=before?n-1:n+1;
+  const text=before?`___, ${n}  — what comes right before?`:`${n}, ___  — what comes right after?`;
+  return withOptions(answer,text,'Before & after',{type:'big',n:answer},()=>answer+ri(-2,2),0,10);
+}
+function qBetween(){
+  const a=ri(0,8); const mid=a+1; const b=a+2;
+  const text=`What number is between ${a} and ${b}?`;
+  return withOptions(mid,text,'Between',{type:'big',n:mid},()=>mid+ri(-2,2),0,10);
+}
+function qOneMoreLess(){
+  const more=Math.random()<0.5;
+  const n=more?ri(0,9):ri(1,10);
+  const answer=more?n+1:n-1;
+  const text=`What is one ${more?'more':'less'} than ${n}?`;
+  return withOptions(answer,text,'One more / one less',{type:'big',n:answer},()=>answer+ri(-2,2),0,10);
 }
 
 function genQuestion(i){
   const mod=i%5;
-  if(mod===0) return bondsTo(5);
-  if(mod===1) return bondsTo(10);
-  if(mod===2) return bondsTo(20);
-  if(mod===3) return missingWhole();
-  return doublesBond();
+  if(mod===0) return qCounting();
+  if(mod===1) return qCompare();
+  if(mod===2) return qBeforeAfter();
+  if(mod===3) return qBetween();
+  return qOneMoreLess();
 }
 function buildQuestions(total){
   const out=[];
@@ -161,23 +183,26 @@ const fill=document.getElementById('fill');
 const pos=document.getElementById('pos');
 const scoreLabel=document.getElementById('scoreLabel');
 
-function bondSVG(q){
-  const wVal = q.missing==='whole' ? '?' : q.whole;
-  const aVal = q.missing==='a' ? '?' : q.a;
-  const bVal = q.missing==='b' ? '?' : q.b;
-  const missColor = 'var(--coral)';
-  const normColor = 'var(--ink)';
-  return `
-  <svg class="bond-svg" width="260" height="180" viewBox="0 0 260 180">
-    <line x1="130" y1="55" x2="65" y2="125" class="bond-line" stroke="#4EA8DE"/>
-    <line x1="130" y1="55" x2="195" y2="125" class="bond-line" stroke="#5FAD56"/>
-    <circle cx="130" cy="45" r="38" class="bond-circle" stroke="#4EA8DE"/>
-    <text x="130" y="47" class="bond-text" fill="${q.missing==='whole'?missColor:normColor}">${wVal}</text>
-    <circle cx="55" cy="135" r="34" class="bond-circle" stroke="#5FAD56"/>
-    <text x="55" y="137" class="bond-text" fill="${q.missing==='a'?missColor:normColor}">${aVal}</text>
-    <circle cx="205" cy="135" r="34" class="bond-circle" stroke="#FFB627"/>
-    <text x="205" y="137" class="bond-text" fill="${q.missing==='b'?missColor:normColor}">${bVal}</text>
-  </svg>`;
+const DOT_COLORS=['#4EA8DE','#FF6F59','#FFB627','#5FAD56','#8A6FD8'];
+function topicVisual(q){
+  if(!q.visual) return '';
+  if(q.visual.type==='dots'){
+    const cols=5;
+    let dots='';
+    for(let i=0;i<q.visual.n;i++){
+      const col=i%cols, row=Math.floor(i/cols);
+      const cx=30+col*44, cy=30+row*50;
+      dots+=`<circle cx="${cx}" cy="${cy}" r="16" fill="${DOT_COLORS[i%DOT_COLORS.length]}"/>`;
+    }
+    const width=cols*44, height=Math.ceil(q.visual.n/cols)*50;
+    return `<svg class="bond-svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">${dots}</svg>`;
+  }
+  if(q.visual.type==='big'){
+    return `<div style="text-align:center;margin:6px 0 18px;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:88px;height:88px;border-radius:50%;background:rgba(78,168,222,0.14);border:3px solid var(--sky);font-family:'Fredoka',sans-serif;font-weight:700;font-size:40px;color:var(--sky);">?</span>
+    </div>`;
+  }
+  return '';
 }
 
 function render(){
@@ -190,7 +215,7 @@ function render(){
       <div class="end">
         <h2>You grew the whole garden, Zion! 🌼</h2>
         <div class="score-big">${score} / ${TOTAL}</div>
-        <p class="sub" style="margin:8px auto 0;">${score>=90?"Amazing! You really know your number bonds.":score>=70?"Great growing! A bit more practice and you'll have them all.":"Nice try! Replant the garden to practice more."}</p>
+        <p class="sub" style="margin:8px auto 0;">${score>=90?"Amazing! You really know your numbers to 10.":score>=70?"Great growing! A bit more practice and you'll have them all.":"Nice try! Replant the garden to practice more."}</p>
         <button class="next" style="visibility:visible" onclick="restart()">Plant it again</button>
       </div>`;
     return;
@@ -200,8 +225,8 @@ function render(){
   answered=false;
   card.innerHTML=`
     <span class="tag">${q.tag}</span>
-    <p class="question">What number is missing?</p>
-    ${bondSVG(q)}
+    <p class="question">${q.text}</p>
+    ${topicVisual(q)}
     <div class="options" id="opts"></div>
     <div class="feedback" id="fb"></div>
     <button class="next" id="nextBtn" onclick="nextQ()">Next</button>
