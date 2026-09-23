@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Zion's Numbers to 10 Garden</title>
+<title>Zion's Addition &amp; Subtraction Garden</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
@@ -90,8 +90,8 @@
 <div class="wrap">
   <header>
     <div class="kicker">Zion's math practice</div>
-    <h1>Numbers to 10 Garden 🌻</h1>
-    <div class="sub">100 friendly questions to grow — counting, comparing, before &amp; after, between, and one more/one less.</div>
+    <h1>Addition & Subtraction Garden 🌻</h1>
+    <div class="sub">100 friendly questions to grow — addition and subtraction within 10 and within 20, plus missing numbers.</div>
   </header>
 
   <div class="progress-row"><span id="pos">Question 1 of 100</span><span id="scoreLabel">Score: 0</span></div>
@@ -127,46 +127,47 @@ function withOptions(answer,text,tag,visual,gen,minV,maxV,count){
   const opts=shuffle(uniqueDistractors(answer,gen,count||3,minV,maxV).map(String));
   return {tag,text,visual,answer:String(answer),options:opts};
 }
-function qCounting(){
-  const n=ri(1,10);
-  return withOptions(n,'How many dots are there?','Counting',{type:'dots',n},()=>ri(1,10),0,10);
+function qAddTo10(){
+  const a=ri(0,10); const b=ri(0,10-a);
+  const answer=a+b;
+  const text=`${a} + ${b} = ?`;
+  return withOptions(answer,text,'Addition within 10',{type:'big',n:answer},()=>answer+ri(-2,2),0,10);
 }
-function qCompare(){
-  let a=ri(0,10), b=ri(0,10);
-  while(b===a) b=ri(0,10);
-  const bigger=Math.random()<0.5;
-  const answer=bigger?Math.max(a,b):Math.min(a,b);
-  const text=`Which number is ${bigger?'bigger':'smaller'}: ${a} or ${b}?`;
-  const opts=shuffle([String(a),String(b)]);
-  return {tag:'Comparing',text,visual:null,answer:String(answer),options:opts};
+function qSubTo10(){
+  const a=ri(0,10); const b=ri(0,a);
+  const answer=a-b;
+  const text=`${a} − ${b} = ?`;
+  return withOptions(answer,text,'Subtraction within 10',{type:'big',n:answer},()=>answer+ri(-2,2),0,10);
 }
-function qBeforeAfter(){
-  const before=Math.random()<0.5;
-  const n=before?ri(1,10):ri(0,9);
-  const answer=before?n-1:n+1;
-  const text=before?`___, ${n}  — what comes right before?`:`${n}, ___  — what comes right after?`;
-  return withOptions(answer,text,'Before & after',{type:'big',n:answer},()=>answer+ri(-2,2),0,10);
+function qAddTo20(){
+  const a=ri(5,10); const b=ri(2,10);
+  const answer=a+b;
+  const text=`${a} + ${b} = ?`;
+  return withOptions(answer,text,'Addition within 20',{type:'big',n:answer},()=>answer+ri(-2,2),0,20);
 }
-function qBetween(){
-  const a=ri(0,8); const mid=a+1; const b=a+2;
-  const text=`What number is between ${a} and ${b}?`;
-  return withOptions(mid,text,'Between',{type:'big',n:mid},()=>mid+ri(-2,2),0,10);
+function qSubFrom20(){
+  const a=ri(11,20); const b=ri(1,10);
+  const answer=a-b;
+  const text=`${a} − ${b} = ?`;
+  return withOptions(answer,text,'Subtraction within 20',{type:'big',n:answer},()=>answer+ri(-2,2),0,20);
 }
-function qOneMoreLess(){
-  const more=Math.random()<0.5;
-  const n=more?ri(0,9):ri(1,10);
-  const answer=more?n+1:n-1;
-  const text=`What is one ${more?'more':'less'} than ${n}?`;
-  return withOptions(answer,text,'One more / one less',{type:'big',n:answer},()=>answer+ri(-2,2),0,10);
+function qMissingNumber(){
+  const total=ri(2,20);
+  const a=ri(0,total);
+  const b=total-a;
+  const askMissingA=Math.random()<0.5;
+  const text=askMissingA?`___ + ${b} = ${total}`:`${a} + ___ = ${total}`;
+  const answer=askMissingA?a:b;
+  return withOptions(answer,text,'Missing number',{type:'big',n:answer},()=>answer+ri(-2,2),0,20);
 }
 
 function genQuestion(i){
   const mod=i%5;
-  if(mod===0) return qCounting();
-  if(mod===1) return qCompare();
-  if(mod===2) return qBeforeAfter();
-  if(mod===3) return qBetween();
-  return qOneMoreLess();
+  if(mod===0) return qAddTo10();
+  if(mod===1) return qSubTo10();
+  if(mod===2) return qAddTo20();
+  if(mod===3) return qSubFrom20();
+  return qMissingNumber();
 }
 function buildQuestions(total){
   const out=[];
@@ -215,7 +216,7 @@ function render(){
       <div class="end">
         <h2>You grew the whole garden, Zion! 🌼</h2>
         <div class="score-big">${score} / ${TOTAL}</div>
-        <p class="sub" style="margin:8px auto 0;">${score>=90?"Amazing! You really know your numbers to 10.":score>=70?"Great growing! A bit more practice and you'll have them all.":"Nice try! Replant the garden to practice more."}</p>
+        <p class="sub" style="margin:8px auto 0;">${score>=90?"Amazing! You really know your addition and subtraction.":score>=70?"Great growing! A bit more practice and you'll have them all.":"Nice try! Replant the garden to practice more."}</p>
         <button class="next" style="visibility:visible" onclick="restart()">Plant it again</button>
       </div>`;
     return;
