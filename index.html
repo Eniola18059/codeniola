@@ -3,341 +3,243 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Lists! A Fun Coding Adventure</title>
+<title>Zion's Number Bond Garden</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --purple:#7C3AED;
-    --pink:#EC4899;
-    --yellow:#FBBF24;
-    --teal:#14B8A6;
-    --cream:#FFF9F0;
-    --ink:#2B2140;
-    --card:#ffffff;
+    --sun:#FFB627; --coral:#FF6F59; --sky:#4EA8DE; --leaf:#5FAD56;
+    --bg:#FFF8EC; --card:#FFFFFF; --ink:#3A3226; --muted:#8A7F6C;
+    --line: rgba(58,50,38,0.12); --ok:#4C9A5A; --bad:#E0564A;
     box-sizing:border-box;
-    padding-top:env(safe-area-inset-top,0px);
-    padding-bottom:env(safe-area-inset-bottom,0px);
+    padding-top: env(safe-area-inset-top,0px);
+    padding-bottom: env(safe-area-inset-bottom,0px);
   }
-  *{box-sizing:border-box;}
-  html{scroll-padding-top:env(safe-area-inset-top,0px); scroll-behavior:smooth;}
-  html,body{height:100%;}
+  *{box-sizing:inherit}
+  html{scroll-padding-top: env(safe-area-inset-top,0px);}
   body{
-    margin:0;
-    background:
-      radial-gradient(circle at 10% 5%, #ffe9c7 0%, transparent 35%),
-      radial-gradient(circle at 90% 15%, #ffd7ec 0%, transparent 40%),
-      var(--cream);
-    font-family:'Nunito', sans-serif;
-    color:var(--ink);
-    line-height:1.6;
+    margin:0; min-height:100%; background:var(--bg); color:var(--ink);
+    font-family:'Nunito',system-ui,sans-serif;
+    display:flex; justify-content:center; padding:28px 16px 48px;
   }
-  .wrap{max-width:760px; margin:0 auto; padding:28px 20px 80px;}
+  .wrap{width:100%; max-width:520px;}
+  header{text-align:center; margin-bottom:18px;}
+  .kicker{font-size:14px; font-weight:800; color:var(--coral); letter-spacing:.03em; text-transform:uppercase;}
+  h1{
+    font-family:'Fredoka',sans-serif; font-weight:700; font-size:clamp(28px,7vw,36px);
+    margin:4px 0 6px; color:var(--ink);
+  }
+  .sub{color:var(--muted); font-size:14.5px; max-width:38ch; margin:0 auto;}
 
-  header.hero{
-    text-align:left;
-    padding:36px 28px;
-    background:linear-gradient(135deg, var(--purple), var(--pink));
-    border-radius:28px;
-    color:#fff;
-    position:relative;
-    overflow:hidden;
-    margin-bottom:36px;
-  }
-  header.hero::after{
-    content:"🧺 🍓 🎈 📚 🎨";
-    position:absolute;
-    right:-10px; bottom:-18px;
-    font-size:2.4rem;
-    opacity:.55;
-    letter-spacing:6px;
-  }
-  header.hero h1{
-    font-family:'Baloo 2', sans-serif;
-    font-size:2.4rem;
-    margin:0 0 8px;
-    line-height:1.15;
-  }
-  header.hero p{
-    font-size:1.05rem;
-    max-width:32ch;
-    margin:0;
-    opacity:.95;
-  }
-  .for-tag{
-    display:inline-block;
-    background:rgba(255,255,255,.22);
-    padding:4px 12px;
-    border-radius:999px;
-    font-size:.85rem;
-    font-weight:700;
-    margin-bottom:14px;
-  }
-
-  h2.chapter{
-    font-family:'Baloo 2', sans-serif;
-    font-size:1.5rem;
-    margin:52px 0 14px;
-    display:flex;
-    align-items:center;
-    gap:10px;
-  }
-  .num{
-    flex:0 0 auto;
-    width:38px; height:38px;
-    border-radius:12px;
-    display:grid; place-items:center;
-    color:#fff;
-    font-family:'Baloo 2', sans-serif;
-    font-size:1.1rem;
-  }
-  .n1{background:var(--purple);}
-  .n2{background:var(--pink);}
-  .n3{background:var(--teal);}
-  .n4{background:var(--yellow); color:var(--ink);}
-  .n5{background:var(--purple);}
-  .n6{background:var(--pink);}
-
-  p{margin:0 0 14px; max-width:65ch;}
+  .progress-row{display:flex; justify-content:space-between; font-size:13px; color:var(--muted); font-weight:800; margin-top:20px;}
+  .track{position:relative; height:12px; background:var(--line); border-radius:8px; margin:6px 0 4px; overflow:hidden;}
+  .track-fill{height:100%; background:linear-gradient(90deg,var(--sun),var(--coral)); width:0%; transition:width .4s ease; border-radius:8px;}
 
   .card{
-    background:var(--card);
-    border-radius:20px;
-    padding:20px 22px;
-    box-shadow:0 6px 0 rgba(124,58,237,.08);
-    margin-bottom:16px;
+    background:var(--card); border-radius:22px; padding:26px 22px 24px; margin-top:18px;
+    box-shadow:0 10px 30px rgba(58,50,38,0.08); border:1px solid var(--line);
   }
+  .tag{display:inline-block; font-size:12.5px; font-weight:800; color:#fff; background:var(--sky); padding:5px 12px; border-radius:20px; margin-bottom:14px;}
+  .question{font-family:'Fredoka',sans-serif; font-size:20px; text-align:center; margin:0 0 14px; color:var(--ink);}
 
-  code, pre{
-    font-family:ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  }
-  pre{
-    background:#241934;
-    color:#f4ecff;
-    padding:16px 18px;
-    border-radius:14px;
-    overflow-x:auto;
-    font-size:.95rem;
-    margin:0 0 14px;
-  }
-  pre .c1{color:#7ee8c7;}
-  pre .c2{color:#ffd27e;}
-  code.inline{
-    background:#f1e8ff;
-    color:var(--purple);
-    padding:2px 7px;
-    border-radius:6px;
-    font-weight:700;
-    font-size:.92em;
-  }
+  .bond-svg{display:block; margin:0 auto 18px;}
+  .bond-circle{fill:var(--card); stroke-width:4;}
+  .bond-text{font-family:'Fredoka',sans-serif; font-weight:600; font-size:30px; fill:var(--ink); text-anchor:middle; dominant-baseline:central;}
+  .bond-line{stroke-width:4; stroke-linecap:round;}
 
-  .basket{
-    display:flex; flex-wrap:wrap; gap:10px;
-    margin:10px 0 16px;
+  .options{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  .opt{
+    font-family:'Fredoka',sans-serif; font-size:22px; font-weight:600; color:var(--ink);
+    background:var(--bg); border:2px solid var(--line); border-radius:16px; padding:16px 10px;
+    cursor:pointer; transition:transform .12s, border-color .15s, background .15s;
   }
-  .item{
-    background:var(--yellow);
-    color:var(--ink);
-    padding:10px 16px;
-    border-radius:14px;
-    font-weight:800;
-    font-family:'Baloo 2', sans-serif;
-    position:relative;
-  }
-  .item .idx{
-    position:absolute; top:-12px; left:50%; transform:translateX(-50%);
-    background:var(--ink); color:#fff;
-    font-family:'Nunito';
-    font-size:.7rem; font-weight:800;
-    padding:1px 7px; border-radius:8px;
-  }
-  .item.pink{background:var(--pink); color:#fff;}
-  .item.teal{background:var(--teal); color:#fff;}
+  .opt:hover:not(:disabled){border-color:var(--sky); transform:translateY(-2px);}
+  .opt:focus-visible{outline:3px solid var(--sky); outline-offset:2px;}
+  .opt.correct{background:rgba(76,154,90,0.15); border-color:var(--ok); color:#2E6B3A;}
+  .opt.wrong{background:rgba(224,86,74,0.12); border-color:var(--bad); color:var(--bad);}
+  .opt:disabled{cursor:default; transform:none;}
 
-  .tip{
-    border-left:5px solid var(--teal);
-    background:#eafbf6;
-    padding:12px 16px;
-    border-radius:0 14px 14px 0;
-    margin:14px 0;
-    font-weight:700;
-  }
-  .tip::before{content:"💡 "; }
+  .feedback{min-height:24px; margin-top:16px; font-weight:800; font-size:15px; text-align:center;}
+  .feedback.ok{color:var(--ok);}
+  .feedback.bad{color:var(--bad);}
 
-  .try{
-    border:2px dashed var(--purple);
-    border-radius:16px;
-    padding:16px 18px;
-    margin:18px 0;
-    background:#faf5ff;
+  .next{
+    display:block; margin:16px auto 0; font-family:'Fredoka',sans-serif; font-weight:600; font-size:16px; color:#fff;
+    background:var(--coral); border:none; border-radius:14px; padding:13px 26px;
+    cursor:pointer; visibility:hidden;
   }
-  .try h3{
-    font-family:'Baloo 2', sans-serif;
-    margin:0 0 8px;
-    color:var(--purple);
-    font-size:1.05rem;
-  }
+  .next:hover{background:#E85440;}
+  .next:focus-visible{outline:3px solid var(--sky); outline-offset:2px;}
 
-  details.reveal{margin-top:8px;}
-  details.reveal summary{
-    cursor:pointer;
-    font-weight:800;
-    color:var(--pink);
-    list-style:none;
-  }
-  details.reveal summary::-webkit-details-marker{display:none;}
-  details.reveal summary::before{content:"👉 "; }
-  details.reveal[open] summary::before{content:"👇 ";}
-  details.reveal .answer{
-    margin-top:10px;
-    background:#fff0f7;
-    border-radius:12px;
-    padding:12px 14px;
-  }
+  .end{text-align:center;}
+  .end h2{font-family:'Fredoka',sans-serif; font-size:28px; color:var(--ink); margin:0 0 6px;}
+  .score-big{font-size:50px; font-weight:700; font-family:'Fredoka',sans-serif; color:var(--coral);}
 
-  .recap{
-    background:linear-gradient(135deg, var(--teal), #0d9488);
-    color:#fff;
-    border-radius:20px;
-    padding:22px 24px;
-    margin-top:52px;
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#241F1A; --card:#2E2822; --ink:#F3ECDF; --muted:#B9AE98; --line: rgba(243,236,223,0.14);
+    }
   }
-  .recap h2{
-    font-family:'Baloo 2', sans-serif;
-    margin-top:0;
-  }
-  .recap ul{margin:0; padding-left:20px;}
-  .recap li{margin-bottom:8px;}
-
-  footer{
-    text-align:center;
-    margin-top:48px;
-    font-size:.9rem;
-    color:#8b7fa8;
-  }
-
-  @media (max-width:480px){
-    header.hero h1{font-size:1.9rem;}
-    .wrap{padding:20px 14px 60px;}
+  :root[data-theme="dark"]{
+    --bg:#241F1A; --card:#2E2822; --ink:#F3ECDF; --muted:#B9AE98; --line: rgba(243,236,223,0.14);
   }
 </style>
 </head>
 <body>
 <div class="wrap">
-
-  <header class="hero">
-    <span class="for-tag">Made just for you</span>
-    <h1>Lists: your very own magic basket 🧺</h1>
-    <p>A slow, friendly guide to Python lists — one idea at a time, no rushing.</p>
+  <header>
+    <div class="kicker">Zion's math practice</div>
+    <h1>Number Bond Garden 🌻</h1>
+    <div class="sub">100 friendly number bonds to grow — bonds to 5, 10, 20, missing wholes, and doubles.</div>
   </header>
 
-  <p>Hi Eniola! 👋 Today we're learning about <strong>lists</strong> — one of the most useful tools in coding. A list is just a way to keep a bunch of things together in one place, kind of like a basket. Let's go step by step.</p>
+  <div class="progress-row"><span id="pos">Question 1 of 100</span><span id="scoreLabel">Score: 0</span></div>
+  <div class="track"><div class="track-fill" id="fill"></div></div>
 
-  <h2 class="chapter"><span class="num n1">1</span> What even is a list?</h2>
-  <div class="card">
-    <p>Imagine a basket where you keep your favorite fruits. In Python, we write that basket like this:</p>
-    <pre>fruits = <span class="c2">[</span>"mango", "banana", "orange"<span class="c2">]</span></pre>
-    <p>The square brackets <code class="inline">[ ]</code> are the basket. The words inside, separated by commas, are the things in the basket. That's it — you just made a list!</p>
-    <div class="basket">
-      <div class="item">mango</div>
-      <div class="item pink">banana</div>
-      <div class="item teal">orange</div>
-    </div>
-    <div class="tip">A list can hold words, numbers, or even other lists — anything you like.</div>
-  </div>
-
-  <h2 class="chapter"><span class="num n2">2</span> Finding things by their spot (index)</h2>
-  <div class="card">
-    <p>Every item in a list has a numbered spot, called an <strong>index</strong>. Here's the trick: Python starts counting from <code class="inline">0</code>, not 1.</p>
-    <div class="basket">
-      <div class="item"><span class="idx">0</span>mango</div>
-      <div class="item pink"><span class="idx">1</span>banana</div>
-      <div class="item teal"><span class="idx">2</span>orange</div>
-    </div>
-    <pre>print(fruits[0])  <span class="c1"># mango</span>
-print(fruits[1])  <span class="c1"># banana</span>
-print(fruits[2])  <span class="c1"># orange</span></pre>
-    <p>So <code class="inline">fruits[0]</code> means "give me whatever is in spot 0" — which is mango.</p>
-    <div class="try">
-      <h3>Try it in your head 🧠</h3>
-      <p>What do you think <code class="inline">fruits[2]</code> prints?</p>
-      <details class="reveal">
-        <summary>Reveal the answer</summary>
-        <div class="answer">It prints <code class="inline">orange</code>, because orange sits at spot 2 (remember, we start counting from 0!).</div>
-      </details>
-    </div>
-  </div>
-
-  <h2 class="chapter"><span class="num n3">3</span> Adding new items</h2>
-  <div class="card">
-    <p>Want to add a new fruit to your basket? Use <code class="inline">.append()</code> — it means "add this to the end."</p>
-    <pre>fruits.append("pineapple")
-print(fruits)
-<span class="c1"># ['mango', 'banana', 'orange', 'pineapple']</span></pre>
-    <div class="basket">
-      <div class="item">mango</div>
-      <div class="item pink">banana</div>
-      <div class="item teal">orange</div>
-      <div class="item" style="background:#d9c2ff;">pineapple</div>
-    </div>
-    <div class="tip">Think of <code class="inline">.append()</code> as gently placing something on top of the basket.</div>
-  </div>
-
-  <h2 class="chapter"><span class="num n4">4</span> Removing items</h2>
-  <div class="card">
-    <p>Changed your mind about banana? Use <code class="inline">.remove()</code> to take it out.</p>
-    <pre>fruits.remove("banana")
-print(fruits)
-<span class="c1"># ['mango', 'orange', 'pineapple']</span></pre>
-    <p>Python looks through the basket, finds "banana", and lifts it out. Everything else stays exactly where it was.</p>
-    <div class="try">
-      <h3>Quick check ✏️</h3>
-      <p>After removing banana, what is <code class="inline">fruits[1]</code> now?</p>
-      <details class="reveal">
-        <summary>Reveal the answer</summary>
-        <div class="answer">It's <code class="inline">orange</code> — because once banana leaves, everything shifts up one spot, so orange moves from spot 2 into spot 1.</div>
-      </details>
-    </div>
-  </div>
-
-  <h2 class="chapter"><span class="num n5">5</span> Looking at every item (looping)</h2>
-  <div class="card">
-    <p>What if you want to say hello to every fruit, one by one? That's what a <strong>for loop</strong> is for.</p>
-    <pre><span class="c2">for</span> fruit <span class="c2">in</span> fruits:
-    print("I love", fruit)</pre>
-    <p>This reads almost like English: <em>"for each fruit in the list, print a message about it."</em> Python will run the print line once for every single item.</p>
-    <div class="tip">The loop automatically stops when it reaches the end of the list — no counting needed!</div>
-  </div>
-
-  <h2 class="chapter"><span class="num n6">6</span> How many things are in the basket?</h2>
-  <div class="card">
-    <p>Use <code class="inline">len()</code> — short for "length" — to count the items.</p>
-    <pre>print(len(fruits))  <span class="c1"># 3</span></pre>
-    <div class="try">
-      <h3>Last challenge 🌟</h3>
-      <p>If you <code class="inline">.append("grape")</code> to a list that had 3 items, what does <code class="inline">len()</code> return now?</p>
-      <details class="reveal">
-        <summary>Reveal the answer</summary>
-        <div class="answer">It returns <code class="inline">4</code> — appending adds one more item, so the length grows by 1.</div>
-      </details>
-    </div>
-  </div>
-
-  <div class="recap">
-    <h2>You just learned 🎉</h2>
-    <ul>
-      <li><code>[ ]</code> makes a list — your basket of items</li>
-      <li>Each item has an index, starting from <strong>0</strong></li>
-      <li><code>.append()</code> adds an item to the end</li>
-      <li><code>.remove()</code> takes an item out</li>
-      <li><code>for item in list:</code> visits every item, one by one</li>
-      <li><code>len()</code> tells you how many items are inside</li>
-    </ul>
-  </div>
-
-  <footer>Made with 💜 for a curious 13-year-old coder. Keep going — you've got this!</footer>
-
+  <div class="card" id="card"></div>
 </div>
+
+<script>
+function ri(a,b){return Math.floor(Math.random()*(b-a+1))+a;}
+function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
+function uniqueDistractors(correct,gen,count,minV,maxV){
+  const set=new Set([correct]);
+  let tries=0;
+  while(set.size<count+1 && tries<60){
+    let v=gen();
+    if(v>=minV && v<=maxV) set.add(v);
+    tries++;
+  }
+  while(set.size<count+1){ set.add(ri(minV,maxV)); }
+  return [...set];
+}
+
+// bond = {whole, a, b, missing: 'whole'|'a'|'b', tag}
+function makeBond(whole,a,b,missing,tag){
+  const answer = missing==='whole'?whole: missing==='a'?a:b;
+  const maxV = Math.max(whole,20);
+  const opts = shuffle(uniqueDistractors(answer, ()=>answer+ri(-4,4), 3, 0, maxV).map(String));
+  return {whole,a,b,missing,tag,answer:String(answer),options:opts};
+}
+
+function bondsTo(total){
+  const a=ri(0,total); const b=total-a;
+  const missing = Math.random()<0.5 ? 'a' : 'b';
+  return makeBond(total,a,b,missing,`Bonds to ${total}`);
+}
+function missingWhole(){
+  const a=ri(0,10), b=ri(0,10);
+  return makeBond(a+b,a,b,'whole','Find the whole');
+}
+function doublesBond(){
+  const n=ri(1,10);
+  const missing = Math.random()<0.5 ? 'whole' : (Math.random()<0.5?'a':'b');
+  return makeBond(2*n,n,n,missing,'Doubles');
+}
+
+function genQuestion(i){
+  const mod=i%5;
+  if(mod===0) return bondsTo(5);
+  if(mod===1) return bondsTo(10);
+  if(mod===2) return bondsTo(20);
+  if(mod===3) return missingWhole();
+  return doublesBond();
+}
+function buildQuestions(total){
+  const out=[];
+  for(let i=0;i<total;i++) out.push(genQuestion(i));
+  return out;
+}
+
+const TOTAL=100;
+let questions=buildQuestions(TOTAL);
+let current=0, score=0, answered=false;
+
+const card=document.getElementById('card');
+const fill=document.getElementById('fill');
+const pos=document.getElementById('pos');
+const scoreLabel=document.getElementById('scoreLabel');
+
+function bondSVG(q){
+  const wVal = q.missing==='whole' ? '?' : q.whole;
+  const aVal = q.missing==='a' ? '?' : q.a;
+  const bVal = q.missing==='b' ? '?' : q.b;
+  const missColor = 'var(--coral)';
+  const normColor = 'var(--ink)';
+  return `
+  <svg class="bond-svg" width="260" height="180" viewBox="0 0 260 180">
+    <line x1="130" y1="55" x2="65" y2="125" class="bond-line" stroke="#4EA8DE"/>
+    <line x1="130" y1="55" x2="195" y2="125" class="bond-line" stroke="#5FAD56"/>
+    <circle cx="130" cy="45" r="38" class="bond-circle" stroke="#4EA8DE"/>
+    <text x="130" y="47" class="bond-text" fill="${q.missing==='whole'?missColor:normColor}">${wVal}</text>
+    <circle cx="55" cy="135" r="34" class="bond-circle" stroke="#5FAD56"/>
+    <text x="55" y="137" class="bond-text" fill="${q.missing==='a'?missColor:normColor}">${aVal}</text>
+    <circle cx="205" cy="135" r="34" class="bond-circle" stroke="#FFB627"/>
+    <text x="205" y="137" class="bond-text" fill="${q.missing==='b'?missColor:normColor}">${bVal}</text>
+  </svg>`;
+}
+
+function render(){
+  fill.style.width=(current/TOTAL*100)+'%';
+  pos.textContent=`Question ${Math.min(current+1,TOTAL)} of ${TOTAL}`;
+  scoreLabel.textContent=`Score: ${score}`;
+
+  if(current>=TOTAL){
+    card.innerHTML=`
+      <div class="end">
+        <h2>You grew the whole garden, Zion! 🌼</h2>
+        <div class="score-big">${score} / ${TOTAL}</div>
+        <p class="sub" style="margin:8px auto 0;">${score>=90?"Amazing! You really know your number bonds.":score>=70?"Great growing! A bit more practice and you'll have them all.":"Nice try! Replant the garden to practice more."}</p>
+        <button class="next" style="visibility:visible" onclick="restart()">Plant it again</button>
+      </div>`;
+    return;
+  }
+
+  const q=questions[current];
+  answered=false;
+  card.innerHTML=`
+    <span class="tag">${q.tag}</span>
+    <p class="question">What number is missing?</p>
+    ${bondSVG(q)}
+    <div class="options" id="opts"></div>
+    <div class="feedback" id="fb"></div>
+    <button class="next" id="nextBtn" onclick="nextQ()">Next</button>
+  `;
+  const optsEl=document.getElementById('opts');
+  q.options.forEach(opt=>{
+    const b=document.createElement('button');
+    b.className='opt'; b.textContent=opt;
+    b.onclick=()=>select(b,opt,q.answer);
+    optsEl.appendChild(b);
+  });
+}
+
+function select(btn,chosen,correctAns){
+  if(answered) return;
+  answered=true;
+  const fb=document.getElementById('fb');
+  document.querySelectorAll('.opt').forEach(b=>{
+    b.disabled=true;
+    if(b.textContent===correctAns) b.classList.add('correct');
+  });
+  if(chosen===correctAns){
+    score++;
+    fb.textContent='Yes! Great job! 🌟';
+    fb.className='feedback ok';
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent=`So close — it's ${correctAns}.`;
+    fb.className='feedback bad';
+  }
+  document.getElementById('nextBtn').style.visibility='visible';
+  scoreLabel.textContent=`Score: ${score}`;
+}
+
+function nextQ(){ current++; render(); }
+function restart(){ questions=buildQuestions(TOTAL); current=0; score=0; render(); }
+
+render();
+</script>
 </body>
 </html>
