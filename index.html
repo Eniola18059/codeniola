@@ -1,129 +1,134 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Fraction Worksheet Solver</title>
+<title>Fraction Quiz · 50 Questions</title>
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Lexend:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fbfaf6;--grid:#dbe6f2;--ink:#23272e;--mute:#66707c;--pencil:#c8372d;--card:#fff;--line:#c9d3de;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171b21;--grid:#222a35;--ink:#e8ebef;--mute:#98a2ae;--pencil:#ff7b6e;--card:#1e242c;--line:#36404c}}
-:root[data-theme="dark"]{--bg:#171b21;--grid:#222a35;--ink:#e8ebef;--mute:#98a2ae;--pencil:#ff7b6e;--card:#1e242c;--line:#36404c}
+:root{--bg:#fbfaf6;--grid:#dbe6f2;--ink:#23272e;--mute:#66707c;--pencil:#c8372d;--good:#1f7a3d;--card:#fff;--line:#c9d3de;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171b21;--grid:#222a35;--ink:#e8ebef;--mute:#98a2ae;--pencil:#ff7b6e;--good:#5fd38a;--card:#1e242c;--line:#36404c}}
+:root[data-theme="dark"]{--bg:#171b21;--grid:#222a35;--ink:#e8ebef;--mute:#98a2ae;--pencil:#ff7b6e;--good:#5fd38a;--card:#1e242c;--line:#36404c}
 *{box-sizing:border-box}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px;color:var(--ink);font-family:Lexend,system-ui,sans-serif;line-height:1.5}
-main{max-width:760px;margin:0 auto;padding:28px 16px 60px}
-h1{font-family:Kalam,cursive;font-size:clamp(2rem,7vw,3.2rem);line-height:1.1;margin:0 0 6px}
+main{max-width:640px;margin:0 auto;padding:24px 16px 60px}
+h1{font-family:Kalam,cursive;font-size:clamp(1.9rem,7vw,2.8rem);line-height:1.1;margin:0 0 4px}
 h1 span{color:var(--pencil)}
-p.lead{color:var(--mute);margin:0 0 24px;max-width:56ch}
-.card{background:var(--card);border:2px solid var(--ink);border-radius:4px 14px 4px 14px;padding:16px;margin-bottom:14px}
-.solver{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
-label{display:flex;flex-direction:column;font-size:.8rem;color:var(--mute);gap:4px}
-input,select,button{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:9px 12px}
-input{width:120px}
-input:focus,select:focus,button:focus-visible,summary:focus-visible{outline:3px solid var(--pencil);outline-offset:2px}
-button.go{background:var(--ink);color:var(--bg);border-color:var(--ink);font-weight:600;cursor:pointer}
-.err{color:var(--pencil);margin:8px 0 0;min-height:1.4em;font-size:.9rem}
-details{background:var(--card);border:1.5px solid var(--line);border-radius:10px;margin-bottom:8px}
-details[open]{border-color:var(--ink)}
-summary{cursor:pointer;padding:12px 14px;display:flex;align-items:center;gap:12px;list-style:none;font-size:1.05rem;flex-wrap:wrap}
-summary::-webkit-details-marker{display:none}
-.dot{width:14px;height:14px;border-radius:50%;border:1.5px solid var(--ink);flex:none}.cn{font-size:.8rem;color:var(--mute);min-width:5.5em}
-.n{font-weight:600;color:var(--mute);min-width:1.6em}
-.ans{margin-left:auto;font-family:Kalam,cursive;font-weight:700;color:var(--pencil);font-size:1.25rem;display:flex;align-items:center;gap:6px}
-.steps{padding:0 14px 14px 14px}
-.step{padding:10px 0;border-top:1px dashed var(--line)}
-.step small{display:block;color:var(--mute);font-size:.8rem;margin-bottom:2px}
-.expr{font-size:1.15rem;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.mute{color:var(--mute)}
+.card{background:var(--card);border:2px solid var(--ink);border-radius:4px 14px 4px 14px;padding:20px;margin:16px 0}
+button{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:10px 16px;cursor:pointer}
+button.go{background:var(--ink);color:var(--bg);border-color:var(--ink);font-weight:600}
+input{font:inherit;font-size:1.2rem;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:8px;padding:10px 14px;width:100%;max-width:240px}
+input:focus,button:focus-visible{outline:3px solid var(--pencil);outline-offset:2px}
+.bar{height:10px;background:var(--line);border-radius:6px;overflow:hidden;margin:8px 0}
+.bar>div{height:100%;background:var(--pencil);transition:width .3s}
+.top{display:flex;justify-content:space-between;font-size:.9rem;flex-wrap:wrap;gap:6px}
+.q{font-size:1.6rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:14px 0 18px}
 .f{display:inline-flex;flex-direction:column;align-items:center;line-height:1.15;vertical-align:middle;margin:0 2px}
 .f i{font-style:normal;padding:0 4px}.f i:first-child{border-bottom:1.5px solid currentColor}
-.w{font-size:1.15em;margin-right:1px}
+.w{font-size:1.15em}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.msg{margin:14px 0 4px;font-weight:600}
+.msg.ok{color:var(--good)}.msg.bad{color:var(--pencil)}.msg.hint{color:var(--mute)}
 .hand{font-family:Kalam,cursive;color:var(--pencil);font-weight:700}
-h2{font-family:Kalam,cursive;margin:28px 0 10px;font-size:1.6rem}
-.tools{display:flex;gap:8px;margin-bottom:12px}
-.tools button{cursor:pointer;font-size:.85rem;padding:6px 12px}
+.step{padding:8px 0;border-top:1px dashed var(--line)}
+.step small{display:block;color:var(--mute);font-size:.78rem}
+.expr{font-size:1.05rem;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.big{font-family:Kalam,cursive;font-size:3rem;color:var(--pencil);margin:0;line-height:1}
+.miss{padding:10px 0;border-top:1px dashed var(--line);display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:1.05rem}
+.miss .n{color:var(--mute);min-width:2em;font-size:.85rem}
+.hidden{display:none}
 @media(prefers-reduced-motion:no-preference){.step{animation:in .25s ease both}@keyframes in{from{opacity:0;transform:translateY(4px)}}}
 </style></head>
 <body><main>
-<h1>Multiplying &amp; dividing <span>fractions</span></h1>
-<p class="lead">Sets 1 and 2 from your worksheet, solved with every step shown. Tap a problem to open it, or type your own below.</p>
+<h1>Fraction <span>quiz</span></h1>
+<p class="mute" style="margin:0">50 questions · multiply and divide · answer in simplest form</p>
 
-<div class="card">
-<div class="solver">
-<label>First number<input id="a" value="1 7/8" aria-label="First fraction or mixed number"></label>
-<label>Operation<select id="op"><option value="*">× multiply</option><option value="/">÷ divide</option></select></label>
-<label>Second number<input id="b" value="5/6" aria-label="Second fraction or mixed number"></label>
-<button class="go" id="go">Solve</button>
-</div>
-<p class="err" id="err" role="alert"></p>
-<div id="custom"></div>
-<p style="color:var(--mute);font-size:.8rem;margin:8px 0 0">Type mixed numbers with a space (1 7/8), fractions as 5/6, whole numbers as 12.</p>
-</div>
+<section id="start" class="card">
+<p style="margin-top:0">Type answers like <b>35/32</b>, <b>1 3/32</b> or <b>5</b>. Either improper fractions or mixed numbers work, but they must be simplified. Questions get harder as you go: 1–15 are plain fractions, 16–32 add mixed numbers, 33–50 mix everything.</p>
+<div class="row"><button class="go" id="begin">Start quiz</button><button id="resume" class="hidden">Continue where I stopped</button></div>
+</section>
 
-<h2>Set 1</h2>
-<div class="tools"><button id="openAll">Open all</button><button id="closeAll">Close all</button></div>
-<div id="list"></div>
-<h2>Set 2</h2>
-<div id="list2"></div>
+<section id="quiz" class="card hidden">
+<div class="top"><span id="qn"></span><span id="score" class="mute"></span></div>
+<div class="bar"><div id="fill"></div></div>
+<div class="q" id="q"></div>
+<div class="row"><input id="ans" autocomplete="off" inputmode="text" placeholder="Your answer" aria-label="Your answer"><button class="go" id="check">Check</button><button class="go hidden" id="next">Next →</button></div>
+<div id="fb" role="status" aria-live="polite"></div>
+</section>
+
+<section id="done" class="card hidden"></section>
 </main>
 <script>
+const $=id=>document.getElementById(id);
 const gcd=(a,b)=>b?gcd(b,a%b):Math.abs(a);
 const F=(n,d)=>`<span class="f"><i>${n}</i><i>${d}</i></span>`;
 const mixedH=(w,n,d)=>n===0?`<span class="w">${w}</span>`:(w?`<span class="w">${w}</span>`:'')+F(n,d);
-function parse(s){
-  s=s.trim();let m;
+function parse(s){s=s.trim();let m;
   if(m=s.match(/^(\d+)\s+(\d+)\/(\d+)$/)){const[w,n,d]=[+m[1],+m[2],+m[3]];if(!d)return null;return{w,n,d,N:w*d+n,D:d,mixed:true}}
-  if(m=s.match(/^(\d+)\/(\d+)$/)){const[n,d]=[+m[1],+m[2]];if(!d)return null;return{N:n,D:d}}
-  if(m=s.match(/^(\d+)$/))return{N:+m[1],D:1};
-  return null}
+  if(m=s.match(/^(\d+)\s*\/\s*(\d+)$/)){const[n,d]=[+m[1],+m[2]];if(!d)return null;return{N:n,D:d}}
+  if(m=s.match(/^(\d+)$/))return{N:+m[1],D:1};return null}
 const show=p=>p.mixed?mixedH(p.w,p.n,p.d):(p.D===1?`<span class="w">${p.N}</span>`:F(p.N,p.D));
-function solve(A,B,op){
-  const S=[];const add=(t,h)=>S.push([t,h]);
-  add('Start',`<div class="expr">${show(A)} <b>${op==='*'?'×':'÷'}</b> ${show(B)}</div>`);
-  if(A.mixed||B.mixed){
-    let h='<div class="expr">';
-    h+=A.mixed?`${show(A)} = ${F(A.w+' × '+A.D+' + '+A.n,A.D)} = ${F(A.N,A.D)}`:show(A);
-    h+=' &nbsp;|&nbsp; ';
-    h+=B.mixed?`${show(B)} = ${F(B.w+' × '+B.D+' + '+B.n,B.D)} = ${F(B.N,B.D)}`:show(B);
-    add('Turn mixed numbers into improper fractions',h+'</div>');
-  }
+function solve(A,B,op){const S=[];const add=(t,h)=>S.push([t,h]);
+  if(A.mixed||B.mixed){let h='<div class="expr">';
+    h+=A.mixed?`${show(A)} = ${F(A.N,A.D)}`:show(A);h+=' &nbsp;|&nbsp; ';h+=B.mixed?`${show(B)} = ${F(B.N,B.D)}`:show(B);
+    add('Mixed numbers → improper fractions',h+'</div>')}
   let N1=A.N,D1=A.D,N2=B.N,D2=B.D;
-  if(op==='/'){
-    add('Divide = multiply by the reciprocal (flip the second fraction)',`<div class="expr">${F(N1,D1)} × ${F(D2,N2)}</div>`);
-    [N2,D2]=[D2,N2];
-  }
-  const N=N1*N2,D=D1*D2;
-  add('Multiply across',`<div class="expr">${F(N1+' × '+N2,D1+' × '+D2)} = ${F(N,D)}</div>`);
+  if(op==='/'){add('Flip the second fraction and multiply',`<div class="expr">${F(N1,D1)} × ${F(D2,N2)}</div>`);[N2,D2]=[D2,N2]}
+  const N=N1*N2,D=D1*D2;add('Multiply across',`<div class="expr">${F(N1+' × '+N2,D1+' × '+D2)} = ${F(N,D)}</div>`);
   const g=gcd(N,D),sn=N/g,sd=D/g;
-  if(g>1)add('Simplify (divide top and bottom by '+g+')',`<div class="expr">${F(N+' ÷ '+g,D+' ÷ '+g)} = ${F(sn,sd)}</div>`);
-  else add('Simplify','<div class="expr">Already in simplest form.</div>');
+  if(g>1)add('Simplify (÷ '+g+')',`<div class="expr">${F(sn,sd)}</div>`);
   let final;
   if(sd===1)final=`<span class="w">${sn}</span>`;
-  else if(sn>sd){const w=Math.floor(sn/sd),r=sn%sd;
-    add('Convert to a mixed number',`<div class="expr">${sn} ÷ ${sd} = ${w} remainder ${r} → ${mixedH(w,r,sd)}</div>`);
-    final=r?mixedH(w,r,sd):`<span class="w">${w}</span>`}
+  else if(sn>sd){const w=Math.floor(sn/sd),r=sn%sd;add('Make it a mixed number',`<div class="expr">${sn} ÷ ${sd} = ${w} r ${r} → ${mixedH(w,r,sd)}</div>`);final=r?mixedH(w,r,sd):`<span class="w">${w}</span>`}
   else final=F(sn,sd);
-  return{S,final,improper:sd!==1&&sn>sd?F(sn,sd):null}}
-const render=(r)=>r.S.map(([t,h])=>`<div class="step"><small>${t}</small>${h}</div>`).join('')+`<div class="step"><small>Answer</small><div class="expr hand" style="font-size:1.5rem">${r.final}</div></div>`;
-const probs=[['1 7/8','*','5/6'],['2 1/3','*','5/16'],['1 1/6','*','12 1/3'],['13/15','*','2 2/5'],['2/9','*','2 9/10'],['7/22','/','1/6'],['21/32','/','3/5'],['3 1/2','/','25/34'],['7 2/3','/','4/7'],['2 4/15','/','2 2/5']];
-const order=[1,3,5,7,9,2,4,6,8,10]; // worksheet reads in columns; list in number order instead
-const $=id=>document.getElementById(id);
-const list=$('list');
-function build(box,ps,lab){ps.forEach(([a,op,b,c],i)=>{
-  const A=parse(a),B=parse(b),r=solve(A,B,op);
-  const d=document.createElement('details');
-  d.innerHTML=`<summary>${lab(i,c)}${show(A)}<b>${op==='*'?'×':'÷'}</b>${show(B)}<span class="ans">= ${r.final}</span></summary><div class="steps">${render(r)}</div>`;
-  box.appendChild(d)})}
-build(list,probs,i=>`<span class="n">${i+1}</span>`);
-const p2=[['1 14/15','*','1/3','Red','#e53935'],['3/4','*','2 1/12','Orange','#fb8c00'],['7 7/11','*','1/4','Yellow','#fdd835'],['1 3/32','*','2/3','Light green','#9ccc65'],['3 9/10','*','8/15','Dark green','#2e7d32'],['1 7/10','/','5/14','Light blue','#4fc3f7'],['5 5/6','/','5 1/3','Dark blue','#1e3a8a'],['1 1/9','/','1 3/17','Purple','#8e24aa'],['8 2/9','/','4/7','Pink','#f48fb1'],['4 2/3','/','8/23','Brown','#795548']];
-build($('list2'),p2.map(p=>[p[0],p[1],p[2],p]),(i,p)=>`<span class="dot" style="background:${p[4]}"></span><span class="cn">${p[3]}</span>`);
-
-$('openAll').onclick=()=>document.querySelectorAll('details').forEach(d=>d.open=true);
-$('closeAll').onclick=()=>document.querySelectorAll('details').forEach(d=>d.open=false);
-function custom(){
-  const A=parse($('a').value),B=parse($('b').value),op=$('op').value;
-  if(!A||!B){$('err').textContent='Check the format: use 1 7/8, 5/6, or 12. Denominators can\u2019t be 0.';$('custom').innerHTML='';return}
-  if(op==='/'&&B.N===0){$('err').textContent='You can\u2019t divide by zero.';$('custom').innerHTML='';return}
-  $('err').textContent='';$('custom').innerHTML='<div class="steps" style="padding:0">'+render(solve(A,B,op))+'</div>'}
-$('go').onclick=custom;
-['a','b'].forEach(id=>$(id).addEventListener('keydown',e=>{if(e.key==='Enter')custom()}));
-custom();
+  return{S,final,sn,sd}}
+// deterministic question set (same 50 every time)
+function rng(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function build(){const r=rng(2026),ri=(a,b)=>a+Math.floor(r()*(b-a+1)),qs=[];
+  const prop=m=>{const d=ri(2,m),n=ri(1,d-1);return`${n}/${d}`};
+  const mix=m=>{const d=ri(2,m),n=ri(1,d-1);return`${ri(1,8)} ${n}/${d}`};
+  for(let i=0;i<50;i++){const op=(i%2)?'/':'*';let a,b;
+    if(i<15){a=prop(10);b=prop(10)}
+    else if(i<32){const x=ri(0,1);a=x?mix(12):prop(12);b=x?prop(12):mix(12);if(r()<.5)[a,b]=[b,a]}
+    else{a=r()<.8?mix(16):String(ri(2,9));b=r()<.8?mix(16):prop(16)}
+    qs.push([a,op,b])}
+  return qs}
+const Q=build();let i=0,res=[],tries=0,locked=false;
+const KEY='fq50-v1';
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify({i,res}))}catch(e){}};
+const load=()=>{try{return JSON.parse(localStorage.getItem(KEY))}catch(e){return null}};
+const sec=n=>['start','quiz','done'].forEach(k=>$(k).classList.toggle('hidden',k!==n));
+function ask(){const[a,op,b]=Q[i],A=parse(a),B=parse(b);locked=false;
+  $('qn').textContent=`Question ${i+1} of 50`;
+  $('score').textContent=`${res.filter(x=>x&&x.ok).length} correct`;
+  $('fill').style.width=(i/50*100)+'%';
+  $('q').innerHTML=`${show(A)}<b>${op==='*'?'×':'÷'}</b>${show(B)}<b>=</b><span class="hand">?</span>`;
+  $('ans').value='';$('ans').disabled=false;$('fb').innerHTML='';
+  $('check').classList.remove('hidden');$('next').classList.add('hidden');$('ans').focus();save()}
+function check(){if(locked)return;const[a,op,b]=Q[i],r=solve(parse(a),parse(b),op),u=$('ans').value,p=parse(u);
+  if(!p||p.D===0){$('fb').innerHTML='<p class="msg hint">Type it like 1 3/32, 35/32 or 5.</p>';return}
+  const equal=p.N*r.sd===r.sn*p.D,reduced=gcd(p.N,p.D)===1;
+  if(equal&&!reduced){$('fb').innerHTML='<p class="msg hint">Right value, but it\u2019s not simplified yet. Reduce it and check again.</p>';return}
+  locked=true;const ok=equal;res[i]={ok,u};
+  $('ans').disabled=true;$('check').classList.add('hidden');$('next').classList.remove('hidden');$('next').textContent=i===49?'See results':'Next →';$('next').focus();
+  let h=ok?`<p class="msg ok">Correct! ✓</p>`:`<p class="msg bad">Not quite. The answer is <span class="hand" style="font-size:1.4rem">${r.final}</span></p>`;
+  if(!ok)h+=r.S.map(([t,x])=>`<div class="step"><small>${t}</small>${x}</div>`).join('');
+  $('fb').innerHTML=h;
+  $('score').textContent=`${res.filter(x=>x&&x.ok).length} correct`;$('fill').style.width=((i+1)/50*100)+'%';save()}
+function next(){if(i===49){finish();return}i++;ask()}
+function finish(){const c=res.filter(x=>x&&x.ok).length,pct=Math.round(c/50*100);
+  const miss=Q.map((q,k)=>[q,k]).filter(([q,k])=>!(res[k]&&res[k].ok));
+  const msg=pct===100?'Perfect score!':pct>=90?'Excellent work!':pct>=75?'Great job!':pct>=50?'Good effort. Review the ones below.':'Keep practicing. You\u2019ll get there!';
+  let h=`<p class="big">${c}/50</p><p style="font-size:1.2rem;margin:6px 0 2px"><b>${pct}%</b> · ${msg}</p>`;
+  if(miss.length){h+=`<h2 style="font-family:Kalam,cursive;margin:20px 0 4px">Review (${miss.length})</h2>`+miss.map(([[a,op,b],k])=>{const r=solve(parse(a),parse(b),op);
+    return`<div class="miss"><span class="n">#${k+1}</span>${show(parse(a))}<b>${op==='*'?'×':'÷'}</b>${show(parse(b))}<b>=</b><span class="hand">${r.final}</span></div>`}).join('')}
+  h+=`<div class="row" style="margin-top:18px"><button class="go" id="again">Start over</button></div>`;
+  $('done').innerHTML=h;$('again').onclick=begin;sec('done');$('fill').style.width='100%';save()}
+function begin(){i=0;res=[];ask();sec('quiz')}
+$('begin').onclick=begin;$('check').onclick=check;$('next').onclick=next;
+$('ans').addEventListener('keydown',e=>{if(e.key==='Enter')check()});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&locked&&!$('next').classList.contains('hidden')&&document.activeElement!==$('next'))next()});
+const s=load();
+if(s&&s.res&&s.res.length&&s.res.filter(Boolean).length<50){$('resume').classList.remove('hidden');
+  $('resume').onclick=()=>{i=Math.min(s.i,49);res=s.res;if(res[i])i=Math.min(i+1,49);ask();sec('quiz')}}
 </script></body></html>
