@@ -1,134 +1,103 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Fraction Quiz · 50 Questions</title>
-<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Lexend:wght@400;600&display=swap" rel="stylesheet">
+<title>Numbers to One Million – 100 Question Quiz</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fbfaf6;--grid:#dbe6f2;--ink:#23272e;--mute:#66707c;--pencil:#c8372d;--good:#1f7a3d;--card:#fff;--line:#c9d3de;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171b21;--grid:#222a35;--ink:#e8ebef;--mute:#98a2ae;--pencil:#ff7b6e;--good:#5fd38a;--card:#1e242c;--line:#36404c}}
-:root[data-theme="dark"]{--bg:#171b21;--grid:#222a35;--ink:#e8ebef;--mute:#98a2ae;--pencil:#ff7b6e;--good:#5fd38a;--card:#1e242c;--line:#36404c}
-*{box-sizing:border-box}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px;color:var(--ink);font-family:Lexend,system-ui,sans-serif;line-height:1.5}
-main{max-width:640px;margin:0 auto;padding:24px 16px 60px}
-h1{font-family:Kalam,cursive;font-size:clamp(1.9rem,7vw,2.8rem);line-height:1.1;margin:0 0 4px}
-h1 span{color:var(--pencil)}
-.mute{color:var(--mute)}
-.card{background:var(--card);border:2px solid var(--ink);border-radius:4px 14px 4px 14px;padding:20px;margin:16px 0}
-button{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:10px 16px;cursor:pointer}
-button.go{background:var(--ink);color:var(--bg);border-color:var(--ink);font-weight:600}
-input{font:inherit;font-size:1.2rem;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:8px;padding:10px 14px;width:100%;max-width:240px}
-input:focus,button:focus-visible{outline:3px solid var(--pencil);outline-offset:2px}
-.bar{height:10px;background:var(--line);border-radius:6px;overflow:hidden;margin:8px 0}
-.bar>div{height:100%;background:var(--pencil);transition:width .3s}
-.top{display:flex;justify-content:space-between;font-size:.9rem;flex-wrap:wrap;gap:6px}
-.q{font-size:1.6rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:14px 0 18px}
-.f{display:inline-flex;flex-direction:column;align-items:center;line-height:1.15;vertical-align:middle;margin:0 2px}
-.f i{font-style:normal;padding:0 4px}.f i:first-child{border-bottom:1.5px solid currentColor}
-.w{font-size:1.15em}
-.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.msg{margin:14px 0 4px;font-weight:600}
-.msg.ok{color:var(--good)}.msg.bad{color:var(--pencil)}.msg.hint{color:var(--mute)}
-.hand{font-family:Kalam,cursive;color:var(--pencil);font-weight:700}
-.step{padding:8px 0;border-top:1px dashed var(--line)}
-.step small{display:block;color:var(--mute);font-size:.78rem}
-.expr{font-size:1.05rem;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.big{font-family:Kalam,cursive;font-size:3rem;color:var(--pencil);margin:0;line-height:1}
-.miss{padding:10px 0;border-top:1px dashed var(--line);display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:1.05rem}
-.miss .n{color:var(--mute);min-width:2em;font-size:.85rem}
-.hidden{display:none}
-@media(prefers-reduced-motion:no-preference){.step{animation:in .25s ease both}@keyframes in{from{opacity:0;transform:translateY(4px)}}}
-</style></head>
-<body><main>
-<h1>Fraction <span>quiz</span></h1>
-<p class="mute" style="margin:0">50 questions · multiply and divide · answer in simplest form</p>
-
-<section id="start" class="card">
-<p style="margin-top:0">Type answers like <b>35/32</b>, <b>1 3/32</b> or <b>5</b>. Either improper fractions or mixed numbers work, but they must be simplified. Questions get harder as you go: 1–15 are plain fractions, 16–32 add mixed numbers, 33–50 mix everything.</p>
-<div class="row"><button class="go" id="begin">Start quiz</button><button id="resume" class="hidden">Continue where I stopped</button></div>
-</section>
-
-<section id="quiz" class="card hidden">
-<div class="top"><span id="qn"></span><span id="score" class="mute"></span></div>
-<div class="bar"><div id="fill"></div></div>
-<div class="q" id="q"></div>
-<div class="row"><input id="ans" autocomplete="off" inputmode="text" placeholder="Your answer" aria-label="Your answer"><button class="go" id="check">Check</button><button class="go hidden" id="next">Next →</button></div>
-<div id="fb" role="status" aria-live="polite"></div>
-</section>
-
-<section id="done" class="card hidden"></section>
-</main>
+:root{--bg:#f6f3fb;--card:#fff;--ink:#1d1550;--mut:#5d5890;--pk:#c2318f;--pkt:#fbe3f2;--ok:#17805a;--okt:#dcf5ea;--bad:#c0332a;--badt:#fde4e1;--ln:#d9d3ee;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#140f33;--card:#201a4a;--ink:#f0ecff;--mut:#aaa4d8;--pk:#ff6fc0;--pkt:#4a1f44;--ok:#4fd6a0;--okt:#173f35;--bad:#ff8379;--badt:#4a1f24;--ln:#3b3470}}
+:root[data-theme="dark"]{--bg:#140f33;--card:#201a4a;--ink:#f0ecff;--mut:#aaa4d8;--pk:#ff6fc0;--pkt:#4a1f44;--ok:#4fd6a0;--okt:#173f35;--bad:#ff8379;--badt:#4a1f24;--ln:#3b3470}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Lexend,system-ui,sans-serif;line-height:1.5;min-height:100vh}
+main{max-width:640px;margin:0 auto;padding:20px 16px 40px}
+h1{font-size:clamp(1.9rem,7vw,2.8rem);line-height:1.1;margin:8px 0 10px;font-weight:800;letter-spacing:-.02em}
+p{margin:0 0 14px;color:var(--mut)}
+.card{background:var(--card);border:2px solid var(--ln);border-radius:18px;padding:20px}
+label{display:block;font-weight:600;margin:14px 0 6px}
+select,button{font:inherit;color:inherit}
+select{width:100%;padding:12px;border-radius:12px;border:2px solid var(--ln);background:var(--bg)}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.btn{flex:1;min-width:120px;padding:14px 18px;border-radius:14px;border:2px solid var(--pk);background:var(--pk);color:#fff;font-weight:800;cursor:pointer}
+.btn.alt{background:transparent;color:var(--pk)}
+:root[data-theme="dark"] .btn,:root:not([data-theme="light"]) .btn{color:#1d1550}
+.btn:focus-visible,.opt:focus-visible,select:focus-visible{outline:3px solid var(--pk);outline-offset:2px}
+.bar{height:10px;background:var(--ln);border-radius:9px;overflow:hidden;margin:10px 0 4px}
+.bar i{display:block;height:100%;background:var(--pk);transition:width .25s}
+.meta{display:flex;justify-content:space-between;font-size:.85rem;color:var(--mut);gap:8px}
+.tag{display:inline-block;background:var(--pkt);color:var(--pk);font-weight:600;font-size:.8rem;padding:3px 10px;border-radius:99px;margin:14px 0 4px}
+.q{font-size:clamp(1.2rem,4.6vw,1.55rem);font-weight:600;margin:6px 0 16px;line-height:1.35;overflow-wrap:anywhere}
+.opt{display:block;width:100%;text-align:left;padding:14px 16px;margin-bottom:10px;border-radius:14px;border:2px solid var(--ln);background:var(--card);font-size:1.05rem;cursor:pointer;overflow-wrap:anywhere}
+.opt:hover:not(:disabled){border-color:var(--pk)}
+.opt.ok{border-color:var(--ok);background:var(--okt)}.opt.bad{border-color:var(--bad);background:var(--badt)}
+.fb{font-weight:800;margin:6px 0 0}.fb.ok{color:var(--ok)}.fb.bad{color:var(--bad)}
+.big{font-size:3.4rem;font-weight:800;line-height:1;color:var(--pk);margin:6px 0}
+.rev{border-top:2px solid var(--ln);padding:12px 0;font-size:.95rem}.rev b{color:var(--ok)}.rev s{color:var(--bad)}
+.top{display:flex;justify-content:flex-end}.th{background:none;border:2px solid var(--ln);border-radius:99px;padding:4px 12px;cursor:pointer;font-size:.85rem}
+</style></head><body><main>
+<div class="top"><button class="th" id="th" aria-label="Toggle dark mode">Dark / light</button></div>
+<div id="app"></div></main>
 <script>
-const $=id=>document.getElementById(id);
-const gcd=(a,b)=>b?gcd(b,a%b):Math.abs(a);
-const F=(n,d)=>`<span class="f"><i>${n}</i><i>${d}</i></span>`;
-const mixedH=(w,n,d)=>n===0?`<span class="w">${w}</span>`:(w?`<span class="w">${w}</span>`:'')+F(n,d);
-function parse(s){s=s.trim();let m;
-  if(m=s.match(/^(\d+)\s+(\d+)\/(\d+)$/)){const[w,n,d]=[+m[1],+m[2],+m[3]];if(!d)return null;return{w,n,d,N:w*d+n,D:d,mixed:true}}
-  if(m=s.match(/^(\d+)\s*\/\s*(\d+)$/)){const[n,d]=[+m[1],+m[2]];if(!d)return null;return{N:n,D:d}}
-  if(m=s.match(/^(\d+)$/))return{N:+m[1],D:1};return null}
-const show=p=>p.mixed?mixedH(p.w,p.n,p.d):(p.D===1?`<span class="w">${p.N}</span>`:F(p.N,p.D));
-function solve(A,B,op){const S=[];const add=(t,h)=>S.push([t,h]);
-  if(A.mixed||B.mixed){let h='<div class="expr">';
-    h+=A.mixed?`${show(A)} = ${F(A.N,A.D)}`:show(A);h+=' &nbsp;|&nbsp; ';h+=B.mixed?`${show(B)} = ${F(B.N,B.D)}`:show(B);
-    add('Mixed numbers → improper fractions',h+'</div>')}
-  let N1=A.N,D1=A.D,N2=B.N,D2=B.D;
-  if(op==='/'){add('Flip the second fraction and multiply',`<div class="expr">${F(N1,D1)} × ${F(D2,N2)}</div>`);[N2,D2]=[D2,N2]}
-  const N=N1*N2,D=D1*D2;add('Multiply across',`<div class="expr">${F(N1+' × '+N2,D1+' × '+D2)} = ${F(N,D)}</div>`);
-  const g=gcd(N,D),sn=N/g,sd=D/g;
-  if(g>1)add('Simplify (÷ '+g+')',`<div class="expr">${F(sn,sd)}</div>`);
-  let final;
-  if(sd===1)final=`<span class="w">${sn}</span>`;
-  else if(sn>sd){const w=Math.floor(sn/sd),r=sn%sd;add('Make it a mixed number',`<div class="expr">${sn} ÷ ${sd} = ${w} r ${r} → ${mixedH(w,r,sd)}</div>`);final=r?mixedH(w,r,sd):`<span class="w">${w}</span>`}
-  else final=F(sn,sd);
-  return{S,final,sn,sd}}
-// deterministic question set (same 50 every time)
-function rng(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
-function build(){const r=rng(2026),ri=(a,b)=>a+Math.floor(r()*(b-a+1)),qs=[];
-  const prop=m=>{const d=ri(2,m),n=ri(1,d-1);return`${n}/${d}`};
-  const mix=m=>{const d=ri(2,m),n=ri(1,d-1);return`${ri(1,8)} ${n}/${d}`};
-  for(let i=0;i<50;i++){const op=(i%2)?'/':'*';let a,b;
-    if(i<15){a=prop(10);b=prop(10)}
-    else if(i<32){const x=ri(0,1);a=x?mix(12):prop(12);b=x?prop(12):mix(12);if(r()<.5)[a,b]=[b,a]}
-    else{a=r()<.8?mix(16):String(ri(2,9));b=r()<.8?mix(16):prop(16)}
-    qs.push([a,op,b])}
-  return qs}
-const Q=build();let i=0,res=[],tries=0,locked=false;
-const KEY='fq50-v1';
-const save=()=>{try{localStorage.setItem(KEY,JSON.stringify({i,res}))}catch(e){}};
-const load=()=>{try{return JSON.parse(localStorage.getItem(KEY))}catch(e){return null}};
-const sec=n=>['start','quiz','done'].forEach(k=>$(k).classList.toggle('hidden',k!==n));
-function ask(){const[a,op,b]=Q[i],A=parse(a),B=parse(b);locked=false;
-  $('qn').textContent=`Question ${i+1} of 50`;
-  $('score').textContent=`${res.filter(x=>x&&x.ok).length} correct`;
-  $('fill').style.width=(i/50*100)+'%';
-  $('q').innerHTML=`${show(A)}<b>${op==='*'?'×':'÷'}</b>${show(B)}<b>=</b><span class="hand">?</span>`;
-  $('ans').value='';$('ans').disabled=false;$('fb').innerHTML='';
-  $('check').classList.remove('hidden');$('next').classList.add('hidden');$('ans').focus();save()}
-function check(){if(locked)return;const[a,op,b]=Q[i],r=solve(parse(a),parse(b),op),u=$('ans').value,p=parse(u);
-  if(!p||p.D===0){$('fb').innerHTML='<p class="msg hint">Type it like 1 3/32, 35/32 or 5.</p>';return}
-  const equal=p.N*r.sd===r.sn*p.D,reduced=gcd(p.N,p.D)===1;
-  if(equal&&!reduced){$('fb').innerHTML='<p class="msg hint">Right value, but it\u2019s not simplified yet. Reduce it and check again.</p>';return}
-  locked=true;const ok=equal;res[i]={ok,u};
-  $('ans').disabled=true;$('check').classList.add('hidden');$('next').classList.remove('hidden');$('next').textContent=i===49?'See results':'Next →';$('next').focus();
-  let h=ok?`<p class="msg ok">Correct! ✓</p>`:`<p class="msg bad">Not quite. The answer is <span class="hand" style="font-size:1.4rem">${r.final}</span></p>`;
-  if(!ok)h+=r.S.map(([t,x])=>`<div class="step"><small>${t}</small>${x}</div>`).join('');
-  $('fb').innerHTML=h;
-  $('score').textContent=`${res.filter(x=>x&&x.ok).length} correct`;$('fill').style.width=((i+1)/50*100)+'%';save()}
-function next(){if(i===49){finish();return}i++;ask()}
-function finish(){const c=res.filter(x=>x&&x.ok).length,pct=Math.round(c/50*100);
-  const miss=Q.map((q,k)=>[q,k]).filter(([q,k])=>!(res[k]&&res[k].ok));
-  const msg=pct===100?'Perfect score!':pct>=90?'Excellent work!':pct>=75?'Great job!':pct>=50?'Good effort. Review the ones below.':'Keep practicing. You\u2019ll get there!';
-  let h=`<p class="big">${c}/50</p><p style="font-size:1.2rem;margin:6px 0 2px"><b>${pct}%</b> · ${msg}</p>`;
-  if(miss.length){h+=`<h2 style="font-family:Kalam,cursive;margin:20px 0 4px">Review (${miss.length})</h2>`+miss.map(([[a,op,b],k])=>{const r=solve(parse(a),parse(b),op);
-    return`<div class="miss"><span class="n">#${k+1}</span>${show(parse(a))}<b>${op==='*'?'×':'÷'}</b>${show(parse(b))}<b>=</b><span class="hand">${r.final}</span></div>`}).join('')}
-  h+=`<div class="row" style="margin-top:18px"><button class="go" id="again">Start over</button></div>`;
-  $('done').innerHTML=h;$('again').onclick=begin;sec('done');$('fill').style.width='100%';save()}
-function begin(){i=0;res=[];ask();sec('quiz')}
-$('begin').onclick=begin;$('check').onclick=check;$('next').onclick=next;
-$('ans').addEventListener('keydown',e=>{if(e.key==='Enter')check()});
-document.addEventListener('keydown',e=>{if(e.key==='Enter'&&locked&&!$('next').classList.contains('hidden')&&document.activeElement!==$('next'))next()});
-const s=load();
-if(s&&s.res&&s.res.length&&s.res.filter(Boolean).length<50){$('resume').classList.remove('hidden');
-  $('resume').onclick=()=>{i=Math.min(s.i,49);res=s.res;if(res[i])i=Math.min(i+1,49);ask();sec('quiz')}}
+// ---------- question generator (seeded so the 100 questions are fixed) ----------
+let seed=20261002;const rnd=()=>(seed=(seed*1664525+1013904223)>>>0)/4294967296;
+const ri=(a,b)=>a+Math.floor(rnd()*(b-a+1)),f=n=>n.toLocaleString('en-US'),pick=a=>a[ri(0,a.length-1)];
+const sh=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=ri(0,i);[a[i],a[j]]=[a[j],a[i]]}return a};
+const O=['','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'],T=['','','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];
+function u(n){let s='';if(n>=100){s=O[n/100|0]+' hundred';n%=100;if(n)s+=' '}if(n>=20)s+=T[n/10|0]+(n%10?'-'+O[n%10]:'');else if(n)s+=O[n];return s}
+const w=n=>n<1000?u(n):u(n/1000|0)+' thousand'+(n%1000?', '+u(n%1000):'');
+const dd=k=>+sh([1,2,3,4,5,6,7,8,9]).slice(0,k).join('');
+const NM=['ones','tens','hundreds','thousands','ten thousands','hundred thousands'];
+function near(n){const s=String(n).split(''),r=[];for(let t=0;t<3;t++){const i=ri(0,s.length-2),c=s.slice();[c[i],c[i+1]]=[c[i+1],c[i]];r.push(+c.join(''))}
+ for(let t=0;t<3;t++)r.push(n+pick([-1,1])*10**ri(1,Math.min(5,s.length-1)));return r}
+function mk(cat,q,c,wr,fm=f){const cs=fm(c);let W=[...new Set(wr.map(fm))].filter(x=>x!==cs&&!x.startsWith('-')&&x!=='0'&&x!=='NaN');
+ while(W.length<3&&fm===f){const x=c+pick([-1,1])*ri(1,9)*10**ri(1,4);const s=f(x);if(x>0&&s!==cs&&!W.includes(s))W.push(s)}
+ W=sh(W).slice(0,3);const o=sh([cs,...W]);return{cat,q,o,a:o.indexOf(cs)}}
+const S=String,id=x=>S(x);
+const G=[
+(i)=>{const n=dd(6),p=ri(0,5),d=+S(n)[5-p];return mk(0,`In ${f(n)}, what is the value of the digit ${d}?`,d*10**p,[0,1,2,3,4,5].filter(x=>x!==p).map(x=>d*10**x))},
+(i)=>{const n=dd(6),p=ri(0,5),d=+S(n)[5-p];return i%2?mk(1,`In ${f(n)}, the digit ${d} stands for ${d} ___.`,NM[p],NM.filter((_,x)=>x!==p),id):mk(1,`In ${f(n)}, which digit is in the ${NM[p]} place?`,d,S(n).split('').map(Number).filter(x=>x!==d),id)},
+(i)=>{const g=[ri(1,9),...Array.from({length:5},()=>ri(0,9))];g[ri(1,5)]=0;g[ri(1,5)]=0;const n=+g.join(''),t=[];g.forEach((d,k)=>{if(d)t.push(d*10**(5-k))});return mk(2,`What number is ${sh(t).map(f).join(' + ')}?`,n,near(n))},
+(i)=>{let n=i%2?ri(10000,99999):ri(100000,999999);const s=S(n).split('');s[ri(1,s.length-1)]='0';n=+s.join('');return mk(3,`Which number is "${w(n)}"?`,n,near(n))},
+(i)=>{let n=i%2?ri(10000,99999):ri(100000,999999);const s=S(n).split('');s[ri(1,s.length-1)]='0';n=+s.join('');return mk(4,`How do you write ${f(n)} in words?`,w(n),near(n).map(w),id)},
+(i)=>{const st=[10,100,1000,10000,100000],s=pick(st),n=ri(150000,850000);
+ if(i%3==2){const a=ri(100000,600000),k=pick(st);return mk(5,`Complete the pattern: ${f(a)}, ${f(a+k)}, ${f(a+2*k)}, ?`,a+3*k,[a+4*k,a+2*k,a+3*k+k*10,a+3*k-k*10,a+3*k+st[(st.indexOf(k)+1)%5]])}
+ const d=i%2?1:-1;return mk(5,`What is ${f(s)} ${d>0?'more':'less'} than ${f(n)}?`,n+d*s,st.filter(x=>x!==s).map(x=>n+d*x))},
+(i)=>{const b=ri(100,890)*1000,s=new Set;while(s.size<4)s.add(b+ri(1,999)*(rnd()<.7?1:0)+ri(0,9)*1000);const a=[...s],g=i%2==0;const c=g?Math.max(...a):Math.min(...a);return mk(6,`Which number is the ${g?'greatest':'least'}: ${a.map(f).join(', ')}?`,c,a.filter(x=>x!==c))},
+(i)=>{const P=pick([100,1000,10000,100000]);let n;do{n=ri(100000,999999)}while(n%P==0);if(i%5==0)n=ri(1,Math.floor(900000/P))*P+P/2;
+ const nm={100:'hundred',1000:'thousand',10000:'ten thousand',100000:'hundred thousand'};return mk(7,`Round ${f(n)} to the nearest ${nm[P]}.`,Math.round(n/P)*P,[Math.floor(n/P)*P,Math.ceil(n/P)*P,...[100,1000,10000,100000].filter(x=>x!==P).map(x=>Math.round(n/x)*x)])},
+(i)=>{const U=pick([100,1000,10000]),t=i%4;let a,b,ans,q;do{if(t==0){a=ri(2,99);b=ri(2,99);ans=(a+b)*U;q=`${f(a*U)} + ${f(b*U)}`}
+ else if(t==1){b=ri(2,60);a=b+ri(2,90);ans=(a-b)*U;q=`${f(a*U)} − ${f(b*U)}`}
+ else if(t==2){a=ri(2,90);b=ri(2,9);ans=a*b*U;q=`${f(a*U)} × ${b}`}
+ else{b=ri(2,9);const k=ri(2,90);a=b*k;ans=k*U;q=`${f(a*U)} ÷ ${b}`}}while(ans>=1e6||ans<=0);
+ return mk(8,`${q} = ?`,ans,[ans*10,ans/10,ans+U,ans-U,ans+10*U,ans-10*U].filter(Number.isInteger))},
+(i)=>{const t=i%3;if(t<2){const P=pick([100,1000,10000,100000]),X=ri(2,Math.floor(900000/P))*P,l=t==0;return mk(9,`What is the ${l?'least':'greatest'} whole number that rounds to ${f(X)} when rounded to the nearest ${({100:'hundred',1000:'thousand',10000:'ten thousand',100000:'hundred thousand'})[P]}?`,l?X-P/2:X+P/2-1,[X-P/2-1,X-P/2+1,X+P/2,X+P/2+1,X-P/2+(l?0:1)*0+P,X])}
+ const ds=sh([1,2,3,4,5,6,7,8,9]).slice(0,6).sort(),ps=[];(function p(a,r){if(!r.length)return ps.push(+a.join(''));r.forEach((x,k)=>p([...a,x],r.filter((_,j)=>j!=k)))})([],ds);
+ const ty=[['greatest',x=>1,0],['least',x=>1,0],['greatest even',x=>x%2==0,1],['greatest odd',x=>x%2==1,1],['least even',x=>x%2==0,0],['least odd',x=>x%2==1,0]];
+ let r;do{const T=pick(ty.slice(2)),L=ps.filter(T[1]);if(!L.length)continue;const c=T[2]?Math.max(...L):Math.min(...L);r={T,c}}while(!r);
+ const al=ty.map(T=>{const L=ps.filter(T[1]);return L.length?(T[2]?Math.max(...L):Math.min(...L)):0});
+ return mk(9,`Use the digits ${ds.join(', ')} once each. What is the ${r.T[0]} 6-digit number you can make?`,r.c,[...al,...near(r.c)])}
+];
+const CATS=['Place value','Digit in a place','Expanded form','Words to numerals','Numerals to words','Counting and patterns','Comparing numbers','Rounding','Mental math','Challenge'];
+const BANK=[];const seen=new Set;
+for(let c=0;c<10;c++)for(let i=0;i<10;i++){let q,t=0;do{q=G[c](i+t);t++}while(seen.has(q.q)&&t<60);seen.add(q.q);BANK.push(q)}
+
+// ---------- app ----------
+const app=document.getElementById('app');let Q=[],ix=0,sc=0,miss=[],done=false;
+const dk=()=>{const r=document.documentElement,d=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;r.dataset.theme=d?'light':'dark'};
+document.getElementById('th').onclick=dk;
+function home(){app.innerHTML=`<h1>Numbers to One Million</h1><p>${BANK.length} new questions on place value, expanded form, words, patterns, comparing, rounding and mental math (Dimensions Math 4A, Chapter 1).</p>
+<div class="card"><label for="tp">Topic</label><select id="tp"><option value="-1">All topics (${BANK.length})</option>${CATS.map((c,k)=>`<option value="${k}">${c} (10)</option>`).join('')}</select>
+<label for="ct">Number of questions</label><select id="ct"><option value="10">10 questions</option><option value="25">25 questions</option><option value="50">50 questions</option><option value="100">All available</option></select>
+<div class="row"><button class="btn" id="go">Start quiz</button></div></div>`;
+ document.getElementById('go').onclick=()=>{const t=+tp.value,n=+ct.value;let p=BANK.filter(q=>t<0||q.cat===t);Q=sh(p).slice(0,n);ix=0;sc=0;miss=[];quiz()}}
+function quiz(){const q=Q[ix];app.innerHTML=`<div class="meta"><span>Question ${ix+1} of ${Q.length}</span><span>Score ${sc}</span></div><div class="bar"><i style="width:${ix/Q.length*100}%"></i></div>
+<span class="tag">${CATS[q.cat]}</span><div class="q">${q.q}</div><div id="os">${q.o.map((o,k)=>`<button class="opt" data-k="${k}">${o}</button>`).join('')}</div><div id="fb"></div><div class="row" id="nx"></div>`;
+ app.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const k=+b.dataset.k,ok=k===q.a;app.querySelectorAll('.opt').forEach(x=>{x.disabled=true;if(+x.dataset.k===q.a)x.classList.add('ok')});
+  if(ok)sc++;else{b.classList.add('bad');miss.push({q:q.q,y:q.o[k],c:q.o[q.a]})}
+  document.getElementById('fb').innerHTML=`<p class="fb ${ok?'ok':'bad'}">${ok?'Correct!':'Not quite. The answer is '+q.o[q.a]+'.'}</p>`;
+  const nx=document.getElementById('nx');nx.innerHTML=`<button class="btn" id="n">${ix+1<Q.length?'Next question':'See my score'}</button>`;const n=document.getElementById('n');n.focus();n.onclick=()=>{ix++;ix<Q.length?quiz():end()}})}
+function end(){const pc=Math.round(sc/Q.length*100);app.innerHTML=`<h1>${pc>=80?'Great work!':pc>=50?'Good effort!':'Keep practising!'}</h1><div class="card"><p>You scored</p><div class="big">${sc} / ${Q.length}</div><p>${pc}% correct</p>
+<div class="row"><button class="btn" id="a">Try again</button><button class="btn alt" id="h">Change topic</button></div></div>
+${miss.length?`<h2 style="margin-top:26px">Review your mistakes</h2><div class="card">${miss.map(m=>`<div class="rev">${m.q}<br>You chose <s>${m.y}</s> &nbsp; Correct: <b>${m.c}</b></div>`).join('')}</div>`:''}`;
+ document.getElementById('a').onclick=()=>{Q=sh(Q);ix=0;sc=0;miss=[];quiz()};document.getElementById('h').onclick=home}
+home();
 </script></body></html>
