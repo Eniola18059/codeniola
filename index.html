@@ -1,103 +1,167 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Numbers to One Million – 100 Question Quiz</title>
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;800&display=swap" rel="stylesheet">
+<title>Scratch, HTML & Computer Studies Quiz</title>
 <style>
-:root{--bg:#f6f3fb;--card:#fff;--ink:#1d1550;--mut:#5d5890;--pk:#c2318f;--pkt:#fbe3f2;--ok:#17805a;--okt:#dcf5ea;--bad:#c0332a;--badt:#fde4e1;--ln:#d9d3ee;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#140f33;--card:#201a4a;--ink:#f0ecff;--mut:#aaa4d8;--pk:#ff6fc0;--pkt:#4a1f44;--ok:#4fd6a0;--okt:#173f35;--bad:#ff8379;--badt:#4a1f24;--ln:#3b3470}}
-:root[data-theme="dark"]{--bg:#140f33;--card:#201a4a;--ink:#f0ecff;--mut:#aaa4d8;--pk:#ff6fc0;--pkt:#4a1f44;--ok:#4fd6a0;--okt:#173f35;--bad:#ff8379;--badt:#4a1f24;--ln:#3b3470}
-*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Lexend,system-ui,sans-serif;line-height:1.5;min-height:100vh}
-main{max-width:640px;margin:0 auto;padding:20px 16px 40px}
-h1{font-size:clamp(1.9rem,7vw,2.8rem);line-height:1.1;margin:8px 0 10px;font-weight:800;letter-spacing:-.02em}
-p{margin:0 0 14px;color:var(--mut)}
-.card{background:var(--card);border:2px solid var(--ln);border-radius:18px;padding:20px}
-label{display:block;font-weight:600;margin:14px 0 6px}
-select,button{font:inherit;color:inherit}
-select{width:100%;padding:12px;border-radius:12px;border:2px solid var(--ln);background:var(--bg)}
-.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-.btn{flex:1;min-width:120px;padding:14px 18px;border-radius:14px;border:2px solid var(--pk);background:var(--pk);color:#fff;font-weight:800;cursor:pointer}
-.btn.alt{background:transparent;color:var(--pk)}
-:root[data-theme="dark"] .btn,:root:not([data-theme="light"]) .btn{color:#1d1550}
-.btn:focus-visible,.opt:focus-visible,select:focus-visible{outline:3px solid var(--pk);outline-offset:2px}
-.bar{height:10px;background:var(--ln);border-radius:9px;overflow:hidden;margin:10px 0 4px}
-.bar i{display:block;height:100%;background:var(--pk);transition:width .25s}
-.meta{display:flex;justify-content:space-between;font-size:.85rem;color:var(--mut);gap:8px}
-.tag{display:inline-block;background:var(--pkt);color:var(--pk);font-weight:600;font-size:.8rem;padding:3px 10px;border-radius:99px;margin:14px 0 4px}
-.q{font-size:clamp(1.2rem,4.6vw,1.55rem);font-weight:600;margin:6px 0 16px;line-height:1.35;overflow-wrap:anywhere}
-.opt{display:block;width:100%;text-align:left;padding:14px 16px;margin-bottom:10px;border-radius:14px;border:2px solid var(--ln);background:var(--card);font-size:1.05rem;cursor:pointer;overflow-wrap:anywhere}
-.opt:hover:not(:disabled){border-color:var(--pk)}
-.opt.ok{border-color:var(--ok);background:var(--okt)}.opt.bad{border-color:var(--bad);background:var(--badt)}
-.fb{font-weight:800;margin:6px 0 0}.fb.ok{color:var(--ok)}.fb.bad{color:var(--bad)}
-.big{font-size:3.4rem;font-weight:800;line-height:1;color:var(--pk);margin:6px 0}
-.rev{border-top:2px solid var(--ln);padding:12px 0;font-size:.95rem}.rev b{color:var(--ok)}.rev s{color:var(--bad)}
-.top{display:flex;justify-content:flex-end}.th{background:none;border:2px solid var(--ln);border-radius:99px;padding:4px 12px;cursor:pointer;font-size:.85rem}
-</style></head><body><main>
-<div class="top"><button class="th" id="th" aria-label="Toggle dark mode">Dark / light</button></div>
-<div id="app"></div></main>
+:root{--bg:#f4f6fb;--card:#fff;--tx:#1f2540;--mu:#667;--pr:#5b4bdb;--ok:#1a9d5a;--no:#d6403f;--bd:#dde1ee;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14172a;--card:#1e2240;--tx:#eef;--mu:#9aa;--bd:#33385e}}
+:root[data-theme="dark"]{--bg:#14172a;--card:#1e2240;--tx:#eef;--mu:#9aa;--bd:#33385e}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,Segoe UI,Arial,sans-serif;line-height:1.5}
+.w{max-width:680px;margin:0 auto;padding:20px 16px}
+.c{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:22px;margin-top:14px}
+h1{margin:0 0 6px;font-size:1.6rem}p{color:var(--mu);margin:4px 0}
+.cats{display:grid;gap:10px;margin:16px 0}
+button{font:inherit;cursor:pointer;border-radius:12px;border:1px solid var(--bd);background:var(--card);color:var(--tx);padding:12px 14px;text-align:left}
+button:hover:not(:disabled){border-color:var(--pr)}
+.p{background:var(--pr);color:#fff;border:0;text-align:center;font-weight:600}
+.cat{display:flex;justify-content:space-between;align-items:center}
+.cat small{color:var(--mu)}
+.bar{height:8px;background:var(--bd);border-radius:8px;overflow:hidden;margin:10px 0}
+.bar i{display:block;height:100%;background:var(--pr);width:0;transition:width .3s}
+.top{display:flex;justify-content:space-between;color:var(--mu);font-size:.9rem}
+.q{font-size:1.15rem;font-weight:600;margin:12px 0}
+.o{display:block;width:100%;margin:8px 0}
+.o.ok{background:var(--ok);color:#fff;border-color:var(--ok)}.o.no{background:var(--no);color:#fff;border-color:var(--no)}
+.big{font-size:2.6rem;font-weight:700;color:var(--pr);text-align:center}
+code{background:var(--bd);padding:1px 5px;border-radius:5px}
+.r{display:flex;gap:10px;margin-top:12px}.r button{flex:1}
+</style>
+</head>
+<body>
+<div class="w" id="app"></div>
 <script>
-// ---------- question generator (seeded so the 100 questions are fixed) ----------
-let seed=20261002;const rnd=()=>(seed=(seed*1664525+1013904223)>>>0)/4294967296;
-const ri=(a,b)=>a+Math.floor(rnd()*(b-a+1)),f=n=>n.toLocaleString('en-US'),pick=a=>a[ri(0,a.length-1)];
-const sh=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=ri(0,i);[a[i],a[j]]=[a[j],a[i]]}return a};
-const O=['','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'],T=['','','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];
-function u(n){let s='';if(n>=100){s=O[n/100|0]+' hundred';n%=100;if(n)s+=' '}if(n>=20)s+=T[n/10|0]+(n%10?'-'+O[n%10]:'');else if(n)s+=O[n];return s}
-const w=n=>n<1000?u(n):u(n/1000|0)+' thousand'+(n%1000?', '+u(n%1000):'');
-const dd=k=>+sh([1,2,3,4,5,6,7,8,9]).slice(0,k).join('');
-const NM=['ones','tens','hundreds','thousands','ten thousands','hundred thousands'];
-function near(n){const s=String(n).split(''),r=[];for(let t=0;t<3;t++){const i=ri(0,s.length-2),c=s.slice();[c[i],c[i+1]]=[c[i+1],c[i]];r.push(+c.join(''))}
- for(let t=0;t<3;t++)r.push(n+pick([-1,1])*10**ri(1,Math.min(5,s.length-1)));return r}
-function mk(cat,q,c,wr,fm=f){const cs=fm(c);let W=[...new Set(wr.map(fm))].filter(x=>x!==cs&&!x.startsWith('-')&&x!=='0'&&x!=='NaN');
- while(W.length<3&&fm===f){const x=c+pick([-1,1])*ri(1,9)*10**ri(1,4);const s=f(x);if(x>0&&s!==cs&&!W.includes(s))W.push(s)}
- W=sh(W).slice(0,3);const o=sh([cs,...W]);return{cat,q,o,a:o.indexOf(cs)}}
-const S=String,id=x=>S(x);
-const G=[
-(i)=>{const n=dd(6),p=ri(0,5),d=+S(n)[5-p];return mk(0,`In ${f(n)}, what is the value of the digit ${d}?`,d*10**p,[0,1,2,3,4,5].filter(x=>x!==p).map(x=>d*10**x))},
-(i)=>{const n=dd(6),p=ri(0,5),d=+S(n)[5-p];return i%2?mk(1,`In ${f(n)}, the digit ${d} stands for ${d} ___.`,NM[p],NM.filter((_,x)=>x!==p),id):mk(1,`In ${f(n)}, which digit is in the ${NM[p]} place?`,d,S(n).split('').map(Number).filter(x=>x!==d),id)},
-(i)=>{const g=[ri(1,9),...Array.from({length:5},()=>ri(0,9))];g[ri(1,5)]=0;g[ri(1,5)]=0;const n=+g.join(''),t=[];g.forEach((d,k)=>{if(d)t.push(d*10**(5-k))});return mk(2,`What number is ${sh(t).map(f).join(' + ')}?`,n,near(n))},
-(i)=>{let n=i%2?ri(10000,99999):ri(100000,999999);const s=S(n).split('');s[ri(1,s.length-1)]='0';n=+s.join('');return mk(3,`Which number is "${w(n)}"?`,n,near(n))},
-(i)=>{let n=i%2?ri(10000,99999):ri(100000,999999);const s=S(n).split('');s[ri(1,s.length-1)]='0';n=+s.join('');return mk(4,`How do you write ${f(n)} in words?`,w(n),near(n).map(w),id)},
-(i)=>{const st=[10,100,1000,10000,100000],s=pick(st),n=ri(150000,850000);
- if(i%3==2){const a=ri(100000,600000),k=pick(st);return mk(5,`Complete the pattern: ${f(a)}, ${f(a+k)}, ${f(a+2*k)}, ?`,a+3*k,[a+4*k,a+2*k,a+3*k+k*10,a+3*k-k*10,a+3*k+st[(st.indexOf(k)+1)%5]])}
- const d=i%2?1:-1;return mk(5,`What is ${f(s)} ${d>0?'more':'less'} than ${f(n)}?`,n+d*s,st.filter(x=>x!==s).map(x=>n+d*x))},
-(i)=>{const b=ri(100,890)*1000,s=new Set;while(s.size<4)s.add(b+ri(1,999)*(rnd()<.7?1:0)+ri(0,9)*1000);const a=[...s],g=i%2==0;const c=g?Math.max(...a):Math.min(...a);return mk(6,`Which number is the ${g?'greatest':'least'}: ${a.map(f).join(', ')}?`,c,a.filter(x=>x!==c))},
-(i)=>{const P=pick([100,1000,10000,100000]);let n;do{n=ri(100000,999999)}while(n%P==0);if(i%5==0)n=ri(1,Math.floor(900000/P))*P+P/2;
- const nm={100:'hundred',1000:'thousand',10000:'ten thousand',100000:'hundred thousand'};return mk(7,`Round ${f(n)} to the nearest ${nm[P]}.`,Math.round(n/P)*P,[Math.floor(n/P)*P,Math.ceil(n/P)*P,...[100,1000,10000,100000].filter(x=>x!==P).map(x=>Math.round(n/x)*x)])},
-(i)=>{const U=pick([100,1000,10000]),t=i%4;let a,b,ans,q;do{if(t==0){a=ri(2,99);b=ri(2,99);ans=(a+b)*U;q=`${f(a*U)} + ${f(b*U)}`}
- else if(t==1){b=ri(2,60);a=b+ri(2,90);ans=(a-b)*U;q=`${f(a*U)} − ${f(b*U)}`}
- else if(t==2){a=ri(2,90);b=ri(2,9);ans=a*b*U;q=`${f(a*U)} × ${b}`}
- else{b=ri(2,9);const k=ri(2,90);a=b*k;ans=k*U;q=`${f(a*U)} ÷ ${b}`}}while(ans>=1e6||ans<=0);
- return mk(8,`${q} = ?`,ans,[ans*10,ans/10,ans+U,ans-U,ans+10*U,ans-10*U].filter(Number.isInteger))},
-(i)=>{const t=i%3;if(t<2){const P=pick([100,1000,10000,100000]),X=ri(2,Math.floor(900000/P))*P,l=t==0;return mk(9,`What is the ${l?'least':'greatest'} whole number that rounds to ${f(X)} when rounded to the nearest ${({100:'hundred',1000:'thousand',10000:'ten thousand',100000:'hundred thousand'})[P]}?`,l?X-P/2:X+P/2-1,[X-P/2-1,X-P/2+1,X+P/2,X+P/2+1,X-P/2+(l?0:1)*0+P,X])}
- const ds=sh([1,2,3,4,5,6,7,8,9]).slice(0,6).sort(),ps=[];(function p(a,r){if(!r.length)return ps.push(+a.join(''));r.forEach((x,k)=>p([...a,x],r.filter((_,j)=>j!=k)))})([],ds);
- const ty=[['greatest',x=>1,0],['least',x=>1,0],['greatest even',x=>x%2==0,1],['greatest odd',x=>x%2==1,1],['least even',x=>x%2==0,0],['least odd',x=>x%2==1,0]];
- let r;do{const T=pick(ty.slice(2)),L=ps.filter(T[1]);if(!L.length)continue;const c=T[2]?Math.max(...L):Math.min(...L);r={T,c}}while(!r);
- const al=ty.map(T=>{const L=ps.filter(T[1]);return L.length?(T[2]?Math.max(...L):Math.min(...L)):0});
- return mk(9,`Use the digits ${ds.join(', ')} once each. What is the ${r.T[0]} 6-digit number you can make?`,r.c,[...al,...near(r.c)])}
+// [question, [options], correctIndex]; sections: Scratch (1-34), HTML (35-67), Computer Studies (68-100)
+const S=[
+["Scratch is a ___ programming language.",["Text-based","Block-based visual","Machine code","Assembly"],1],
+["Which organisation created Scratch?",["MIT Media Lab","Google","Apple","Microsoft"],0],
+["The character you program in Scratch is called a:",["Sprite","Avatar","Icon","Actor box"],0],
+["The area where sprites perform is the:",["Stage","Palette","Timeline","Canvas bar"],0],
+["Where do you drag blocks to build a program?",["Scripts area","Costumes tab","Sounds tab","Stage"],0],
+["Which block colour group holds 'move 10 steps'?",["Motion (blue)","Looks (purple)","Sound (pink)","Events (yellow)"],0],
+["Which block group holds 'say Hello!'?",["Looks","Motion","Sensing","Operators"],0],
+["'when green flag clicked' is in the ___ category.",["Events","Control","Sensing","Variables"],0],
+["Which block repeats actions forever?",["forever","wait","if","stop all"],0],
+["'repeat 10' is an example of a:",["Loop","Variable","Event","Costume"],0],
+["Which block pauses a script for some seconds?",["wait","stop","hide","glide"],0],
+["An 'if ... then' block makes a:",["Decision","Loop","Costume","Sound"],0],
+["Which block group contains 'touching color?'",["Sensing","Motion","Looks","Events"],0],
+["Changing how a sprite looks is done with:",["Costumes","Backdrops","Variables","Extensions"],0],
+["The picture behind the sprites is the:",["Backdrop","Costume","Script","Block"],0],
+["A variable in Scratch is used to:",["Store a value","Draw a sprite","Play music","Delete blocks"],0],
+["'Score' in a game is usually a:",["Variable","Backdrop","Sound","Costume"],0],
+["Which block adds 1 to a variable?",["change score by 1","set score to 0","show variable","hide variable"],0],
+["Which block gives a random number?",["pick random 1 to 10","join","length of","round"],0],
+["The Operators category includes:",["+ − × ÷ and comparisons","Costumes","Sound effects","Backdrops"],0],
+["The x position of a sprite tells its:",["Left/right position","Up/down position","Size","Direction"],0],
+["The y position of a sprite tells its:",["Up/down position","Left/right position","Colour","Speed"],0],
+["Which block turns a sprite clockwise?",["turn ↻ 15 degrees","move 15 steps","glide 1 sec","go to x y"],0],
+["'broadcast message' is used to:",["Send a signal between sprites","Delete a sprite","Change backdrop colour","Save a project"],0],
+["Which key do you press to test the 'space' key script?",["Space bar","Enter only","Shift only","Esc"],0],
+["The green flag button is used to:",["Run the project","Delete the project","Save online","Change language"],0],
+["The red stop sign button:",["Stops the project","Starts it","Adds a sprite","Opens costumes"],0],
+["Which tab lets you draw or edit a sprite's look?",["Costumes","Code","Sounds","Backpack"],0],
+["Which tab is used to record or add audio?",["Sounds","Costumes","Code","Stage"],0],
+["Fixing mistakes in a program is called:",["Debugging","Compiling","Printing","Formatting"],0],
+["A set of steps to solve a problem is an:",["Algorithm","Icon","Browser","Costume"],0],
+["Blocks stacked in order run:",["Top to bottom","Bottom to top","Randomly","All at once always"],0],
+["Using a loop instead of copying blocks makes code:",["Shorter and neater","Longer","Broken","Silent"],0],
+["Scratch projects can be shared on the:",["Scratch website community","Only by USB","Telephone","Printer"],0],
+["HTML stands for:",["HyperText Markup Language","High Tech Modern Language","Home Tool Markup Language","HyperTransfer Machine Language"],0],
+["HTML is used to:",["Structure web pages","Repair hardware","Manage databases only","Type documents offline"],0],
+["An HTML element usually has an opening and a:",["Closing tag","Comment","Image","Table"],0],
+["Tags are written inside:",["Angle brackets < >","Curly braces { }","Square brackets [ ]","Quotes only"],0],
+["Which tag makes the largest heading?",["<h1>","<h6>","<head>","<title>"],0],
+["Which tag creates a paragraph?",["<p>","<para>","<pg>","<text>"],0],
+["Which tag inserts a line break?",["<br>","<lb>","<break>","<hr>"],0],
+["Which tag makes text bold?",["<b>","<i>","<u>","<bd>"],0],
+["Which tag makes text italic?",["<i>","<b>","<it>","<em2>"],0],
+["Which tag creates a hyperlink?",["<a>","<link>","<href>","<url>"],0],
+["The attribute that holds a link's address is:",["href","src","alt","title"],0],
+["Which tag displays an image?",["<img>","<image>","<pic>","<src>"],0],
+["The 'src' attribute of <img> gives:",["The image file path","The alt text","The width only","The border"],0],
+["The 'alt' attribute provides:",["Alternative text for an image","A link","A colour","A font"],0],
+["Which tag creates an unordered (bullet) list?",["<ul>","<ol>","<li>","<dl>"],0],
+["Which tag creates a numbered list?",["<ol>","<ul>","<li>","<nl>"],0],
+["Each item in a list uses the tag:",["<li>","<item>","<list>","<td>"],0],
+["Which tag creates a table?",["<table>","<tab>","<grid>","<tr> only"],0],
+["A table row is made with:",["<tr>","<td>","<th>","<row2>"],0],
+["A table data cell is:",["<td>","<tr>","<tb>","<cell>"],0],
+["A table header cell is:",["<th>","<td>","<head>","<hd>"],0],
+["The whole page content visible in the browser is inside:",["<body>","<head>","<meta>","<title>"],0],
+["The text on the browser tab comes from:",["<title>","<h1>","<body>","<p>"],0],
+["Which declaration starts a modern HTML5 page?",["<!DOCTYPE html>","<html5>","<?html?>","<start>"],0],
+["The root element of an HTML page is:",["<html>","<body>","<head>","<root>"],0],
+["Which section holds page information like the title?",["<head>","<body>","<footer>","<p>"],0],
+["HTML files are usually saved with the extension:",[".html",".exe",".mp3",".docx"],0],
+["Which program opens and displays HTML pages?",["Web browser","Calculator","Spreadsheet","Media player only"],0],
+["A comment in HTML is written as:",["<!-- comment -->","// comment","/* comment */","# comment"],0],
+["Which tag groups content as a block-level container?",["<div>","<span>","<b>","<br>"],0],
+["Which tag creates a form input field?",["<input>","<field>","<text>","<form2>"],0],
+["Which tag makes a clickable button?",["<button>","<click>","<press>","<btn2>"],0],
+["CSS is used with HTML to:",["Style the page","Store data","Send email","Compile code"],0],
+["Hardware means:",["Physical parts of a computer","Programs","The internet","Data only"],0],
+["Software means:",["Programs and instructions","Monitor and mouse","Cables","The case"],0],
+["Which is an input device?",["Keyboard","Monitor","Speaker","Printer"],0],
+["Which is an output device?",["Monitor","Mouse","Scanner","Microphone"],0],
+["The 'brain' of the computer is the:",["CPU","Monitor","Mouse","Speaker"],0],
+["CPU stands for:",["Central Processing Unit","Computer Power Unit","Central Program Utility","Control Printing Unit"],0],
+["RAM is:",["Temporary working memory","Permanent storage","An input device","A printer"],0],
+["Which is permanent storage?",["Hard disk","RAM","Cache only","Keyboard"],0],
+["A byte is made of how many bits?",["8","4","2","16"],0],
+["The smallest unit of data is a:",["Bit","Byte","Kilobyte","Megabyte"],0],
+["Binary uses which digits?",["0 and 1","0 to 9","1 and 2","A and B"],0],
+["Which is larger?",["Gigabyte","Megabyte","Kilobyte","Byte"],0],
+["An operating system is:",["Software that manages the computer","A game","A website","A cable"],0],
+["Which is an operating system?",["Windows","Chrome","Word","Paint"],0],
+["Which is a web browser?",["Firefox","Linux","Excel","Photoshop"],0],
+["Which is a word processing program?",["Microsoft Word","Excel","Paint","Scratch"],0],
+["Which program is mainly used for spreadsheets?",["Excel","Word","Notepad","Paint"],0],
+["WWW stands for:",["World Wide Web","World Web Wire","Wide World Window","Web World Work"],0],
+["The Internet is:",["A global network of networks","One big computer","A single website","A program"],0],
+["A unique address of a website is called a:",["URL","CPU","RAM","USB"],0],
+["Email stands for:",["Electronic mail","Easy mail","Express mailbox","Entry mail"],0],
+["Software designed to harm a computer is:",["Malware","Freeware","Firmware","Hardware"],0],
+["A program that detects and removes viruses is:",["Antivirus","Browser","Compiler","Spreadsheet"],0],
+["A strong password should:",["Mix letters, numbers, symbols","Be your name","Be 1234","Be shared with friends"],0],
+["Copying someone's work and claiming it as yours is:",["Plagiarism","Research","Citation","Backup"],0],
+["Making a copy of files in case of loss is a:",["Backup","Virus","Crash","Format"],0],
+["A computer network in a small area like a school is a:",["LAN","WAN","MAN only","PAN"],0],
+["Ctrl + C is the shortcut for:",["Copy","Cut","Paste","Close"],0],
+["Ctrl + V is the shortcut for:",["Paste","Copy","Save","Undo"],0],
+["Ctrl + Z usually:",["Undoes the last action","Saves","Prints","Closes"],0],
+["Ctrl + S usually:",["Saves the file","Selects all","Searches web","Starts program"],0],
+["A folder is used to:",["Organise files","Cool the CPU","Print pages","Connect to Wi-Fi"],0],
+["Which is a programming language?",["Python","Windows","Chrome","Printer"],0],
 ];
-const CATS=['Place value','Digit in a place','Expanded form','Words to numerals','Numerals to words','Counting and patterns','Comparing numbers','Rounding','Mental math','Challenge'];
-const BANK=[];const seen=new Set;
-for(let c=0;c<10;c++)for(let i=0;i<10;i++){let q,t=0;do{q=G[c](i+t);t++}while(seen.has(q.q)&&t<60);seen.add(q.q);BANK.push(q)}
-
-// ---------- app ----------
-const app=document.getElementById('app');let Q=[],ix=0,sc=0,miss=[],done=false;
-const dk=()=>{const r=document.documentElement,d=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;r.dataset.theme=d?'light':'dark'};
-document.getElementById('th').onclick=dk;
-function home(){app.innerHTML=`<h1>Numbers to One Million</h1><p>${BANK.length} new questions on place value, expanded form, words, patterns, comparing, rounding and mental math (Dimensions Math 4A, Chapter 1).</p>
-<div class="card"><label for="tp">Topic</label><select id="tp"><option value="-1">All topics (${BANK.length})</option>${CATS.map((c,k)=>`<option value="${k}">${c} (10)</option>`).join('')}</select>
-<label for="ct">Number of questions</label><select id="ct"><option value="10">10 questions</option><option value="25">25 questions</option><option value="50">50 questions</option><option value="100">All available</option></select>
-<div class="row"><button class="btn" id="go">Start quiz</button></div></div>`;
- document.getElementById('go').onclick=()=>{const t=+tp.value,n=+ct.value;let p=BANK.filter(q=>t<0||q.cat===t);Q=sh(p).slice(0,n);ix=0;sc=0;miss=[];quiz()}}
-function quiz(){const q=Q[ix];app.innerHTML=`<div class="meta"><span>Question ${ix+1} of ${Q.length}</span><span>Score ${sc}</span></div><div class="bar"><i style="width:${ix/Q.length*100}%"></i></div>
-<span class="tag">${CATS[q.cat]}</span><div class="q">${q.q}</div><div id="os">${q.o.map((o,k)=>`<button class="opt" data-k="${k}">${o}</button>`).join('')}</div><div id="fb"></div><div class="row" id="nx"></div>`;
- app.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const k=+b.dataset.k,ok=k===q.a;app.querySelectorAll('.opt').forEach(x=>{x.disabled=true;if(+x.dataset.k===q.a)x.classList.add('ok')});
-  if(ok)sc++;else{b.classList.add('bad');miss.push({q:q.q,y:q.o[k],c:q.o[q.a]})}
-  document.getElementById('fb').innerHTML=`<p class="fb ${ok?'ok':'bad'}">${ok?'Correct!':'Not quite. The answer is '+q.o[q.a]+'.'}</p>`;
-  const nx=document.getElementById('nx');nx.innerHTML=`<button class="btn" id="n">${ix+1<Q.length?'Next question':'See my score'}</button>`;const n=document.getElementById('n');n.focus();n.onclick=()=>{ix++;ix<Q.length?quiz():end()}})}
-function end(){const pc=Math.round(sc/Q.length*100);app.innerHTML=`<h1>${pc>=80?'Great work!':pc>=50?'Good effort!':'Keep practising!'}</h1><div class="card"><p>You scored</p><div class="big">${sc} / ${Q.length}</div><p>${pc}% correct</p>
-<div class="row"><button class="btn" id="a">Try again</button><button class="btn alt" id="h">Change topic</button></div></div>
-${miss.length?`<h2 style="margin-top:26px">Review your mistakes</h2><div class="card">${miss.map(m=>`<div class="rev">${m.q}<br>You chose <s>${m.y}</s> &nbsp; Correct: <b>${m.c}</b></div>`).join('')}</div>`:''}`;
- document.getElementById('a').onclick=()=>{Q=sh(Q);ix=0;sc=0;miss=[];quiz()};document.getElementById('h').onclick=home}
+const CATS=[["Scratch",0,34,"🐱"],["HTML Basics",34,67,"🌐"],["Computer Studies",67,100,"💻"],["All 100 Questions",0,100,"🏆"]];
+const app=document.getElementById('app');
+let qs=[],i=0,sc=0,done=false,name="";
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+function shuffle(a){a=a.slice();for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
+function home(){
+ app.innerHTML=`<div class="c"><h1>🧠 Scratch, HTML &amp; Computer Studies Quiz</h1><p>100 questions. Pick a section, answer, and see your score.</p>
+ <div class="cats">${CATS.map((c,n)=>`<button class="cat" onclick="start(${n})"><span>${c[3]} ${c[0]}</span><small>${c[2]-c[1]} questions</small></button>`).join("")}</div></div>`}
+function start(n){const c=CATS[n];name=c[0];qs=shuffle(S.slice(c[1],c[2])).map(q=>{const o=q[1].map((t,k)=>[t,k===q[2]]);return [q[0],shuffle(o)]});i=0;sc=0;show()}
+function show(){
+ const q=qs[i];
+ app.innerHTML=`<div class="c"><div class="top"><span>${name}</span><span>Question ${i+1} / ${qs.length} · Score ${sc}</span></div>
+ <div class="bar"><i style="width:${i/qs.length*100}%"></i></div>
+ <div class="q">${esc(q[0])}</div>
+ ${q[1].map((o,k)=>`<button class="o" onclick="pick(${k})">${esc(o[0])}</button>`).join("")}
+ <div id="nx"></div></div>`}
+function pick(k){
+ const q=qs[i],b=document.querySelectorAll('.o');
+ b.forEach((el,n)=>{el.disabled=true;if(q[1][n][1])el.classList.add('ok')});
+ if(q[1][k][1])sc++;else b[k].classList.add('no');
+ document.getElementById('nx').innerHTML=`<button class="p o" onclick="next()">${i+1===qs.length?"See results":"Next →"}</button>`}
+function next(){i++;i<qs.length?show():end()}
+function end(){
+ const p=Math.round(sc/qs.length*100),m=p>=80?"Excellent work! 🎉":p>=50?"Good effort, keep practising! 👍":"Keep learning, you'll improve! 💪";
+ app.innerHTML=`<div class="c"><h1>Results: ${name}</h1><div class="big">${sc} / ${qs.length}</div><p style="text-align:center">${p}% · ${m}</p>
+ <div class="r"><button class="p" onclick="start(CATS.findIndex(c=>c[0]===name))">Retry</button><button onclick="home()">Menu</button></div></div>`}
 home();
-</script></body></html>
+</script>
+</body>
+</html>
