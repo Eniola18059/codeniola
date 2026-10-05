@@ -1,103 +1,270 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Synonyms & Antonyms Quiz – Grade 8</title>
+<title>Tuple Quest: Python Tuples for Beginners</title>
 <style>
-:root{--bg:#f4f6fb;--card:#fff;--ink:#1d2433;--mut:#667;--pri:#4a5fd8;--ok:#1f9d55;--bad:#d64545;--line:#dde2ee;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141824;--card:#1e2435;--ink:#eef0f7;--mut:#9aa3bd;--line:#32395100;--line:#323951}}
-*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.45}
-.w{max-width:640px;margin:0 auto;padding:16px}
-.c{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px}
-h1{font-size:1.4rem;margin:.2em 0}.m{color:var(--mut);font-size:.9rem}
-.bar{height:8px;background:var(--line);border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;background:var(--pri);width:0}
-.tag{display:inline-block;padding:2px 10px;border-radius:99px;font-size:.78rem;font-weight:700;background:var(--pri);color:#fff}
-.word{font-size:2rem;font-weight:800;margin:.3em 0}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
-.chip{border:2px solid var(--pri);background:transparent;color:var(--ink);padding:7px 13px;border-radius:99px;font-size:1rem;cursor:pointer}
-.chip.done{background:var(--pri);color:#fff}
-.def{min-height:48px;border-left:4px solid var(--pri);padding:6px 12px;background:var(--bg);border-radius:6px}
-.opts{display:grid;gap:10px;margin-top:12px}
-.opt{padding:12px;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;font-size:1.05rem;text-align:left;cursor:pointer}
-.opt:disabled{opacity:.45;cursor:not-allowed}
-.opt.ok{border-color:var(--ok);background:#1f9d5522}.opt.bad{border-color:var(--bad);background:#d6454522}
-.btn{background:var(--pri);color:#fff;border:0;border-radius:10px;padding:12px 20px;font-size:1rem;cursor:pointer;margin-top:12px}
-.fb{margin-top:10px;font-weight:600}
-</style></head><body><div class="w" id="app"></div>
+:root{--bg:#fffaf0;--card:#fff;--ink:#1d2433;--mut:#5d6678;--acc:#ff6b35;--acc2:#2a7de1;--code:#161b2e;--codet:#e8ecff;--ok:#1f9d55;--bad:#d64545;--bd:#eadfcb;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10131c;--card:#1a1f2e;--ink:#eef1fa;--mut:#9aa4bd;--bd:#2c3347;--code:#0a0d15}}
+:root[data-theme="dark"]{--bg:#10131c;--card:#1a1f2e;--ink:#eef1fa;--mut:#9aa4bd;--bd:#2c3347;--code:#0a0d15}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.w{max-width:820px;margin:0 auto;padding:16px}
+header{text-align:center;padding:30px 8px 16px}
+h1{font-size:2.2rem;margin:0;line-height:1.15}h1 span{color:var(--acc)}
+.sub{color:var(--mut);margin-top:8px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding:8px 0;display:flex;gap:8px;overflow-x:auto;z-index:5;border-bottom:1px solid var(--bd)}
+nav a{white-space:nowrap;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--bd);padding:6px 14px;border-radius:99px;font-size:.9rem}
+section{margin:28px 0}h2{font-size:1.55rem;margin:0 0 6px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:18px;margin:14px 0}
+.card h3{margin:0 0 8px;font-size:1.25rem}
+.tag{display:inline-block;background:var(--acc);color:#fff;border-radius:8px;padding:1px 10px;font-size:.78rem;font-weight:700;margin-right:6px}
+.tag.b{background:var(--acc2)}
+pre{background:var(--code);color:var(--codet);padding:14px;border-radius:12px;overflow-x:auto;font:14px/1.55 ui-monospace,Menlo,Consolas,monospace;margin:10px 0}
+.out{border-left:4px solid var(--ok)}
+.box{border-radius:12px;padding:10px 14px;margin:10px 0}
+.tip{background:rgba(42,125,225,.12)}.bug{background:rgba(214,69,69,.12)}.try{background:rgba(255,107,53,.13)}
+button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:8px 14px;background:var(--acc2);color:#fff}
+button.g{background:transparent;color:var(--acc2);border:1px solid var(--acc2);padding:4px 10px;font-size:.85rem}
+details{margin:8px 0}summary{cursor:pointer;font-weight:600;color:var(--acc2)}
+ol,ul{padding-left:22px}li{margin:4px 0}
+.opts{display:grid;gap:8px;margin-top:8px}
+.opts button{background:var(--card);color:var(--ink);border:1px solid var(--bd);text-align:left}
+.opts button.ok{background:var(--ok);color:#fff}.opts button.no{background:var(--bad);color:#fff}
+.why{display:none;margin-top:6px;color:var(--mut)}
+.prog{height:10px;background:var(--bd);border-radius:9px;overflow:hidden}.prog i{display:block;height:100%;width:0;background:var(--ok);transition:width .3s}
+code{background:rgba(127,127,127,.18);padding:1px 6px;border-radius:6px;font-size:.92em}
+footer{text-align:center;color:var(--mut);padding:26px 0}
+</style></head><body><div class="w">
+<header><div style="font-size:3rem">🐍</div><h1>Tuple <span>Quest</span></h1>
+<div class="sub">Hi Eniola! No experience needed. We start from zero and go one small step at a time.</div></header>
+<nav><a href="#setup">Setup</a><a href="#learn">Lessons</a><a href="#quiz">Quiz</a><a href="#projects">Projects</a><a href="#gloss">Words</a></nav>
+
+<section id="setup"><h2>🚀 Step 0: Where do I type Python?</h2>
+<div class="card"><p>Python is a language you use to tell a computer what to do. You write instructions (called <b>code</b>), and the computer follows them from top to bottom.</p>
+<ol><li>Open <b>programiz.com/python-programming/online-compiler</b> in your browser. It's free and needs no install.</li>
+<li>Delete the example code in the big box.</li>
+<li>Type (don't copy) a lesson's code, then press the <b>Run</b> button.</li>
+<li>Your answer shows in the box below. If you see red text, that's an <b>error</b>. Don't panic: it just tells you what to fix, and every coder gets them all the time.</li></ol>
+<div class="box tip">💡 Python is strict about spelling, brackets <code>( )</code>, quote marks <code>" "</code> and spaces at the start of lines. One missing quote can cause an error.</div></div></section>
+
+<section id="learn"><h2>📘 Lessons</h2><p class="sub">Do them in order. Read the comments (the lines starting with <code>#</code>). Python ignores them, they're notes for humans.</p><div id="lessons"></div></section>
+<section id="quiz"><h2>🧠 Quiz</h2><div class="prog"><i id="bar"></i></div><div id="qs"></div><p id="score" style="font-weight:700;font-size:1.15rem"></p></section>
+<section id="projects"><h2>🛠️ Projects</h2><p class="sub">Each project is built in small steps. Type it yourself, run it, then try the Level-up. Projects 1 to 3 are the easiest.</p><div id="projs"></div></section>
+<section id="gloss"><h2>📖 Words to Know</h2><div class="card"><ul>
+<li><b>Variable</b>: a name that holds a value, like <code>age = 13</code>.</li>
+<li><b>String</b>: text inside quotes, like <code>"hello"</code>.</li>
+<li><b>Integer</b>: a whole number like <code>7</code>. A <b>float</b> has a decimal point, like <code>7.5</code>.</li>
+<li><b>Tuple</b>: a fixed group of items in <code>( )</code>.</li>
+<li><b>Element or item</b>: one thing inside the tuple.</li>
+<li><b>Index</b>: the position number of an item, starting at 0.</li>
+<li><b>Immutable</b>: cannot be changed after it's made.</li>
+<li><b>Unpacking</b>: pouring a tuple's items into separate variables.</li>
+<li><b>Loop</b>: code that repeats. <b>Function</b>: a named block of code you can reuse.</li></ul></div></section>
+<footer>Mistakes are how coders learn. Keep going, Eniola! 💪</footer></div>
 <script>
-const RAW=`s|abundant|plentiful|scarce|tiny|hollow
-s|brave|courageous|timid|gloomy|lazy
-s|candid|honest|secretive|clumsy|wealthy
-s|diligent|hardworking|careless|jealous|ancient
-s|enormous|gigantic|miniature|fragile|quiet
-s|fatigue|exhaustion|energy|hunger|delight
-s|generous|charitable|greedy|stubborn|nervous
-s|hesitate|pause|rush|shout|gather
-s|ignorant|uninformed|wise|polite|cheerful
-s|jovial|cheerful|grumpy|tired|rigid
-s|keen|eager|reluctant|rough|distant
-s|loyal|faithful|fickle|rude|shy
-s|meager|scanty|ample|noisy|bright
-s|obstinate|stubborn|flexible|gentle|frantic
-s|peculiar|strange|familiar|ordinary|tidy
-s|rapid|swift|sluggish|steady|heavy
-s|serene|calm|stormy|anxious|harsh
-s|tranquil|peaceful|turbulent|rowdy|bitter
-s|vivid|vibrant|dull|pale|vague
-s|weary|tired|refreshed|thrilled|curious
-s|conceal|hide|reveal|display|announce
-s|commence|begin|finish|delay|cancel
-s|fragile|delicate|sturdy|massive|solid
-s|gloomy|dismal|radiant|jolly|brisk
-s|ponder|contemplate|ignore|forget|dismiss
-a|ancient|modern|primitive|antique|historic
-a|victory|defeat|triumph|success|conquest
-a|expand|contract|enlarge|stretch|grow
-a|generous|stingy|giving|kind|charitable
-a|optimist|pessimist|dreamer|believer|leader
-a|transparent|opaque|clear|see-through|glassy
-a|permanent|temporary|lasting|eternal|fixed
-a|accept|reject|receive|welcome|take
-a|arrive|depart|reach|land|enter
-a|attract|repel|draw|pull|tempt
-a|barren|fertile|empty|dry|desolate
-a|courage|cowardice|bravery|valor|boldness
-a|distant|near|far|remote|faraway
-a|humble|arrogant|modest|meek|gentle
-a|inferior|superior|lesser|poorer|minor
-a|mature|immature|grown|ripe|adult
-a|prohibit|allow|forbid|ban|block
-a|rural|urban|rustic|farm|village
-a|scarce|plentiful|rare|limited|sparse
-a|vague|clear|hazy|murky|blurred
-a|increase|decrease|grow|rise|boost
-a|shallow|deep|flat|thin|narrow
-a|sincere|deceitful|truthful|earnest|genuine
-a|strict|lenient|firm|harsh|severe
-a|wise|foolish|clever|sage|smart`;
-const D={abundant:"existing in large amounts",scarce:"hard to find; in short supply",plentiful:"more than enough",tiny:"very small",hollow:"empty inside",brave:"ready to face danger",courageous:"showing bravery",timid:"shy and fearful",gloomy:"dark and sad",lazy:"unwilling to work",candid:"open and honest",honest:"truthful",secretive:"keeping things hidden",clumsy:"awkward in movement",wealthy:"very rich",diligent:"careful and hardworking",hardworking:"putting in great effort",careless:"not paying attention",jealous:"envious of others",ancient:"very old",enormous:"extremely large",gigantic:"huge",miniature:"a very small version",fragile:"easily broken",quiet:"making little noise",fatigue:"extreme tiredness",exhaustion:"complete tiredness",energy:"strength to be active",hunger:"need for food",delight:"great joy",generous:"willing to give freely",charitable:"kind and giving to those in need",greedy:"wanting too much",stubborn:"refusing to change one's mind",nervous:"worried or uneasy",hesitate:"to pause before acting",pause:"a short stop",rush:"move in great haste",shout:"yell loudly",gather:"bring together",ignorant:"lacking knowledge",uninformed:"not having information",wise:"having good judgement",polite:"well-mannered",cheerful:"happy and bright",jovial:"jolly and good-humoured",grumpy:"bad-tempered",tired:"needing rest",rigid:"stiff; not bending",keen:"very interested",eager:"wanting to do something",reluctant:"unwilling",rough:"not smooth",distant:"far away",loyal:"faithful to a person or cause",faithful:"steadfast; true",fickle:"changing often",rude:"impolite",shy:"nervous around others",meager:"small in amount",scanty:"barely enough",ample:"more than enough",noisy:"loud",bright:"giving much light",obstinate:"stubbornly refusing to change",flexible:"able to bend or adapt",gentle:"soft and kind",frantic:"wild with worry",peculiar:"odd or unusual",strange:"unusual",familiar:"well known",ordinary:"normal",tidy:"neat",rapid:"very fast",swift:"quick",sluggish:"slow-moving",steady:"constant",heavy:"weighing a lot",serene:"calm and peaceful",calm:"not disturbed",stormy:"wild and violent",anxious:"worried",harsh:"cruel or severe",tranquil:"free from disturbance",peaceful:"quiet and calm",turbulent:"wild and disorderly",rowdy:"noisy and disorderly",bitter:"sharp and unpleasant in taste",vivid:"strong and bright",vibrant:"full of life and colour",dull:"not interesting or bright",pale:"light in colour",vague:"unclear",weary:"very tired",refreshed:"made fresh again",thrilled:"very excited",curious:"eager to know",conceal:"to hide",hide:"put out of sight",reveal:"make known",display:"show",announce:"tell publicly",commence:"to begin",begin:"start",finish:"complete",delay:"make late",cancel:"call off",delicate:"easily damaged",sturdy:"strong and solid",massive:"very large and heavy",solid:"firm and hard",dismal:"gloomy and depressing",radiant:"shining brightly",jolly:"happy and cheerful",brisk:"quick and lively",ponder:"to think carefully",contemplate:"think deeply",ignore:"pay no attention to",forget:"fail to remember",dismiss:"send away",modern:"of the present time",primitive:"very early; simple",antique:"very old object",historic:"important in history",victory:"winning",defeat:"a loss",triumph:"a great win",success:"achieving a goal",conquest:"taking by force",expand:"to grow larger",contract:"to shrink",enlarge:"make bigger",stretch:"make longer",grow:"become bigger",stingy:"unwilling to spend or give",giving:"handing over freely",kind:"caring and friendly",optimist:"one who expects good outcomes",pessimist:"one who expects the worst",dreamer:"one who imagines",believer:"one who has faith",leader:"one who guides",transparent:"able to be seen through",opaque:"not letting light through",clear:"easy to see or understand","see-through":"transparent",glassy:"smooth and shiny like glass",permanent:"lasting forever",temporary:"lasting a short time",lasting:"continuing",eternal:"without end",fixed:"set firmly",accept:"to receive willingly",reject:"to refuse",receive:"to get",welcome:"greet gladly",take:"grasp or get",arrive:"to reach a place",depart:"to leave",reach:"get to",land:"come down",enter:"go in",attract:"to pull towards",repel:"to push away",draw:"pull",pull:"move towards oneself",tempt:"entice",barren:"unable to produce plants",fertile:"rich and productive",empty:"containing nothing",dry:"without moisture",desolate:"lonely and bare",courage:"bravery",cowardice:"lack of courage",bravery:"courage",valor:"great courage",boldness:"daring",near:"close",far:"a long way off",remote:"far from everything",faraway:"at a great distance",humble:"not proud",arrogant:"overly proud",modest:"not boastful",meek:"quiet and gentle",inferior:"lower in quality",superior:"higher in quality",lesser:"smaller in importance",poorer:"lower in quality",minor:"small in importance",mature:"fully grown",immature:"not fully developed",grown:"fully developed",ripe:"ready to eat",adult:"fully grown person",prohibit:"to forbid",allow:"permit",forbid:"order not to do",ban:"officially forbid",block:"obstruct",rural:"of the countryside",urban:"of the city",rustic:"country-style",farm:"land for crops",village:"small settlement",rare:"not often found",limited:"restricted",sparse:"thinly spread",hazy:"not clear",unclear:"not easy to understand",murky:"dark and cloudy",blurred:"smudged; not sharp",increase:"to grow",decrease:"to become less",rise:"go up",boost:"lift or raise",shallow:"not deep",deep:"far down",flat:"level",thin:"not thick",narrow:"small in width",sincere:"genuine",deceitful:"dishonest",truthful:"telling the truth",earnest:"serious and sincere",genuine:"real",strict:"demanding obedience",lenient:"not strict",firm:"not soft",severe:"very strict or harsh",foolish:"lacking sense",clever:"quick to learn",sage:"a wise person",smart:"intelligent"};
-const sh=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
-const Q=sh(RAW.split("\n").map(l=>{const p=l.split("|");return{t:p[0],w:p[1],c:p[2],o:sh(p.slice(2))}}));
-let i=0,score=0,seen,ans,wrong=[],cur="";
-const app=document.getElementById("app");
-function start(){i=0;score=0;wrong=[];app.innerHTML=`<div class="c"><h1>Synonyms &amp; Antonyms Quiz</h1><p>50 questions · Grade 8</p><p><b>Rule:</b> before you can answer, look up the question word <b>and every option</b> in the dictionary. Tap each word to read its meaning, then choose your answer.</p><button class="btn" onclick="show()">Start quiz</button></div>`}
-function show(){const q=Q[i];seen=new Set();ans=false;cur="";const ws=[q.w,...q.o];
-app.innerHTML=`<div class="c"><div class="m">Question ${i+1} of 50 · Score ${score}</div><div class="bar"><i style="width:${i*2}%"></i></div></div>
-<div class="c"><span class="tag">${q.t=="s"?"SYNONYM (same meaning)":"ANTONYM (opposite meaning)"}</span><div class="word">${q.w}</div>
-<div class="m">📖 Dictionary check: <b id="cnt">0</b>/5 words looked up</div>
-<div class="chips">${ws.map(w=>`<button class="chip" data-w="${w}" onclick="look(this)">${w}</button>`).join("")}</div>
-<div class="def" id="def">Tap a word above to see its meaning.</div>
-<div class="opts">${q.o.map(o=>`<button class="opt" disabled data-o="${o}" onclick="pick(this)">${o}</button>`).join("")}</div>
-<div class="fb" id="fb"></div></div>`}
-function look(b){const w=b.dataset.w;b.classList.add("done");seen.add(w);document.getElementById("def").innerHTML=`<b>${w}</b>: ${D[w]||"—"}`;document.getElementById("cnt").textContent=seen.size;
-if(seen.size==5&&!ans){document.querySelectorAll(".opt").forEach(o=>o.disabled=false);document.getElementById("fb").textContent="✅ All words checked. Now choose your answer."}}
-function pick(b){if(ans)return;ans=true;const q=Q[i],ok=b.dataset.o==q.c;
-document.querySelectorAll(".opt").forEach(o=>{o.disabled=true;if(o.dataset.o==q.c)o.classList.add("ok")});
-if(ok)score++;else{b.classList.add("bad");wrong.push(q)}
-document.getElementById("fb").innerHTML=(ok?"🎉 Correct!":"❌ Not quite. Correct answer: <b>"+q.c+"</b>")+`<br><button class="btn" onclick="next()">${i==49?"See results":"Next →"}</button>`}
-function next(){i++;i<50?show():end()}
-function end(){const p=Math.round(score*2);app.innerHTML=`<div class="c"><h1>Quiz complete!</h1><p class="word">${score} / 50 (${p}%)</p><p>${p>=80?"Excellent work! 🌟":p>=60?"Good effort — review the ones below.":"Keep practising — use the dictionary and try again."}</p>
-${wrong.length?`<h3>Review</h3>`+wrong.map(q=>`<p><b>${q.w}</b> (${q.t=="s"?"synonym":"antonym"}) → <b>${q.c}</b> <span class="m">– ${D[q.c]}</span></p>`).join(""):""}
-<button class="btn" onclick="location.reload()">Try again</button></div>`}
-start();
+const L=[
+{t:"Warm-up: print, variables, input",s:`<p><b>print()</b> shows something on the screen. <b>A variable</b> is a labelled box that remembers a value. <b>input()</b> asks the user to type something.</p><p>Text must be in quotes. Numbers have no quotes.</p>`,
+c:`print("Hello!")            # shows: Hello!
+name = "Eniola"            # variable called name holds text
+age = 13                   # variable called age holds a number
+print(name, age)           # shows: Eniola 13
+fav = input("Fav food? ")  # waits for you to type, saves it in fav
+print("I like", fav)`,o:`Hello!
+Eniola 13
+Fav food? jollof        <- you type this
+I like jollof`,b:`The <code>=</code> sign here means "store this in that box", not "equals" like in maths.`,
+q:"Make a variable called city with your city's name and print it.",a:`city = "Lagos"
+print(city)`},
+{t:"1. What is a tuple?",s:`<p>Imagine you're packing a lunch box with a few things, then <b>locking it</b>. You can look inside and use the items, but you can't swap them out. A <b>tuple</b> is exactly that: several items stored together under one name, written inside round brackets <code>( )</code> with commas between items.</p><p>Use a tuple when the information shouldn't change: your date of birth, map coordinates, days of the week.</p>`,
+c:`player = ("Eniola", 13, "Lagos")   # 3 items in one tuple
+print(player)                      # show the whole tuple
+print(type(player))                # ask Python: what is this?`,o:`('Eniola', 13, 'Lagos')
+<class 'tuple'>`,b:`Don't use square brackets <code>[ ]</code>. Those make a <i>list</i>, which is different.`,
+q:"Make a tuple called fruits with 3 fruits in it, and print it.",a:`fruits = ("mango", "apple", "orange")
+print(fruits)`},
+{t:"2. Different ways to make tuples",s:`<p>A tuple can hold text, numbers or both. It can be empty. The tricky one: <b>a tuple with only one item needs a comma</b> after it, otherwise Python thinks the brackets are just maths brackets.</p>`,
+c:`mixed = ("pen", 5, 2.5, True)   # text, whole number, decimal, True/False
+empty = ()                      # nothing inside
+one = (7,)                      # one item: the comma is REQUIRED
+not_tuple = (7)                 # this is just the number 7!
+print(type(one))
+print(type(not_tuple))
+nums = tuple([1, 2, 3])         # turn a list into a tuple
+print(nums)`,o:`<class 'tuple'>
+<class 'int'>
+(1, 2, 3)`,b:`Forgetting the comma in a one-item tuple is the most common beginner slip.`,
+q:"Make a one-item tuple called pet containing \"cat\". Print its type.",a:`pet = ("cat",)
+print(type(pet))`},
+{t:"3. Getting items out: indexing and slicing",s:`<p>Each item sits in a numbered slot called an <b>index</b>. Here's the surprise: <b>counting starts at 0</b>, not 1. So the first item is index 0, the second is 1, and so on. A negative index counts backwards from the end: <code>-1</code> is the last item.</p><p><b>Slicing</b> grabs a piece: <code>t[1:3]</code> starts at index 1 and stops <i>before</i> index 3.</p>`,
+c:`colors = ("red", "green", "blue", "gold")
+#  index:    0       1        2       3
+print(colors[0])      # first item
+print(colors[3])      # last item
+print(colors[-1])     # also the last item
+print(colors[1:3])    # index 1 and 2 (stops before 3)
+print(colors[:2])     # from the start up to before 2
+print(colors[2:])     # from index 2 to the end`,o:`red
+gold
+gold
+('green', 'blue')
+('red', 'green')
+('blue', 'gold')`,b:`<code>colors[4]</code> gives <b>IndexError: tuple index out of range</b> because this tuple only has indexes 0 to 3.`,
+q:"With colors above, print \"blue\" using a negative index.",a:`print(colors[-2])`},
+{t:"4. Tuples can't be changed",s:`<p>The word for this is <b>immutable</b> (im-MEW-tuh-bul). Once you create a tuple, you can't change, add or remove items. This protects important data from accidents.</p><p>If you really need a different tuple, make a <b>new</b> one.</p>`,
+c:`days = ("Mon", "Tue", "Wed")
+# days[0] = "Sun"      <- this would cause an ERROR, so we skip it
+new_days = days + ("Thu",)    # joins two tuples into a NEW one
+print(new_days)
+print(days)                   # the old one never changed
+print(days * 2)               # repeat it twice`,o:`('Mon', 'Tue', 'Wed', 'Thu')
+('Mon', 'Tue', 'Wed')
+('Mon', 'Tue', 'Wed', 'Mon', 'Tue', 'Wed')`,b:`Error message: <b>TypeError: 'tuple' object does not support item assignment</b>. It means "you tried to change a locked tuple".`,
+q:"Make a tuple of two numbers, then join it with (3,) to make a three-number tuple.",a:`nums = (1, 2)
+nums = nums + (3,)
+print(nums)`},
+{t:"5. Unpacking (the cool trick)",s:`<p>Instead of using indexes, you can pour all items into separate variables in <b>one line</b>. The first variable gets the first item, and so on. The number of variables must match the number of items.</p><p>You can also <b>swap</b> two variables in a single line.</p>`,
+c:`hero = ("Zara", 100, "sword")
+name, health, weapon = hero     # unpack all 3 items
+print(name)
+print(health)
+print(weapon)
+print(name, "has", health, "HP and a", weapon)
+
+a = 1
+b = 2
+a, b = b, a                     # swap!
+print(a, b)`,o:`Zara
+100
+sword
+Zara has 100 HP and a sword
+2 1`,b:`<code>x, y = (1, 2, 3)</code> gives <b>ValueError: too many values to unpack</b> because 2 variables can't hold 3 items.`,
+q:"Unpack point = (5, 9) into x and y and print x + y.",a:`x, y = point
+print(x + y)   # 14`},
+{t:"6. Loops and useful tools",s:`<p>A <b>for loop</b> goes through every item, one at a time. Notice the colon <code>:</code> and the <b>4 spaces</b> in front of the line inside the loop. Python uses those spaces to know which lines belong to the loop.</p><p>Handy tools: <code>len()</code> counts items, <code>.count(x)</code> says how many times x appears, <code>.index(x)</code> finds its position, and <code>in</code> checks if something is inside.</p>`,
+c:`scores = (7, 9, 7, 10)
+for s in scores:               # s becomes each item in turn
+    print("Score:", s)         # indented = inside the loop
+print(len(scores))             # how many items
+print(scores.count(7))         # how many 7s
+print(scores.index(10))        # position of 10
+print(9 in scores)             # is 9 inside?
+print(max(scores), min(scores), sum(scores))`,o:`Score: 7
+Score: 9
+Score: 7
+Score: 10
+4
+2
+3
+True
+10 7 33`,b:`Forgetting the spaces before the <code>print</code> inside the loop gives <b>IndentationError</b>.`,
+q:"Loop through ('a','b','c') and print each letter.",a:`for letter in ("a", "b", "c"):
+    print(letter)`},
+{t:"7. Tuples vs lists, and a list of tuples",s:`<p>A <b>list</b> uses <code>[ ]</code> and <i>can</i> be changed. A <b>tuple</b> uses <code>( )</code> and can't. Use a list when things will change (a shopping list), and a tuple when they won't (coordinates).</p><p>You can turn one into the other with <code>list()</code> and <code>tuple()</code>. Putting tuples inside a list is a great way to store records, like a contact book.</p>`,
+c:`shopping = ["rice", "beans"]   # list: changeable
+shopping.append("oil")         # allowed on a list
+print(shopping)
+
+t = tuple(shopping)            # lock it into a tuple
+print(t)
+
+friends = [("Ada", 12), ("Tobi", 14), ("Ife", 13)]
+for name, age in friends:      # unpack each tuple in the loop
+    print(name, "is", age)`,o:`['rice', 'beans', 'oil']
+('rice', 'beans', 'oil')
+Ada is 12
+Tobi is 14
+Ife is 13`,b:`Calling <code>.append()</code> on a tuple gives <b>AttributeError</b>. Tuples have no append.`,
+q:"Add (\"Chi\", 15) to the friends list.",a:`friends.append(("Chi", 15))`}
+];
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+document.getElementById('lessons').innerHTML=L.map((l,i)=>`<div class="card"><h3>${l.t}</h3>${l.s}<pre>${esc(l.c)}</pre><details><summary>▶ What will it show?</summary><pre class="out">${l.o.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</pre></details><div class="box bug">⚠️ <b>Watch out:</b> ${l.b}</div><div class="box try">✏️ <b>Your turn:</b> ${esc(l.q)}<details><summary>Show answer</summary><pre>${esc(l.a)}</pre></details></div></div>`).join('');
+
+const Q=[
+["Which one is a tuple?",["[1, 2, 3]","(1, 2, 3)","{1, 2, 3}"],1,"Round brackets make a tuple. Square brackets make a list."],
+["colors = ('red','blue','gold'). What is colors[0]?",["red","blue","Error"],0,"Counting starts at 0, so index 0 is the first item."],
+["What happens with t = (1,2,3) then t[0] = 9 ?",["t becomes (9,2,3)","TypeError","Nothing happens"],1,"Tuples are immutable, so Python refuses."],
+["How do you make a tuple with ONE item?",["(5)","(5,)","[5]"],1,"The comma is what makes it a tuple."],
+["After a, b = 1, 2 then a, b = b, a, what is a?",["1","2","Error"],1,"The swap puts b's old value (2) into a."],
+["What does len(('a','b','c','d')) show?",["3","4","5"],1,"len counts the items. There are 4."],
+["For t = ('x','y','z'), what is t[-1]?",["x","y","z"],2,"-1 means the last item."],
+["Which can you do to a tuple?",["Add an item with append","Join it with another tuple using +","Change t[0]"],1,"+ makes a brand new tuple. The others fail."]
+];
+let sc=0,dn=0;const qs=document.getElementById('qs');
+Q.forEach((q,i)=>{const d=document.createElement('div');d.className='card';
+d.innerHTML=`<b>${i+1}. ${esc(q[0])}</b><div class="opts"></div><div class="why">💬 ${esc(q[3])}</div>`;
+q[1].forEach((o,j)=>{const b=document.createElement('button');b.textContent=o;
+b.onclick=()=>{if(d.dataset.d)return;d.dataset.d=1;dn++;
+if(j===q[2]){b.className='ok';sc++}else{b.className='no';d.querySelectorAll('button')[q[2]].className='ok'}
+d.querySelector('.why').style.display='block';
+document.getElementById('bar').style.width=dn/Q.length*100+'%';
+if(dn===Q.length)document.getElementById('score').textContent=`Score: ${sc}/${Q.length} ${sc>=7?'🏆 Tuple Master!':sc>=5?'👍 Good! Re-read the lessons you missed.':'💪 Go back through the lessons, then try again.'}`};
+d.querySelector('.opts').appendChild(b)});qs.appendChild(d)});
+
+const P=[
+{n:"1. Player Card",l:"Beginner",g:"Print a neat card from a tuple.",st:["Make a tuple with 4 items.","Unpack it into 4 variables.","Print each one with a label."],
+c:`player = ("Eniola", 13, "Lagos", "Football")
+name, age, city, hobby = player      # unpack
+print("=== PLAYER CARD ===")
+print("Name :", name)
+print("Age  :", age)
+print("City :", city)
+print("Hobby:", hobby)`,u:"Add a favourite food. Then print how many years until you are 18 (18 - age)."},
+{n:"2. Treasure Hunt",l:"Beginner",g:"Guess the secret coordinates.",st:["Hide the treasure as a tuple (x, y).","Ask the player for x and y. input() gives text, so int() turns it into a number.","Put the guess in a tuple and compare with ==."],
+c:`treasure = (3, 4)
+gx = int(input("Pick x: "))
+gy = int(input("Pick y: "))
+guess = (gx, gy)
+if guess == treasure:
+    print("💰 You found the treasure!")
+else:
+    print("Not here. Try again!")`,u:"Give hints: if gx is less than treasure[0], print 'go right'. Let the player keep guessing with a while loop."},
+{n:"3. Colour Mixer",l:"Beginner",g:"Colours on screens are 3 numbers (red, green, blue), each 0 to 255.",st:["Make two colour tuples.","Average each matching number (// means divide and drop the decimal).","Print the mixed colour tuple."],
+c:`red = (255, 0, 0)
+blue = (0, 0, 255)
+r = (red[0] + blue[0]) // 2    # average of the reds
+g = (red[1] + blue[1]) // 2    # average of the greens
+b = (red[2] + blue[2]) // 2    # average of the blues
+mix = (r, g, b)
+print("Mixed colour:", mix)`,u:"Wrap it in a function: def mix(c1, c2): ... return (r, g, b). Mix yellow (255,255,0) with blue."},
+{n:"4. Quiz Master",l:"Easy",g:"A list of (question, answer) tuples becomes a game.",st:["Make a list of tuples.","Loop and unpack question, answer.","Compare the player's reply (lowercased) and keep score."],
+c:`questions = [
+    ("Capital of Nigeria?", "abuja"),
+    ("2 + 2 * 3 = ?", "8"),
+    ("Language we are learning?", "python"),
+]
+score = 0
+for question, answer in questions:
+    reply = input(question + " ")
+    if reply.lower() == answer:    # lower() ignores capitals
+        print("✅ Correct!")
+        score += 1                 # add 1 to score
+    else:
+        print("❌ It was", answer)
+print("Score:", score, "out of", len(questions))`,u:"Add 5 questions on your favourite subject and print a grade (A, B, C) at the end."},
+{n:"5. Jollof Menu",l:"Medium",g:"Each menu item is a (name, price) tuple. Total the order.",st:["Make a tuple of tuples for the menu.","Print it numbered with enumerate.","Ask for choices until the user types 0."],
+c:`menu = (("Jollof rice", 1500), ("Plantain", 500),
+        ("Chicken", 2000), ("Zobo", 300))
+for number, (item, price) in enumerate(menu, 1):
+    print(number, item, "-", price)
+total = 0
+while True:
+    choice = int(input("Pick a number (0 to finish): "))
+    if choice == 0:
+        break                          # leave the loop
+    item, price = menu[choice - 1]     # numbering starts at 1, index at 0
+    total += price
+    print("Added", item)
+print("Total: N", total)`,u:"Ask for a quantity too, and give 10% off if the total is over 5000."},
+{n:"6. Min/Max Stats",l:"Medium",g:"A function can return several values at once. That is secretly a tuple!",st:["Define a function that returns three values.","Call it and unpack the answer.","Print each result."],
+c:`def stats(numbers):
+    return min(numbers), max(numbers), sum(numbers) / len(numbers)
+
+low, high, avg = stats((12, 7, 19, 3, 25))
+print("Lowest :", low)
+print("Highest:", high)
+print("Average:", avg)`,u:"Let the user type their own numbers, then return the range (high - low) as a fourth value."}
+];
+document.getElementById('projs').innerHTML=P.map((p,i)=>`<div class="card"><h3>${p.n}</h3><span class="tag ${i>2?'b':''}">${p.l}</span> ${p.g}<ol>${p.st.map(x=>`<li>${x}</li>`).join('')}</ol><pre>${esc(p.c)}</pre><button class="g" onclick="cp(${i},this)">Copy code</button><div class="box try">🚀 <b>Level up:</b> ${p.u}</div></div>`).join('');
+function cp(i,b){try{navigator.clipboard.writeText(P[i].c).then(()=>{b.textContent='Copied ✓'},()=>{b.textContent='Select and copy by hand'})}catch(e){b.textContent='Select and copy by hand'}}
 </script></body></html>
