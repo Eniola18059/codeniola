@@ -1,167 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
+<html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Scratch, HTML & Computer Studies Quiz</title>
+<title>Synonyms & Antonyms Quiz – Grade 8</title>
 <style>
-:root{--bg:#f4f6fb;--card:#fff;--tx:#1f2540;--mu:#667;--pr:#5b4bdb;--ok:#1a9d5a;--no:#d6403f;--bd:#dde1ee;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14172a;--card:#1e2240;--tx:#eef;--mu:#9aa;--bd:#33385e}}
-:root[data-theme="dark"]{--bg:#14172a;--card:#1e2240;--tx:#eef;--mu:#9aa;--bd:#33385e}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,Segoe UI,Arial,sans-serif;line-height:1.5}
-.w{max-width:680px;margin:0 auto;padding:20px 16px}
-.c{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:22px;margin-top:14px}
-h1{margin:0 0 6px;font-size:1.6rem}p{color:var(--mu);margin:4px 0}
-.cats{display:grid;gap:10px;margin:16px 0}
-button{font:inherit;cursor:pointer;border-radius:12px;border:1px solid var(--bd);background:var(--card);color:var(--tx);padding:12px 14px;text-align:left}
-button:hover:not(:disabled){border-color:var(--pr)}
-.p{background:var(--pr);color:#fff;border:0;text-align:center;font-weight:600}
-.cat{display:flex;justify-content:space-between;align-items:center}
-.cat small{color:var(--mu)}
-.bar{height:8px;background:var(--bd);border-radius:8px;overflow:hidden;margin:10px 0}
-.bar i{display:block;height:100%;background:var(--pr);width:0;transition:width .3s}
-.top{display:flex;justify-content:space-between;color:var(--mu);font-size:.9rem}
-.q{font-size:1.15rem;font-weight:600;margin:12px 0}
-.o{display:block;width:100%;margin:8px 0}
-.o.ok{background:var(--ok);color:#fff;border-color:var(--ok)}.o.no{background:var(--no);color:#fff;border-color:var(--no)}
-.big{font-size:2.6rem;font-weight:700;color:var(--pr);text-align:center}
-code{background:var(--bd);padding:1px 5px;border-radius:5px}
-.r{display:flex;gap:10px;margin-top:12px}.r button{flex:1}
-</style>
-</head>
-<body>
-<div class="w" id="app"></div>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#1d2433;--mut:#667;--pri:#4a5fd8;--ok:#1f9d55;--bad:#d64545;--line:#dde2ee;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141824;--card:#1e2435;--ink:#eef0f7;--mut:#9aa3bd;--line:#32395100;--line:#323951}}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.45}
+.w{max-width:640px;margin:0 auto;padding:16px}
+.c{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px}
+h1{font-size:1.4rem;margin:.2em 0}.m{color:var(--mut);font-size:.9rem}
+.bar{height:8px;background:var(--line);border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;background:var(--pri);width:0}
+.tag{display:inline-block;padding:2px 10px;border-radius:99px;font-size:.78rem;font-weight:700;background:var(--pri);color:#fff}
+.word{font-size:2rem;font-weight:800;margin:.3em 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{border:2px solid var(--pri);background:transparent;color:var(--ink);padding:7px 13px;border-radius:99px;font-size:1rem;cursor:pointer}
+.chip.done{background:var(--pri);color:#fff}
+.def{min-height:48px;border-left:4px solid var(--pri);padding:6px 12px;background:var(--bg);border-radius:6px}
+.opts{display:grid;gap:10px;margin-top:12px}
+.opt{padding:12px;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;font-size:1.05rem;text-align:left;cursor:pointer}
+.opt:disabled{opacity:.45;cursor:not-allowed}
+.opt.ok{border-color:var(--ok);background:#1f9d5522}.opt.bad{border-color:var(--bad);background:#d6454522}
+.btn{background:var(--pri);color:#fff;border:0;border-radius:10px;padding:12px 20px;font-size:1rem;cursor:pointer;margin-top:12px}
+.fb{margin-top:10px;font-weight:600}
+</style></head><body><div class="w" id="app"></div>
 <script>
-// [question, [options], correctIndex]; sections: Scratch (1-34), HTML (35-67), Computer Studies (68-100)
-const S=[
-["Scratch is a ___ programming language.",["Text-based","Block-based visual","Machine code","Assembly"],1],
-["Which organisation created Scratch?",["MIT Media Lab","Google","Apple","Microsoft"],0],
-["The character you program in Scratch is called a:",["Sprite","Avatar","Icon","Actor box"],0],
-["The area where sprites perform is the:",["Stage","Palette","Timeline","Canvas bar"],0],
-["Where do you drag blocks to build a program?",["Scripts area","Costumes tab","Sounds tab","Stage"],0],
-["Which block colour group holds 'move 10 steps'?",["Motion (blue)","Looks (purple)","Sound (pink)","Events (yellow)"],0],
-["Which block group holds 'say Hello!'?",["Looks","Motion","Sensing","Operators"],0],
-["'when green flag clicked' is in the ___ category.",["Events","Control","Sensing","Variables"],0],
-["Which block repeats actions forever?",["forever","wait","if","stop all"],0],
-["'repeat 10' is an example of a:",["Loop","Variable","Event","Costume"],0],
-["Which block pauses a script for some seconds?",["wait","stop","hide","glide"],0],
-["An 'if ... then' block makes a:",["Decision","Loop","Costume","Sound"],0],
-["Which block group contains 'touching color?'",["Sensing","Motion","Looks","Events"],0],
-["Changing how a sprite looks is done with:",["Costumes","Backdrops","Variables","Extensions"],0],
-["The picture behind the sprites is the:",["Backdrop","Costume","Script","Block"],0],
-["A variable in Scratch is used to:",["Store a value","Draw a sprite","Play music","Delete blocks"],0],
-["'Score' in a game is usually a:",["Variable","Backdrop","Sound","Costume"],0],
-["Which block adds 1 to a variable?",["change score by 1","set score to 0","show variable","hide variable"],0],
-["Which block gives a random number?",["pick random 1 to 10","join","length of","round"],0],
-["The Operators category includes:",["+ − × ÷ and comparisons","Costumes","Sound effects","Backdrops"],0],
-["The x position of a sprite tells its:",["Left/right position","Up/down position","Size","Direction"],0],
-["The y position of a sprite tells its:",["Up/down position","Left/right position","Colour","Speed"],0],
-["Which block turns a sprite clockwise?",["turn ↻ 15 degrees","move 15 steps","glide 1 sec","go to x y"],0],
-["'broadcast message' is used to:",["Send a signal between sprites","Delete a sprite","Change backdrop colour","Save a project"],0],
-["Which key do you press to test the 'space' key script?",["Space bar","Enter only","Shift only","Esc"],0],
-["The green flag button is used to:",["Run the project","Delete the project","Save online","Change language"],0],
-["The red stop sign button:",["Stops the project","Starts it","Adds a sprite","Opens costumes"],0],
-["Which tab lets you draw or edit a sprite's look?",["Costumes","Code","Sounds","Backpack"],0],
-["Which tab is used to record or add audio?",["Sounds","Costumes","Code","Stage"],0],
-["Fixing mistakes in a program is called:",["Debugging","Compiling","Printing","Formatting"],0],
-["A set of steps to solve a problem is an:",["Algorithm","Icon","Browser","Costume"],0],
-["Blocks stacked in order run:",["Top to bottom","Bottom to top","Randomly","All at once always"],0],
-["Using a loop instead of copying blocks makes code:",["Shorter and neater","Longer","Broken","Silent"],0],
-["Scratch projects can be shared on the:",["Scratch website community","Only by USB","Telephone","Printer"],0],
-["HTML stands for:",["HyperText Markup Language","High Tech Modern Language","Home Tool Markup Language","HyperTransfer Machine Language"],0],
-["HTML is used to:",["Structure web pages","Repair hardware","Manage databases only","Type documents offline"],0],
-["An HTML element usually has an opening and a:",["Closing tag","Comment","Image","Table"],0],
-["Tags are written inside:",["Angle brackets < >","Curly braces { }","Square brackets [ ]","Quotes only"],0],
-["Which tag makes the largest heading?",["<h1>","<h6>","<head>","<title>"],0],
-["Which tag creates a paragraph?",["<p>","<para>","<pg>","<text>"],0],
-["Which tag inserts a line break?",["<br>","<lb>","<break>","<hr>"],0],
-["Which tag makes text bold?",["<b>","<i>","<u>","<bd>"],0],
-["Which tag makes text italic?",["<i>","<b>","<it>","<em2>"],0],
-["Which tag creates a hyperlink?",["<a>","<link>","<href>","<url>"],0],
-["The attribute that holds a link's address is:",["href","src","alt","title"],0],
-["Which tag displays an image?",["<img>","<image>","<pic>","<src>"],0],
-["The 'src' attribute of <img> gives:",["The image file path","The alt text","The width only","The border"],0],
-["The 'alt' attribute provides:",["Alternative text for an image","A link","A colour","A font"],0],
-["Which tag creates an unordered (bullet) list?",["<ul>","<ol>","<li>","<dl>"],0],
-["Which tag creates a numbered list?",["<ol>","<ul>","<li>","<nl>"],0],
-["Each item in a list uses the tag:",["<li>","<item>","<list>","<td>"],0],
-["Which tag creates a table?",["<table>","<tab>","<grid>","<tr> only"],0],
-["A table row is made with:",["<tr>","<td>","<th>","<row2>"],0],
-["A table data cell is:",["<td>","<tr>","<tb>","<cell>"],0],
-["A table header cell is:",["<th>","<td>","<head>","<hd>"],0],
-["The whole page content visible in the browser is inside:",["<body>","<head>","<meta>","<title>"],0],
-["The text on the browser tab comes from:",["<title>","<h1>","<body>","<p>"],0],
-["Which declaration starts a modern HTML5 page?",["<!DOCTYPE html>","<html5>","<?html?>","<start>"],0],
-["The root element of an HTML page is:",["<html>","<body>","<head>","<root>"],0],
-["Which section holds page information like the title?",["<head>","<body>","<footer>","<p>"],0],
-["HTML files are usually saved with the extension:",[".html",".exe",".mp3",".docx"],0],
-["Which program opens and displays HTML pages?",["Web browser","Calculator","Spreadsheet","Media player only"],0],
-["A comment in HTML is written as:",["<!-- comment -->","// comment","/* comment */","# comment"],0],
-["Which tag groups content as a block-level container?",["<div>","<span>","<b>","<br>"],0],
-["Which tag creates a form input field?",["<input>","<field>","<text>","<form2>"],0],
-["Which tag makes a clickable button?",["<button>","<click>","<press>","<btn2>"],0],
-["CSS is used with HTML to:",["Style the page","Store data","Send email","Compile code"],0],
-["Hardware means:",["Physical parts of a computer","Programs","The internet","Data only"],0],
-["Software means:",["Programs and instructions","Monitor and mouse","Cables","The case"],0],
-["Which is an input device?",["Keyboard","Monitor","Speaker","Printer"],0],
-["Which is an output device?",["Monitor","Mouse","Scanner","Microphone"],0],
-["The 'brain' of the computer is the:",["CPU","Monitor","Mouse","Speaker"],0],
-["CPU stands for:",["Central Processing Unit","Computer Power Unit","Central Program Utility","Control Printing Unit"],0],
-["RAM is:",["Temporary working memory","Permanent storage","An input device","A printer"],0],
-["Which is permanent storage?",["Hard disk","RAM","Cache only","Keyboard"],0],
-["A byte is made of how many bits?",["8","4","2","16"],0],
-["The smallest unit of data is a:",["Bit","Byte","Kilobyte","Megabyte"],0],
-["Binary uses which digits?",["0 and 1","0 to 9","1 and 2","A and B"],0],
-["Which is larger?",["Gigabyte","Megabyte","Kilobyte","Byte"],0],
-["An operating system is:",["Software that manages the computer","A game","A website","A cable"],0],
-["Which is an operating system?",["Windows","Chrome","Word","Paint"],0],
-["Which is a web browser?",["Firefox","Linux","Excel","Photoshop"],0],
-["Which is a word processing program?",["Microsoft Word","Excel","Paint","Scratch"],0],
-["Which program is mainly used for spreadsheets?",["Excel","Word","Notepad","Paint"],0],
-["WWW stands for:",["World Wide Web","World Web Wire","Wide World Window","Web World Work"],0],
-["The Internet is:",["A global network of networks","One big computer","A single website","A program"],0],
-["A unique address of a website is called a:",["URL","CPU","RAM","USB"],0],
-["Email stands for:",["Electronic mail","Easy mail","Express mailbox","Entry mail"],0],
-["Software designed to harm a computer is:",["Malware","Freeware","Firmware","Hardware"],0],
-["A program that detects and removes viruses is:",["Antivirus","Browser","Compiler","Spreadsheet"],0],
-["A strong password should:",["Mix letters, numbers, symbols","Be your name","Be 1234","Be shared with friends"],0],
-["Copying someone's work and claiming it as yours is:",["Plagiarism","Research","Citation","Backup"],0],
-["Making a copy of files in case of loss is a:",["Backup","Virus","Crash","Format"],0],
-["A computer network in a small area like a school is a:",["LAN","WAN","MAN only","PAN"],0],
-["Ctrl + C is the shortcut for:",["Copy","Cut","Paste","Close"],0],
-["Ctrl + V is the shortcut for:",["Paste","Copy","Save","Undo"],0],
-["Ctrl + Z usually:",["Undoes the last action","Saves","Prints","Closes"],0],
-["Ctrl + S usually:",["Saves the file","Selects all","Searches web","Starts program"],0],
-["A folder is used to:",["Organise files","Cool the CPU","Print pages","Connect to Wi-Fi"],0],
-["Which is a programming language?",["Python","Windows","Chrome","Printer"],0],
-];
-const CATS=[["Scratch",0,34,"🐱"],["HTML Basics",34,67,"🌐"],["Computer Studies",67,100,"💻"],["All 100 Questions",0,100,"🏆"]];
-const app=document.getElementById('app');
-let qs=[],i=0,sc=0,done=false,name="";
-const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
-function shuffle(a){a=a.slice();for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
-function home(){
- app.innerHTML=`<div class="c"><h1>🧠 Scratch, HTML &amp; Computer Studies Quiz</h1><p>100 questions. Pick a section, answer, and see your score.</p>
- <div class="cats">${CATS.map((c,n)=>`<button class="cat" onclick="start(${n})"><span>${c[3]} ${c[0]}</span><small>${c[2]-c[1]} questions</small></button>`).join("")}</div></div>`}
-function start(n){const c=CATS[n];name=c[0];qs=shuffle(S.slice(c[1],c[2])).map(q=>{const o=q[1].map((t,k)=>[t,k===q[2]]);return [q[0],shuffle(o)]});i=0;sc=0;show()}
-function show(){
- const q=qs[i];
- app.innerHTML=`<div class="c"><div class="top"><span>${name}</span><span>Question ${i+1} / ${qs.length} · Score ${sc}</span></div>
- <div class="bar"><i style="width:${i/qs.length*100}%"></i></div>
- <div class="q">${esc(q[0])}</div>
- ${q[1].map((o,k)=>`<button class="o" onclick="pick(${k})">${esc(o[0])}</button>`).join("")}
- <div id="nx"></div></div>`}
-function pick(k){
- const q=qs[i],b=document.querySelectorAll('.o');
- b.forEach((el,n)=>{el.disabled=true;if(q[1][n][1])el.classList.add('ok')});
- if(q[1][k][1])sc++;else b[k].classList.add('no');
- document.getElementById('nx').innerHTML=`<button class="p o" onclick="next()">${i+1===qs.length?"See results":"Next →"}</button>`}
-function next(){i++;i<qs.length?show():end()}
-function end(){
- const p=Math.round(sc/qs.length*100),m=p>=80?"Excellent work! 🎉":p>=50?"Good effort, keep practising! 👍":"Keep learning, you'll improve! 💪";
- app.innerHTML=`<div class="c"><h1>Results: ${name}</h1><div class="big">${sc} / ${qs.length}</div><p style="text-align:center">${p}% · ${m}</p>
- <div class="r"><button class="p" onclick="start(CATS.findIndex(c=>c[0]===name))">Retry</button><button onclick="home()">Menu</button></div></div>`}
-home();
-</script>
-</body>
-</html>
+const RAW=`s|abundant|plentiful|scarce|tiny|hollow
+s|brave|courageous|timid|gloomy|lazy
+s|candid|honest|secretive|clumsy|wealthy
+s|diligent|hardworking|careless|jealous|ancient
+s|enormous|gigantic|miniature|fragile|quiet
+s|fatigue|exhaustion|energy|hunger|delight
+s|generous|charitable|greedy|stubborn|nervous
+s|hesitate|pause|rush|shout|gather
+s|ignorant|uninformed|wise|polite|cheerful
+s|jovial|cheerful|grumpy|tired|rigid
+s|keen|eager|reluctant|rough|distant
+s|loyal|faithful|fickle|rude|shy
+s|meager|scanty|ample|noisy|bright
+s|obstinate|stubborn|flexible|gentle|frantic
+s|peculiar|strange|familiar|ordinary|tidy
+s|rapid|swift|sluggish|steady|heavy
+s|serene|calm|stormy|anxious|harsh
+s|tranquil|peaceful|turbulent|rowdy|bitter
+s|vivid|vibrant|dull|pale|vague
+s|weary|tired|refreshed|thrilled|curious
+s|conceal|hide|reveal|display|announce
+s|commence|begin|finish|delay|cancel
+s|fragile|delicate|sturdy|massive|solid
+s|gloomy|dismal|radiant|jolly|brisk
+s|ponder|contemplate|ignore|forget|dismiss
+a|ancient|modern|primitive|antique|historic
+a|victory|defeat|triumph|success|conquest
+a|expand|contract|enlarge|stretch|grow
+a|generous|stingy|giving|kind|charitable
+a|optimist|pessimist|dreamer|believer|leader
+a|transparent|opaque|clear|see-through|glassy
+a|permanent|temporary|lasting|eternal|fixed
+a|accept|reject|receive|welcome|take
+a|arrive|depart|reach|land|enter
+a|attract|repel|draw|pull|tempt
+a|barren|fertile|empty|dry|desolate
+a|courage|cowardice|bravery|valor|boldness
+a|distant|near|far|remote|faraway
+a|humble|arrogant|modest|meek|gentle
+a|inferior|superior|lesser|poorer|minor
+a|mature|immature|grown|ripe|adult
+a|prohibit|allow|forbid|ban|block
+a|rural|urban|rustic|farm|village
+a|scarce|plentiful|rare|limited|sparse
+a|vague|clear|hazy|murky|blurred
+a|increase|decrease|grow|rise|boost
+a|shallow|deep|flat|thin|narrow
+a|sincere|deceitful|truthful|earnest|genuine
+a|strict|lenient|firm|harsh|severe
+a|wise|foolish|clever|sage|smart`;
+const D={abundant:"existing in large amounts",scarce:"hard to find; in short supply",plentiful:"more than enough",tiny:"very small",hollow:"empty inside",brave:"ready to face danger",courageous:"showing bravery",timid:"shy and fearful",gloomy:"dark and sad",lazy:"unwilling to work",candid:"open and honest",honest:"truthful",secretive:"keeping things hidden",clumsy:"awkward in movement",wealthy:"very rich",diligent:"careful and hardworking",hardworking:"putting in great effort",careless:"not paying attention",jealous:"envious of others",ancient:"very old",enormous:"extremely large",gigantic:"huge",miniature:"a very small version",fragile:"easily broken",quiet:"making little noise",fatigue:"extreme tiredness",exhaustion:"complete tiredness",energy:"strength to be active",hunger:"need for food",delight:"great joy",generous:"willing to give freely",charitable:"kind and giving to those in need",greedy:"wanting too much",stubborn:"refusing to change one's mind",nervous:"worried or uneasy",hesitate:"to pause before acting",pause:"a short stop",rush:"move in great haste",shout:"yell loudly",gather:"bring together",ignorant:"lacking knowledge",uninformed:"not having information",wise:"having good judgement",polite:"well-mannered",cheerful:"happy and bright",jovial:"jolly and good-humoured",grumpy:"bad-tempered",tired:"needing rest",rigid:"stiff; not bending",keen:"very interested",eager:"wanting to do something",reluctant:"unwilling",rough:"not smooth",distant:"far away",loyal:"faithful to a person or cause",faithful:"steadfast; true",fickle:"changing often",rude:"impolite",shy:"nervous around others",meager:"small in amount",scanty:"barely enough",ample:"more than enough",noisy:"loud",bright:"giving much light",obstinate:"stubbornly refusing to change",flexible:"able to bend or adapt",gentle:"soft and kind",frantic:"wild with worry",peculiar:"odd or unusual",strange:"unusual",familiar:"well known",ordinary:"normal",tidy:"neat",rapid:"very fast",swift:"quick",sluggish:"slow-moving",steady:"constant",heavy:"weighing a lot",serene:"calm and peaceful",calm:"not disturbed",stormy:"wild and violent",anxious:"worried",harsh:"cruel or severe",tranquil:"free from disturbance",peaceful:"quiet and calm",turbulent:"wild and disorderly",rowdy:"noisy and disorderly",bitter:"sharp and unpleasant in taste",vivid:"strong and bright",vibrant:"full of life and colour",dull:"not interesting or bright",pale:"light in colour",vague:"unclear",weary:"very tired",refreshed:"made fresh again",thrilled:"very excited",curious:"eager to know",conceal:"to hide",hide:"put out of sight",reveal:"make known",display:"show",announce:"tell publicly",commence:"to begin",begin:"start",finish:"complete",delay:"make late",cancel:"call off",delicate:"easily damaged",sturdy:"strong and solid",massive:"very large and heavy",solid:"firm and hard",dismal:"gloomy and depressing",radiant:"shining brightly",jolly:"happy and cheerful",brisk:"quick and lively",ponder:"to think carefully",contemplate:"think deeply",ignore:"pay no attention to",forget:"fail to remember",dismiss:"send away",modern:"of the present time",primitive:"very early; simple",antique:"very old object",historic:"important in history",victory:"winning",defeat:"a loss",triumph:"a great win",success:"achieving a goal",conquest:"taking by force",expand:"to grow larger",contract:"to shrink",enlarge:"make bigger",stretch:"make longer",grow:"become bigger",stingy:"unwilling to spend or give",giving:"handing over freely",kind:"caring and friendly",optimist:"one who expects good outcomes",pessimist:"one who expects the worst",dreamer:"one who imagines",believer:"one who has faith",leader:"one who guides",transparent:"able to be seen through",opaque:"not letting light through",clear:"easy to see or understand","see-through":"transparent",glassy:"smooth and shiny like glass",permanent:"lasting forever",temporary:"lasting a short time",lasting:"continuing",eternal:"without end",fixed:"set firmly",accept:"to receive willingly",reject:"to refuse",receive:"to get",welcome:"greet gladly",take:"grasp or get",arrive:"to reach a place",depart:"to leave",reach:"get to",land:"come down",enter:"go in",attract:"to pull towards",repel:"to push away",draw:"pull",pull:"move towards oneself",tempt:"entice",barren:"unable to produce plants",fertile:"rich and productive",empty:"containing nothing",dry:"without moisture",desolate:"lonely and bare",courage:"bravery",cowardice:"lack of courage",bravery:"courage",valor:"great courage",boldness:"daring",near:"close",far:"a long way off",remote:"far from everything",faraway:"at a great distance",humble:"not proud",arrogant:"overly proud",modest:"not boastful",meek:"quiet and gentle",inferior:"lower in quality",superior:"higher in quality",lesser:"smaller in importance",poorer:"lower in quality",minor:"small in importance",mature:"fully grown",immature:"not fully developed",grown:"fully developed",ripe:"ready to eat",adult:"fully grown person",prohibit:"to forbid",allow:"permit",forbid:"order not to do",ban:"officially forbid",block:"obstruct",rural:"of the countryside",urban:"of the city",rustic:"country-style",farm:"land for crops",village:"small settlement",rare:"not often found",limited:"restricted",sparse:"thinly spread",hazy:"not clear",unclear:"not easy to understand",murky:"dark and cloudy",blurred:"smudged; not sharp",increase:"to grow",decrease:"to become less",rise:"go up",boost:"lift or raise",shallow:"not deep",deep:"far down",flat:"level",thin:"not thick",narrow:"small in width",sincere:"genuine",deceitful:"dishonest",truthful:"telling the truth",earnest:"serious and sincere",genuine:"real",strict:"demanding obedience",lenient:"not strict",firm:"not soft",severe:"very strict or harsh",foolish:"lacking sense",clever:"quick to learn",sage:"a wise person",smart:"intelligent"};
+const sh=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const Q=sh(RAW.split("\n").map(l=>{const p=l.split("|");return{t:p[0],w:p[1],c:p[2],o:sh(p.slice(2))}}));
+let i=0,score=0,seen,ans,wrong=[],cur="";
+const app=document.getElementById("app");
+function start(){i=0;score=0;wrong=[];app.innerHTML=`<div class="c"><h1>Synonyms &amp; Antonyms Quiz</h1><p>50 questions · Grade 8</p><p><b>Rule:</b> before you can answer, look up the question word <b>and every option</b> in the dictionary. Tap each word to read its meaning, then choose your answer.</p><button class="btn" onclick="show()">Start quiz</button></div>`}
+function show(){const q=Q[i];seen=new Set();ans=false;cur="";const ws=[q.w,...q.o];
+app.innerHTML=`<div class="c"><div class="m">Question ${i+1} of 50 · Score ${score}</div><div class="bar"><i style="width:${i*2}%"></i></div></div>
+<div class="c"><span class="tag">${q.t=="s"?"SYNONYM (same meaning)":"ANTONYM (opposite meaning)"}</span><div class="word">${q.w}</div>
+<div class="m">📖 Dictionary check: <b id="cnt">0</b>/5 words looked up</div>
+<div class="chips">${ws.map(w=>`<button class="chip" data-w="${w}" onclick="look(this)">${w}</button>`).join("")}</div>
+<div class="def" id="def">Tap a word above to see its meaning.</div>
+<div class="opts">${q.o.map(o=>`<button class="opt" disabled data-o="${o}" onclick="pick(this)">${o}</button>`).join("")}</div>
+<div class="fb" id="fb"></div></div>`}
+function look(b){const w=b.dataset.w;b.classList.add("done");seen.add(w);document.getElementById("def").innerHTML=`<b>${w}</b>: ${D[w]||"—"}`;document.getElementById("cnt").textContent=seen.size;
+if(seen.size==5&&!ans){document.querySelectorAll(".opt").forEach(o=>o.disabled=false);document.getElementById("fb").textContent="✅ All words checked. Now choose your answer."}}
+function pick(b){if(ans)return;ans=true;const q=Q[i],ok=b.dataset.o==q.c;
+document.querySelectorAll(".opt").forEach(o=>{o.disabled=true;if(o.dataset.o==q.c)o.classList.add("ok")});
+if(ok)score++;else{b.classList.add("bad");wrong.push(q)}
+document.getElementById("fb").innerHTML=(ok?"🎉 Correct!":"❌ Not quite. Correct answer: <b>"+q.c+"</b>")+`<br><button class="btn" onclick="next()">${i==49?"See results":"Next →"}</button>`}
+function next(){i++;i<50?show():end()}
+function end(){const p=Math.round(score*2);app.innerHTML=`<div class="c"><h1>Quiz complete!</h1><p class="word">${score} / 50 (${p}%)</p><p>${p>=80?"Excellent work! 🌟":p>=60?"Good effort — review the ones below.":"Keep practising — use the dictionary and try again."}</p>
+${wrong.length?`<h3>Review</h3>`+wrong.map(q=>`<p><b>${q.w}</b> (${q.t=="s"?"synonym":"antonym"}) → <b>${q.c}</b> <span class="m">– ${D[q.c]}</span></p>`).join(""):""}
+<button class="btn" onclick="location.reload()">Try again</button></div>`}
+start();
+</script></body></html>
