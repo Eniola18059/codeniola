@@ -1,270 +1,136 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Tuple Quest: Python Tuples for Beginners</title>
+<title>Grade 6 Fractions Quiz</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fffaf0;--card:#fff;--ink:#1d2433;--mut:#5d6678;--acc:#ff6b35;--acc2:#2a7de1;--code:#161b2e;--codet:#e8ecff;--ok:#1f9d55;--bad:#d64545;--bd:#eadfcb;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10131c;--card:#1a1f2e;--ink:#eef1fa;--mut:#9aa4bd;--bd:#2c3347;--code:#0a0d15}}
-:root[data-theme="dark"]{--bg:#10131c;--card:#1a1f2e;--ink:#eef1fa;--mut:#9aa4bd;--bd:#2c3347;--code:#0a0d15}
-html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+:root{--bg:#eef6f1;--ink:#12263a;--card:#fff;--line:#c9dcd1;--acc:#f26a1b;--accink:#fff;--ok:#12805c;--okbg:#dcf3e9;--bad:#b83232;--badbg:#fbe4e4;--mut:#4d6275;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1c28;--ink:#e8f1f5;--card:#172a3a;--line:#2b4357;--acc:#ff8a3d;--accink:#1a1209;--ok:#4fd1a1;--okbg:#12372c;--bad:#ff8080;--badbg:#3d1f24;--mut:#9db3c3}}
+:root[data-theme="dark"]{--bg:#0f1c28;--ink:#e8f1f5;--card:#172a3a;--line:#2b4357;--acc:#ff8a3d;--accink:#1a1209;--ok:#4fd1a1;--okbg:#12372c;--bad:#ff8080;--badbg:#3d1f24;--mut:#9db3c3}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-.w{max-width:820px;margin:0 auto;padding:16px}
-header{text-align:center;padding:30px 8px 16px}
-h1{font-size:2.2rem;margin:0;line-height:1.15}h1 span{color:var(--acc)}
-.sub{color:var(--mut);margin-top:8px}
-nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding:8px 0;display:flex;gap:8px;overflow-x:auto;z-index:5;border-bottom:1px solid var(--bd)}
-nav a{white-space:nowrap;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--bd);padding:6px 14px;border-radius:99px;font-size:.9rem}
-section{margin:28px 0}h2{font-size:1.55rem;margin:0 0 6px}
-.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:18px;margin:14px 0}
-.card h3{margin:0 0 8px;font-size:1.25rem}
-.tag{display:inline-block;background:var(--acc);color:#fff;border-radius:8px;padding:1px 10px;font-size:.78rem;font-weight:700;margin-right:6px}
-.tag.b{background:var(--acc2)}
-pre{background:var(--code);color:var(--codet);padding:14px;border-radius:12px;overflow-x:auto;font:14px/1.55 ui-monospace,Menlo,Consolas,monospace;margin:10px 0}
-.out{border-left:4px solid var(--ok)}
-.box{border-radius:12px;padding:10px 14px;margin:10px 0}
-.tip{background:rgba(42,125,225,.12)}.bug{background:rgba(214,69,69,.12)}.try{background:rgba(255,107,53,.13)}
-button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:8px 14px;background:var(--acc2);color:#fff}
-button.g{background:transparent;color:var(--acc2);border:1px solid var(--acc2);padding:4px 10px;font-size:.85rem}
-details{margin:8px 0}summary{cursor:pointer;font-weight:600;color:var(--acc2)}
-ol,ul{padding-left:22px}li{margin:4px 0}
-.opts{display:grid;gap:8px;margin-top:8px}
-.opts button{background:var(--card);color:var(--ink);border:1px solid var(--bd);text-align:left}
-.opts button.ok{background:var(--ok);color:#fff}.opts button.no{background:var(--bad);color:#fff}
-.why{display:none;margin-top:6px;color:var(--mut)}
-.prog{height:10px;background:var(--bd);border-radius:9px;overflow:hidden}.prog i{display:block;height:100%;width:0;background:var(--ok);transition:width .3s}
-code{background:rgba(127,127,127,.18);padding:1px 6px;border-radius:6px;font-size:.92em}
-footer{text-align:center;color:var(--mut);padding:26px 0}
-</style></head><body><div class="w">
-<header><div style="font-size:3rem">🐍</div><h1>Tuple <span>Quest</span></h1>
-<div class="sub">Hi Eniola! No experience needed. We start from zero and go one small step at a time.</div></header>
-<nav><a href="#setup">Setup</a><a href="#learn">Lessons</a><a href="#quiz">Quiz</a><a href="#projects">Projects</a><a href="#gloss">Words</a></nav>
-
-<section id="setup"><h2>🚀 Step 0: Where do I type Python?</h2>
-<div class="card"><p>Python is a language you use to tell a computer what to do. You write instructions (called <b>code</b>), and the computer follows them from top to bottom.</p>
-<ol><li>Open <b>programiz.com/python-programming/online-compiler</b> in your browser. It's free and needs no install.</li>
-<li>Delete the example code in the big box.</li>
-<li>Type (don't copy) a lesson's code, then press the <b>Run</b> button.</li>
-<li>Your answer shows in the box below. If you see red text, that's an <b>error</b>. Don't panic: it just tells you what to fix, and every coder gets them all the time.</li></ol>
-<div class="box tip">💡 Python is strict about spelling, brackets <code>( )</code>, quote marks <code>" "</code> and spaces at the start of lines. One missing quote can cause an error.</div></div></section>
-
-<section id="learn"><h2>📘 Lessons</h2><p class="sub">Do them in order. Read the comments (the lines starting with <code>#</code>). Python ignores them, they're notes for humans.</p><div id="lessons"></div></section>
-<section id="quiz"><h2>🧠 Quiz</h2><div class="prog"><i id="bar"></i></div><div id="qs"></div><p id="score" style="font-weight:700;font-size:1.15rem"></p></section>
-<section id="projects"><h2>🛠️ Projects</h2><p class="sub">Each project is built in small steps. Type it yourself, run it, then try the Level-up. Projects 1 to 3 are the easiest.</p><div id="projs"></div></section>
-<section id="gloss"><h2>📖 Words to Know</h2><div class="card"><ul>
-<li><b>Variable</b>: a name that holds a value, like <code>age = 13</code>.</li>
-<li><b>String</b>: text inside quotes, like <code>"hello"</code>.</li>
-<li><b>Integer</b>: a whole number like <code>7</code>. A <b>float</b> has a decimal point, like <code>7.5</code>.</li>
-<li><b>Tuple</b>: a fixed group of items in <code>( )</code>.</li>
-<li><b>Element or item</b>: one thing inside the tuple.</li>
-<li><b>Index</b>: the position number of an item, starting at 0.</li>
-<li><b>Immutable</b>: cannot be changed after it's made.</li>
-<li><b>Unpacking</b>: pouring a tuple's items into separate variables.</li>
-<li><b>Loop</b>: code that repeats. <b>Function</b>: a named block of code you can reuse.</li></ul></div></section>
-<footer>Mistakes are how coders learn. Keep going, Eniola! 💪</footer></div>
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Fredoka,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:18px;line-height:1.45}
+main{max-width:640px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:1.6rem;margin:0;font-weight:700;letter-spacing:-.01em}
+.sub{color:var(--mut);margin:2px 0 16px}
+.bar{display:flex;gap:2px;height:12px;margin:10px 0 6px}
+.bar i{flex:1;background:var(--line);border-radius:2px}
+.bar i.on{background:var(--ok)}.bar i.x{background:var(--bad)}.bar i.cur{background:var(--acc)}
+.meta{display:flex;justify-content:space-between;color:var(--mut);font-size:.9rem}
+.card{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:20px;margin-top:14px}
+.q{font-size:1.3rem;font-weight:500;margin:0 0 16px}
+.opts{display:grid;gap:10px}
+.opt{font:inherit;font-size:1.15rem;text-align:left;background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;min-height:52px}
+.opt:hover:not(:disabled){border-color:var(--acc)}
+.opt:disabled{cursor:default}
+.opt.ok{background:var(--okbg);border-color:var(--ok)}
+.opt.no{background:var(--badbg);border-color:var(--bad)}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-size:1rem}
+.fb.ok{background:var(--okbg)}.fb.no{background:var(--badbg)}
+.btn{font:inherit;font-weight:600;background:var(--acc);color:var(--accink);border:0;border-radius:12px;padding:12px 22px;margin-top:16px;cursor:pointer;font-size:1.05rem}
+.btn.alt{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.big{font-size:3rem;font-weight:700;margin:0;line-height:1.1}
+.f{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;line-height:1.1;margin:0 .15em;font-size:.85em}
+.f b{font-weight:600;padding:0 .2em}.f b:first-child{border-bottom:2px solid currentColor}
+.rev{margin:10px 0 0;padding:0;list-style:none}
+.rev li{padding:10px 0;border-top:1px solid var(--line);font-size:1rem}
+.rev span{color:var(--ok);font-weight:600}
+.hide{display:none}
+</style>
+</head>
+<body>
+<main>
+<h1>Fractions Quiz</h1>
+<p class="sub">Grade 6 maths &middot; add, subtract, multiply and divide fractions &middot; 50 questions</p>
+<div id="app"></div>
+</main>
 <script>
-const L=[
-{t:"Warm-up: print, variables, input",s:`<p><b>print()</b> shows something on the screen. <b>A variable</b> is a labelled box that remembers a value. <b>input()</b> asks the user to type something.</p><p>Text must be in quotes. Numbers have no quotes.</p>`,
-c:`print("Hello!")            # shows: Hello!
-name = "Eniola"            # variable called name holds text
-age = 13                   # variable called age holds a number
-print(name, age)           # shows: Eniola 13
-fav = input("Fav food? ")  # waits for you to type, saves it in fav
-print("I like", fav)`,o:`Hello!
-Eniola 13
-Fav food? jollof        <- you type this
-I like jollof`,b:`The <code>=</code> sign here means "store this in that box", not "equals" like in maths.`,
-q:"Make a variable called city with your city's name and print it.",a:`city = "Lagos"
-print(city)`},
-{t:"1. What is a tuple?",s:`<p>Imagine you're packing a lunch box with a few things, then <b>locking it</b>. You can look inside and use the items, but you can't swap them out. A <b>tuple</b> is exactly that: several items stored together under one name, written inside round brackets <code>( )</code> with commas between items.</p><p>Use a tuple when the information shouldn't change: your date of birth, map coordinates, days of the week.</p>`,
-c:`player = ("Eniola", 13, "Lagos")   # 3 items in one tuple
-print(player)                      # show the whole tuple
-print(type(player))                # ask Python: what is this?`,o:`('Eniola', 13, 'Lagos')
-<class 'tuple'>`,b:`Don't use square brackets <code>[ ]</code>. Those make a <i>list</i>, which is different.`,
-q:"Make a tuple called fruits with 3 fruits in it, and print it.",a:`fruits = ("mango", "apple", "orange")
-print(fruits)`},
-{t:"2. Different ways to make tuples",s:`<p>A tuple can hold text, numbers or both. It can be empty. The tricky one: <b>a tuple with only one item needs a comma</b> after it, otherwise Python thinks the brackets are just maths brackets.</p>`,
-c:`mixed = ("pen", 5, 2.5, True)   # text, whole number, decimal, True/False
-empty = ()                      # nothing inside
-one = (7,)                      # one item: the comma is REQUIRED
-not_tuple = (7)                 # this is just the number 7!
-print(type(one))
-print(type(not_tuple))
-nums = tuple([1, 2, 3])         # turn a list into a tuple
-print(nums)`,o:`<class 'tuple'>
-<class 'int'>
-(1, 2, 3)`,b:`Forgetting the comma in a one-item tuple is the most common beginner slip.`,
-q:"Make a one-item tuple called pet containing \"cat\". Print its type.",a:`pet = ("cat",)
-print(type(pet))`},
-{t:"3. Getting items out: indexing and slicing",s:`<p>Each item sits in a numbered slot called an <b>index</b>. Here's the surprise: <b>counting starts at 0</b>, not 1. So the first item is index 0, the second is 1, and so on. A negative index counts backwards from the end: <code>-1</code> is the last item.</p><p><b>Slicing</b> grabs a piece: <code>t[1:3]</code> starts at index 1 and stops <i>before</i> index 3.</p>`,
-c:`colors = ("red", "green", "blue", "gold")
-#  index:    0       1        2       3
-print(colors[0])      # first item
-print(colors[3])      # last item
-print(colors[-1])     # also the last item
-print(colors[1:3])    # index 1 and 2 (stops before 3)
-print(colors[:2])     # from the start up to before 2
-print(colors[2:])     # from index 2 to the end`,o:`red
-gold
-gold
-('green', 'blue')
-('red', 'green')
-('blue', 'gold')`,b:`<code>colors[4]</code> gives <b>IndexError: tuple index out of range</b> because this tuple only has indexes 0 to 3.`,
-q:"With colors above, print \"blue\" using a negative index.",a:`print(colors[-2])`},
-{t:"4. Tuples can't be changed",s:`<p>The word for this is <b>immutable</b> (im-MEW-tuh-bul). Once you create a tuple, you can't change, add or remove items. This protects important data from accidents.</p><p>If you really need a different tuple, make a <b>new</b> one.</p>`,
-c:`days = ("Mon", "Tue", "Wed")
-# days[0] = "Sun"      <- this would cause an ERROR, so we skip it
-new_days = days + ("Thu",)    # joins two tuples into a NEW one
-print(new_days)
-print(days)                   # the old one never changed
-print(days * 2)               # repeat it twice`,o:`('Mon', 'Tue', 'Wed', 'Thu')
-('Mon', 'Tue', 'Wed')
-('Mon', 'Tue', 'Wed', 'Mon', 'Tue', 'Wed')`,b:`Error message: <b>TypeError: 'tuple' object does not support item assignment</b>. It means "you tried to change a locked tuple".`,
-q:"Make a tuple of two numbers, then join it with (3,) to make a three-number tuple.",a:`nums = (1, 2)
-nums = nums + (3,)
-print(nums)`},
-{t:"5. Unpacking (the cool trick)",s:`<p>Instead of using indexes, you can pour all items into separate variables in <b>one line</b>. The first variable gets the first item, and so on. The number of variables must match the number of items.</p><p>You can also <b>swap</b> two variables in a single line.</p>`,
-c:`hero = ("Zara", 100, "sword")
-name, health, weapon = hero     # unpack all 3 items
-print(name)
-print(health)
-print(weapon)
-print(name, "has", health, "HP and a", weapon)
-
-a = 1
-b = 2
-a, b = b, a                     # swap!
-print(a, b)`,o:`Zara
-100
-sword
-Zara has 100 HP and a sword
-2 1`,b:`<code>x, y = (1, 2, 3)</code> gives <b>ValueError: too many values to unpack</b> because 2 variables can't hold 3 items.`,
-q:"Unpack point = (5, 9) into x and y and print x + y.",a:`x, y = point
-print(x + y)   # 14`},
-{t:"6. Loops and useful tools",s:`<p>A <b>for loop</b> goes through every item, one at a time. Notice the colon <code>:</code> and the <b>4 spaces</b> in front of the line inside the loop. Python uses those spaces to know which lines belong to the loop.</p><p>Handy tools: <code>len()</code> counts items, <code>.count(x)</code> says how many times x appears, <code>.index(x)</code> finds its position, and <code>in</code> checks if something is inside.</p>`,
-c:`scores = (7, 9, 7, 10)
-for s in scores:               # s becomes each item in turn
-    print("Score:", s)         # indented = inside the loop
-print(len(scores))             # how many items
-print(scores.count(7))         # how many 7s
-print(scores.index(10))        # position of 10
-print(9 in scores)             # is 9 inside?
-print(max(scores), min(scores), sum(scores))`,o:`Score: 7
-Score: 9
-Score: 7
-Score: 10
-4
-2
-3
-True
-10 7 33`,b:`Forgetting the spaces before the <code>print</code> inside the loop gives <b>IndentationError</b>.`,
-q:"Loop through ('a','b','c') and print each letter.",a:`for letter in ("a", "b", "c"):
-    print(letter)`},
-{t:"7. Tuples vs lists, and a list of tuples",s:`<p>A <b>list</b> uses <code>[ ]</code> and <i>can</i> be changed. A <b>tuple</b> uses <code>( )</code> and can't. Use a list when things will change (a shopping list), and a tuple when they won't (coordinates).</p><p>You can turn one into the other with <code>list()</code> and <code>tuple()</code>. Putting tuples inside a list is a great way to store records, like a contact book.</p>`,
-c:`shopping = ["rice", "beans"]   # list: changeable
-shopping.append("oil")         # allowed on a list
-print(shopping)
-
-t = tuple(shopping)            # lock it into a tuple
-print(t)
-
-friends = [("Ada", 12), ("Tobi", 14), ("Ife", 13)]
-for name, age in friends:      # unpack each tuple in the loop
-    print(name, "is", age)`,o:`['rice', 'beans', 'oil']
-('rice', 'beans', 'oil')
-Ada is 12
-Tobi is 14
-Ife is 13`,b:`Calling <code>.append()</code> on a tuple gives <b>AttributeError</b>. Tuples have no append.`,
-q:"Add (\"Chi\", 15) to the friends list.",a:`friends.append(("Chi", 15))`}
+const Q=(q,a,b,c,d,e,t)=>({q,o:[a,b,c,d],e,t});
+const QS=[
+Q("1/2 + 1/4 = ?","3/4","1/3","1/8","1","Use denominator 4: 2/4 + 1/4 = 3/4.","Adding"),
+Q("2/5 + 1/5 = ?","3/5","3/10","2/25","4/5","Use denominator 5: 2/5 + 1/5 = 3/5.","Adding"),
+Q("1/3 + 1/6 = ?","1/2","2/9","1/18","2/3","Use denominator 6: 2/6 + 1/6 = 3/6, which is 1/2.","Adding"),
+Q("3/4 + 1/8 = ?","7/8","1/3","3/32","1","Use denominator 8: 6/8 + 1/8 = 7/8.","Adding"),
+Q("2/3 + 1/4 = ?","11/12","3/7","1/6","1","Use denominator 12: 8/12 + 3/12 = 11/12.","Adding"),
+Q("5/6 + 1/3 = ?","1 1/6","2/3","5/18","1 1/3","Use denominator 6: 5/6 + 2/6 = 7/6, which is 1 1/6.","Adding"),
+Q("3/5 + 3/10 = ?","9/10","2/5","9/50","1","Use denominator 10: 6/10 + 3/10 = 9/10.","Adding"),
+Q("7/8 + 3/4 = ?","1 5/8","5/6","21/32","1 3/4","Use denominator 8: 7/8 + 6/8 = 13/8, which is 1 5/8.","Adding"),
+Q("2 1/2 + 1 1/4 = ?","3 3/4","1 2/3","3 1/8","4","Use denominator 4: 10/4 + 5/4 = 15/4, which is 3 3/4.","Adding"),
+Q("3 1/3 + 2 1/6 = ?","5 1/2","2 5/9","7 2/9","5 2/3","Use denominator 6: 20/6 + 13/6 = 33/6, which is 5 1/2.","Adding"),
+Q("4 2/5 + 1 7/10 = ?","6 1/10","2 3/5","7 12/25","6 1/5","Use denominator 10: 44/10 + 17/10 = 61/10, which is 6 1/10.","Adding"),
+Q("Ada drank 1/3 litre of water in the morning and 1/4 litre in the afternoon. How many litres did she drink?","7/12","2/7","1/12","2/3","Use denominator 12: 4/12 + 3/12 = 7/12.","Adding"),
+Q("Tayo ran 1 1/2 km on Monday and 2 3/4 km on Tuesday. How far did he run in total?","4 1/4","2 1/3","4 1/8","4 1/2","Use denominator 4: 6/4 + 11/4 = 17/4, which is 4 1/4.","Adding"),
+Q("3/4 − 1/4 = ?","1/2","1","3/4","1/4","Use denominator 4: 3/4 − 1/4 = 2/4, which is 1/2.","Subtracting"),
+Q("7/10 − 2/5 = ?","3/10","1 1/10","1","2/5","Use denominator 10: 7/10 − 4/10 = 3/10.","Subtracting"),
+Q("5/6 − 1/3 = ?","1/2","1 1/6","1 1/3","2/3","Use denominator 6: 5/6 − 2/6 = 3/6, which is 1/2.","Subtracting"),
+Q("3/4 − 1/6 = ?","7/12","11/12","1","2/3","Use denominator 12: 9/12 − 2/12 = 7/12.","Subtracting"),
+Q("7/8 − 1/2 = ?","3/8","1 3/8","1","1/2","Use denominator 8: 7/8 − 4/8 = 3/8.","Subtracting"),
+Q("2/3 − 1/5 = ?","7/15","13/15","1/2","8/15","Use denominator 15: 10/15 − 3/15 = 7/15.","Subtracting"),
+Q("3 1/2 − 1 1/4 = ?","2 1/4","4 3/4","1","2 1/2","Use denominator 4: 14/4 − 5/4 = 9/4, which is 2 1/4.","Subtracting"),
+Q("4 1/3 − 1 2/3 = ?","2 2/3","6","3","2 1/3","Use denominator 3: 13/3 − 5/3 = 8/3, which is 2 2/3.","Subtracting"),
+Q("5 − 2 3/4 = ?","2 1/4","7 3/4","2","2 1/2","Use denominator 4: 20/4 − 11/4 = 9/4, which is 2 1/4.","Subtracting"),
+Q("6 1/5 − 2 7/10 = ?","3 1/2","8 9/10","4/5","3 3/5","Use denominator 10: 62/10 − 27/10 = 35/10, which is 3 1/2.","Subtracting"),
+Q("A ribbon is 5/6 m long. Bisi uses 1/2 m of it. How much ribbon is left?","1/3","1 1/3","1","1/2","Use denominator 6: 5/6 − 3/6 = 2/6, which is 1/3.","Subtracting"),
+Q("Kemi had 3 1/4 kg of rice and used 1 1/2 kg. How much rice is left?","1 3/4","4 3/4","5","2","Use denominator 4: 13/4 − 6/4 = 7/4, which is 1 3/4.","Subtracting"),
+Q("1/2 × 3/5 = ?","3/10","1 1/10","3/7","3/5","Multiply tops, multiply bottoms: 1/2 × 3/5 = 3/10.","Multiplying"),
+Q("2/3 × 3/4 = ?","1/2","1 5/12","6/7","1","Multiply tops, multiply bottoms: 2/3 × 3/4 = 6/12, which is 1/2.","Multiplying"),
+Q("4/5 × 5/8 = ?","1/2","1 17/40","1 7/13","1","Multiply tops, multiply bottoms: 4/5 × 5/8 = 20/40, which is 1/2.","Multiplying"),
+Q("3/4 × 2/9 = ?","1/6","35/36","6/13","1/3","Multiply tops, multiply bottoms: 3/4 × 2/9 = 6/36, which is 1/6.","Multiplying"),
+Q("1/3 × 6 = ?","2","6 1/3","1 1/2","4","Multiply tops, multiply bottoms: 1/3 × 6 = 6/3, which is 2.","Multiplying"),
+Q("5/6 × 3/10 = ?","1/4","1 2/15","15/16","1/2","Multiply tops, multiply bottoms: 5/6 × 3/10 = 15/60, which is 1/4.","Multiplying"),
+Q("2/7 × 7/8 = ?","1/4","1 9/56","14/15","1/2","Multiply tops, multiply bottoms: 2/7 × 7/8 = 14/56, which is 1/4.","Multiplying"),
+Q("1 1/2 × 2/3 = ?","1","2 1/6","1 1/5","2","Multiply tops, multiply bottoms: 3/2 × 2/3 = 6/6, which is 1.","Multiplying"),
+Q("2 1/4 × 4 = ?","9","6 1/4","7 1/5","18","Multiply tops, multiply bottoms: 9/4 × 4 = 36/4, which is 9.","Multiplying"),
+Q("1 1/3 × 2 1/4 = ?","3","3 7/12","5 1/7","6","Multiply tops, multiply bottoms: 4/3 × 9/4 = 36/12, which is 3.","Multiplying"),
+Q("3 1/2 × 1 2/7 = ?","4 1/2","4 11/14","7","9","Multiply tops, multiply bottoms: 7/2 × 9/7 = 63/14, which is 4 1/2.","Multiplying"),
+Q("Each cup of soup needs 3/4 teaspoon of salt. How much salt is needed for 5 cups?","3 3/4","5 3/4","3","7 1/2","Multiply tops, multiply bottoms: 3/4 × 5 = 15/4, which is 3 3/4.","Multiplying"),
+Q("A path is 2/3 km long. Musa walks 3/4 of it. How many km did he walk?","1/2","1 5/12","6/7","1","Multiply tops, multiply bottoms: 2/3 × 3/4 = 6/12, which is 1/2.","Multiplying"),
+Q("3/4 ÷ 1/2 = ?","1 1/2","3/8","2/3","2 1/2","Flip the second fraction and multiply: 3/4 × 2 = 1 1/2.","Dividing"),
+Q("2/3 ÷ 4 = ?","1/6","2 2/3","6","1 1/6","Flip the second fraction and multiply: 2/3 × 1/4 = 1/6.","Dividing"),
+Q("5 ÷ 1/3 = ?","15","1 2/3","1/15","16","Flip the second fraction and multiply: 5 × 3 = 15.","Dividing"),
+Q("3/5 ÷ 3/10 = ?","2","9/50","1/2","3","Flip the second fraction and multiply: 3/5 × 10/3 = 2.","Dividing"),
+Q("1 1/2 ÷ 3/4 = ?","2","1 1/8","1/2","3","Flip the second fraction and multiply: 3/2 × 4/3 = 2.","Dividing"),
+Q("4/5 ÷ 2/5 = ?","2","8/25","1/2","3","Flip the second fraction and multiply: 4/5 × 5/2 = 2.","Dividing"),
+Q("7/8 ÷ 1/4 = ?","3 1/2","7/32","2/7","4 1/2","Flip the second fraction and multiply: 7/8 × 4 = 3 1/2.","Dividing"),
+Q("2 1/2 ÷ 5/6 = ?","3","2 1/12","1/3","4","Flip the second fraction and multiply: 5/2 × 6/5 = 3.","Dividing"),
+Q("6 ÷ 3/4 = ?","8","4 1/2","1/8","9","Flip the second fraction and multiply: 6 × 4/3 = 8.","Dividing"),
+Q("1/2 ÷ 3/8 = ?","1 1/3","3/16","3/4","2 1/3","Flip the second fraction and multiply: 1/2 × 8/3 = 1 1/3.","Dividing"),
+Q("How many 1/4 kg bags can be filled from 3 kg of beans?","12","3/4","1/12","13","Flip the second fraction and multiply: 3 × 4 = 12.","Dividing"),
+Q("3/4 litre of juice is shared equally among 3 children. How many litres does each child get?","1/4","2 1/4","4","1 1/4","Flip the second fraction and multiply: 3/4 × 1/3 = 1/4.","Dividing")
 ];
-function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
-document.getElementById('lessons').innerHTML=L.map((l,i)=>`<div class="card"><h3>${l.t}</h3>${l.s}<pre>${esc(l.c)}</pre><details><summary>▶ What will it show?</summary><pre class="out">${l.o.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</pre></details><div class="box bug">⚠️ <b>Watch out:</b> ${l.b}</div><div class="box try">✏️ <b>Your turn:</b> ${esc(l.q)}<details><summary>Show answer</summary><pre>${esc(l.a)}</pre></details></div></div>`).join('');
-
-const Q=[
-["Which one is a tuple?",["[1, 2, 3]","(1, 2, 3)","{1, 2, 3}"],1,"Round brackets make a tuple. Square brackets make a list."],
-["colors = ('red','blue','gold'). What is colors[0]?",["red","blue","Error"],0,"Counting starts at 0, so index 0 is the first item."],
-["What happens with t = (1,2,3) then t[0] = 9 ?",["t becomes (9,2,3)","TypeError","Nothing happens"],1,"Tuples are immutable, so Python refuses."],
-["How do you make a tuple with ONE item?",["(5)","(5,)","[5]"],1,"The comma is what makes it a tuple."],
-["After a, b = 1, 2 then a, b = b, a, what is a?",["1","2","Error"],1,"The swap puts b's old value (2) into a."],
-["What does len(('a','b','c','d')) show?",["3","4","5"],1,"len counts the items. There are 4."],
-["For t = ('x','y','z'), what is t[-1]?",["x","y","z"],2,"-1 means the last item."],
-["Which can you do to a tuple?",["Add an item with append","Join it with another tuple using +","Change t[0]"],1,"+ makes a brand new tuple. The others fail."]
-];
-let sc=0,dn=0;const qs=document.getElementById('qs');
-Q.forEach((q,i)=>{const d=document.createElement('div');d.className='card';
-d.innerHTML=`<b>${i+1}. ${esc(q[0])}</b><div class="opts"></div><div class="why">💬 ${esc(q[3])}</div>`;
-q[1].forEach((o,j)=>{const b=document.createElement('button');b.textContent=o;
-b.onclick=()=>{if(d.dataset.d)return;d.dataset.d=1;dn++;
-if(j===q[2]){b.className='ok';sc++}else{b.className='no';d.querySelectorAll('button')[q[2]].className='ok'}
-d.querySelector('.why').style.display='block';
-document.getElementById('bar').style.width=dn/Q.length*100+'%';
-if(dn===Q.length)document.getElementById('score').textContent=`Score: ${sc}/${Q.length} ${sc>=7?'🏆 Tuple Master!':sc>=5?'👍 Good! Re-read the lessons you missed.':'💪 Go back through the lessons, then try again.'}`};
-d.querySelector('.opts').appendChild(b)});qs.appendChild(d)});
-
-const P=[
-{n:"1. Player Card",l:"Beginner",g:"Print a neat card from a tuple.",st:["Make a tuple with 4 items.","Unpack it into 4 variables.","Print each one with a label."],
-c:`player = ("Eniola", 13, "Lagos", "Football")
-name, age, city, hobby = player      # unpack
-print("=== PLAYER CARD ===")
-print("Name :", name)
-print("Age  :", age)
-print("City :", city)
-print("Hobby:", hobby)`,u:"Add a favourite food. Then print how many years until you are 18 (18 - age)."},
-{n:"2. Treasure Hunt",l:"Beginner",g:"Guess the secret coordinates.",st:["Hide the treasure as a tuple (x, y).","Ask the player for x and y. input() gives text, so int() turns it into a number.","Put the guess in a tuple and compare with ==."],
-c:`treasure = (3, 4)
-gx = int(input("Pick x: "))
-gy = int(input("Pick y: "))
-guess = (gx, gy)
-if guess == treasure:
-    print("💰 You found the treasure!")
-else:
-    print("Not here. Try again!")`,u:"Give hints: if gx is less than treasure[0], print 'go right'. Let the player keep guessing with a while loop."},
-{n:"3. Colour Mixer",l:"Beginner",g:"Colours on screens are 3 numbers (red, green, blue), each 0 to 255.",st:["Make two colour tuples.","Average each matching number (// means divide and drop the decimal).","Print the mixed colour tuple."],
-c:`red = (255, 0, 0)
-blue = (0, 0, 255)
-r = (red[0] + blue[0]) // 2    # average of the reds
-g = (red[1] + blue[1]) // 2    # average of the greens
-b = (red[2] + blue[2]) // 2    # average of the blues
-mix = (r, g, b)
-print("Mixed colour:", mix)`,u:"Wrap it in a function: def mix(c1, c2): ... return (r, g, b). Mix yellow (255,255,0) with blue."},
-{n:"4. Quiz Master",l:"Easy",g:"A list of (question, answer) tuples becomes a game.",st:["Make a list of tuples.","Loop and unpack question, answer.","Compare the player's reply (lowercased) and keep score."],
-c:`questions = [
-    ("Capital of Nigeria?", "abuja"),
-    ("2 + 2 * 3 = ?", "8"),
-    ("Language we are learning?", "python"),
-]
-score = 0
-for question, answer in questions:
-    reply = input(question + " ")
-    if reply.lower() == answer:    # lower() ignores capitals
-        print("✅ Correct!")
-        score += 1                 # add 1 to score
-    else:
-        print("❌ It was", answer)
-print("Score:", score, "out of", len(questions))`,u:"Add 5 questions on your favourite subject and print a grade (A, B, C) at the end."},
-{n:"5. Jollof Menu",l:"Medium",g:"Each menu item is a (name, price) tuple. Total the order.",st:["Make a tuple of tuples for the menu.","Print it numbered with enumerate.","Ask for choices until the user types 0."],
-c:`menu = (("Jollof rice", 1500), ("Plantain", 500),
-        ("Chicken", 2000), ("Zobo", 300))
-for number, (item, price) in enumerate(menu, 1):
-    print(number, item, "-", price)
-total = 0
-while True:
-    choice = int(input("Pick a number (0 to finish): "))
-    if choice == 0:
-        break                          # leave the loop
-    item, price = menu[choice - 1]     # numbering starts at 1, index at 0
-    total += price
-    print("Added", item)
-print("Total: N", total)`,u:"Ask for a quantity too, and give 10% off if the total is over 5000."},
-{n:"6. Min/Max Stats",l:"Medium",g:"A function can return several values at once. That is secretly a tuple!",st:["Define a function that returns three values.","Call it and unpack the answer.","Print each result."],
-c:`def stats(numbers):
-    return min(numbers), max(numbers), sum(numbers) / len(numbers)
-
-low, high, avg = stats((12, 7, 19, 3, 25))
-print("Lowest :", low)
-print("Highest:", high)
-print("Average:", avg)`,u:"Let the user type their own numbers, then return the range (high - low) as a fourth value."}
-];
-document.getElementById('projs').innerHTML=P.map((p,i)=>`<div class="card"><h3>${p.n}</h3><span class="tag ${i>2?'b':''}">${p.l}</span> ${p.g}<ol>${p.st.map(x=>`<li>${x}</li>`).join('')}</ol><pre>${esc(p.c)}</pre><button class="g" onclick="cp(${i},this)">Copy code</button><div class="box try">🚀 <b>Level up:</b> ${p.u}</div></div>`).join('');
-function cp(i,b){try{navigator.clipboard.writeText(P[i].c).then(()=>{b.textContent='Copied ✓'},()=>{b.textContent='Select and copy by hand'})}catch(e){b.textContent='Select and copy by hand'}}
-</script></body></html>
+const app=document.getElementById('app');
+const fr=s=>s.replace(/(\d+)\/(\d+)/g,'<span class="f"><b>$1</b><b>$2</b></span>');
+const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+let i=0,score=0,res=[],done=false,missed=[];
+function bar(){return '<div class="bar" aria-hidden="true">'+QS.map((_,k)=>'<i class="'+(k<res.length?(res[k]?'on':'x'):(k===i&&!done?'cur':''))+'"></i>').join('')+'</div>'}
+function show(){
+ if(i>=QS.length)return end();
+ const q=QS[i],opts=shuf(q.o.map((t,k)=>({t,k})));
+ app.innerHTML=bar()+'<div class="meta"><span>Question '+(i+1)+' of '+QS.length+' &middot; '+q.t+'</span><span>Score: '+score+'</span></div>'+
+ '<div class="card"><p class="q">'+fr(q.q)+'</p><div class="opts">'+opts.map(o=>'<button class="opt" data-k="'+o.k+'">'+fr(o.t)+'</button>').join('')+'</div><div id="fb"></div></div>';
+ app.querySelectorAll('.opt').forEach(b=>b.onclick=()=>pick(b,q));
+}
+function pick(b,q){
+ const ok=b.dataset.k==='0';
+ app.querySelectorAll('.opt').forEach(x=>{x.disabled=true;if(x.dataset.k==='0')x.classList.add('ok')});
+ if(!ok){b.classList.add('no');missed.push(q)}else score++;
+ res.push(ok);
+ document.getElementById('fb').innerHTML='<div class="fb '+(ok?'ok':'no')+'"><strong>'+(ok?'Correct!':'Not quite.')+'</strong> '+fr(q.e)+'</div><button class="btn" id="nx">'+(i===QS.length-1?'See results':'Next question')+'</button>';
+ const n=document.getElementById('nx');n.onclick=()=>{i++;show()};n.focus();
+}
+function end(){
+ done=true;
+ const p=Math.round(score/QS.length*100);
+ const msg=p>=90?'Fraction champion!':p>=70?'Great work.':p>=50?'Good effort. Review the ones you missed.':'Keep practising. You will get there.';
+ app.innerHTML=bar()+'<div class="card"><p class="big">'+score+' / '+QS.length+'</p><p class="q">'+p+'% &middot; '+msg+'</p>'+
+ (missed.length?'<p class="meta">Review these '+missed.length+' questions</p><ul class="rev">'+missed.map(q=>'<li>'+fr(q.q)+'<br><span>Answer: '+fr(q.o[0])+'</span> &mdash; '+fr(q.e)+'</li>').join('')+'</ul>':'<p>Perfect score. No mistakes to review.</p>')+
+ '<button class="btn" id="rs">Try again</button></div>';
+ document.getElementById('rs').onclick=()=>{i=0;score=0;res=[];missed=[];done=false;show()};
+}
+show();
+</script>
+</body>
+</html>
