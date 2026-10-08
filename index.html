@@ -3,195 +3,133 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Math Homework Explained</title>
+<title>PCEP Quiz: 100 Practice Questions</title>
 <style>
-:root{--bg:#fdf1e0;--card:#fffaf2;--ink:#1d2a44;--muted:#55607a;--line:#e3cfae;--accent:#d9730d;--ok:#1b7a4b;--okbg:#e2f3e9;--hi:#ffe3b3;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171c2b;--card:#1f2638;--ink:#f1ece2;--muted:#aab2c7;--line:#38425c;--accent:#f0a04b;--ok:#6fd4a0;--okbg:#1b3a2d;--hi:#4a3a1c}}
-:root[data-theme="dark"]{--bg:#171c2b;--card:#1f2638;--ink:#f1ece2;--muted:#aab2c7;--line:#38425c;--accent:#f0a04b;--ok:#6fd4a0;--okbg:#1b3a2d;--hi:#4a3a1c}
-html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+:root{--bg:#f6f7fb;--card:#fff;--ink:#1c2230;--mut:#5d6679;--line:#dfe3ee;--acc:#3a6df0;--ok:#1f9d55;--bad:#d64545;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1420;--card:#181f2e;--ink:#e8ecf5;--mut:#98a2b8;--line:#2a3348;--acc:#6b94ff;--ok:#3ec47a;--bad:#ff6b6b}}
+:root[data-theme="dark"]{--bg:#0f1420;--card:#181f2e;--ink:#e8ecf5;--mut:#98a2b8;--line:#2a3348;--acc:#6b94ff;--ok:#3ec47a;--bad:#ff6b6b}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.6 "Atkinson Hyperlegible","Verdana",sans-serif}
-.wrap{max-width:760px;margin:0 auto;padding:24px 16px 64px}
-h1{font:800 clamp(2rem,6vw,2.8rem)/1.1 "Trebuchet MS",Verdana,sans-serif;margin:8px 0}
-.sub{color:var(--muted);margin:0 0 24px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-bottom:36px}
-.grid a{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:10px;padding:10px 12px}
-.grid a:hover,.grid a:focus-visible{border-color:var(--accent);outline:none}
-.grid b{display:block;font-size:.85rem;color:var(--muted)}
-.grid span{font-weight:700;font-size:1.05rem}
-.q{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:20px;margin:0 0 24px}
-.q h2{margin:0 0 6px;font:700 1.25rem/1.3 "Trebuchet MS",Verdana,sans-serif}
-.q h2 small{display:inline-block;background:var(--accent);color:#fff;border-radius:6px;padding:0 9px;margin-right:8px;font-size:1rem}
-.ask{margin:0 0 12px;color:var(--muted)}
-.ans{background:var(--okbg);color:var(--ok);border-left:6px solid var(--ok);padding:10px 14px;border-radius:6px;font-weight:700;margin:0 0 14px}
-.q h3{font-size:1rem;margin:14px 0 4px}
-.q ol,.q ul{margin:4px 0 0;padding-left:22px}
-.q li{margin:4px 0}
-.q li.bad{color:var(--muted)}
-mark{background:var(--hi);color:inherit;padding:0 4px;border-radius:3px}
-code,.m{font-family:ui-monospace,Menlo,Consolas,monospace;background:var(--hi);padding:1px 6px;border-radius:4px;white-space:nowrap}
-.scroll{overflow-x:auto}
-table{border-collapse:collapse;margin:8px 0}
-td,th{border:2px solid var(--line);padding:6px 12px;text-align:center}
-.pv td{min-width:64px;font:700 1.2rem ui-monospace,Menlo,monospace}
-.pv .t{font:600 .75rem Verdana,sans-serif;color:var(--muted)}
-.strip{display:flex;height:40px;margin:6px 0;font-weight:700;min-width:340px}
-.strip div{border:2px solid var(--ink);display:flex;align-items:center;justify-content:center}
-button{font:inherit;background:none;border:2px solid var(--line);color:var(--ink);border-radius:8px;padding:4px 12px;cursor:pointer;float:right}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:720px;margin:0 auto;padding:16px}
+h1{font-size:1.6rem;margin:.3em 0}h2{font-size:1.1rem;margin:.2em 0 .5em}
+.mut{color:var(--mut)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0}
+button{font:inherit;background:var(--acc);color:#fff;border:0;border-radius:10px;padding:10px 18px;cursor:pointer}
+button.alt{background:transparent;color:var(--acc);border:1px solid var(--acc)}
+button:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.top{display:flex;justify-content:space-between;gap:8px;font-size:.9rem;color:var(--mut)}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin:6px 0}
+.bar i{display:block;height:100%;background:var(--acc)}
+.qt{font-weight:600;margin:0 0 8px}
+pre{background:#0f172a;color:#e2e8f0;padding:12px;border-radius:10px;overflow-x:auto;font:14px/1.5 ui-monospace,Menlo,Consolas,monospace;margin:8px 0}
+.opt{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0;cursor:pointer}
+.opt span{white-space:pre-wrap;overflow-wrap:anywhere}
+.opt.ok{border-color:var(--ok);box-shadow:inset 0 0 0 1px var(--ok)}
+.opt.bad{border-color:var(--bad);box-shadow:inset 0 0 0 1px var(--bad)}
+.good{color:var(--ok)}.nope{color:var(--bad)}
+.big{font-size:2rem;font-weight:700;margin:0}
+.sec{display:grid;grid-template-columns:1fr auto;gap:2px 8px;margin:10px 0;font-size:.95rem}
+.sec .bar{grid-column:1/-1}
 </style>
 </head>
 <body>
-<div class="wrap">
-<h1>Math Homework, Explained</h1>
-<p class="sub">Due Oct 9, 2026. Every answer is shown first, then the steps to get there.</p>
+<div class="wrap" id="app"></div>
+<script>
+const Q=[{"s":1,"t":"Which statement best describes Python?","c":null,"o":["A compiled, low-level language","An interpreted, high-level, general-purpose language","A markup language","A database query language"],"a":[1],"w":"Python is an interpreted, high-level, general-purpose programming language."},{"s":1,"t":"Who created Python?","c":null,"o":["Guido van Rossum","Dennis Ritchie","James Gosling","Bjarne Stroustrup"],"a":[0],"w":"Guido van Rossum started Python in the late 1980s."},{"s":1,"t":"Which file extension is used for Python source files?","c":null,"o":[".pyt",".pt",".py",".python"],"a":[2],"w":"Python source files end with .py"},{"s":1,"t":"Which line is a valid Python comment?","c":null,"o":["// note","# note","/* note */","-- note"],"a":[1],"w":"Python comments start with #."},{"s":1,"t":"Which is a legal variable name?","c":null,"o":["2things","my-var","_count","class"],"a":[2],"w":"Names can't start with a digit, contain '-', or be a keyword (class). _count is fine."},{"s":1,"t":"What is the output of the following code?","c":"x = 1\nX = 2\nprint(x)","o":["1","2","3","NameError"],"a":[0],"w":"Python is case-sensitive: x and X are two different variables."},{"s":1,"t":"What does the Python interpreter do?","c":null,"o":["Translates the whole program to machine code once, before any run","Reads and executes the source code step by step each time it runs","Only checks the code style","Converts Python into Java"],"a":[1],"w":"An interpreter executes the program directly, instruction by instruction, every time you run it."},{"s":1,"t":"Which of these cannot be used as an identifier (variable name)?","c":null,"o":["print","True","input","str"],"a":[1],"w":"True is a keyword. print, input and str are built-in names (legal, but they would shadow the built-in)."},{"s":1,"t":"How does Python mark the blocks of code (e.g. the body of an if)?","c":null,"o":["Curly braces {}","begin / end keywords","Indentation","Semicolons"],"a":[2],"w":"Python uses indentation to define blocks."},{"s":1,"t":"Which TWO names are legal variable names?","c":null,"o":["_x","x1","1x","x-1"],"a":[0,1],"w":"_x and x1 are legal. 1x starts with a digit and x-1 contains a minus sign."},{"s":1,"t":"Which of the following causes a runtime error (exception) rather than a syntax error?","c":null,"o":["print(1 / 0)","print('hello'","if x = 1:","for i in range(3) print(i)"],"a":[0],"w":"1 / 0 is valid syntax but raises ZeroDivisionError while running. The others are syntax errors."},{"s":1,"t":"What does PEP stand for?","c":null,"o":["Python Enhancement Proposal","Programming Execution Protocol","Python Execution Package","Primary Engineering Process"],"a":[0],"w":"PEPs are design documents; PEP 8 is the style guide."},{"s":1,"t":"How can a long statement be continued on the next line?","c":null,"o":["With a trailing backslash ( \\ )","With a trailing semicolon","With three dots ...","It is not possible"],"a":[0],"w":"A backslash at the end of a line (or open brackets) continues the statement."},{"s":1,"t":"What does the >>> prompt indicate?","c":null,"o":["A syntax error","The interactive interpreter is ready for input","A comment","The end of a script"],"a":[1],"w":">>> is the interactive (REPL) prompt."},{"s":1,"t":"What is the output of the following code?","c":"print(\"Hi\") # print(\"Bye\")","o":["Hi","Bye","Hi Bye","Nothing"],"a":[0],"w":"Everything after # is a comment, so only print(\"Hi\") runs."},{"s":1,"t":"Which TWO of these are Python keywords?","c":null,"o":["if","print","while","input"],"a":[0,2],"w":"if and while are keywords. print and input are built-in functions."},{"s":1,"t":"Which statement is true about Python 3?","c":null,"o":["print is a function","print is a keyword","print is an operator","print is a module"],"a":[0],"w":"In Python 3 print() is a built-in function, so it needs parentheses."},{"s":1,"t":"What happens when you run   print 'Hello'   in Python 3?","c":null,"o":["It prints Hello","SyntaxError","NameError","Nothing happens"],"a":[1],"w":"print is a function in Python 3, so the call without parentheses is a SyntaxError."},{"s":2,"t":"What is the output of the following code?","c":"print(\"Hello\", \"World\", sep=\"-\")","o":["Hello World","Hello-World","Hello,World","HelloWorld"],"a":[1],"w":"sep sets the separator placed between the arguments."},{"s":2,"t":"What is the output of the following code?","c":"print(\"a\", end=\"\")\nprint(\"b\")","o":["a b","ab","a then b on two lines","b"],"a":[1],"w":"end=\"\" stops print from adding a newline, so b follows a directly."},{"s":2,"t":"What is the output of the following code?","c":"print(type(3))","o":["<class 'int'>","<class 'float'>","int","<class 'number'>"],"a":[0],"w":"3 is an integer literal."},{"s":2,"t":"What is the output of the following code?","c":"print(7 // 2)","o":["3.5","3","4","2"],"a":[1],"w":"// is floor (integer) division."},{"s":2,"t":"What is the output of the following code?","c":"print(7 % 3)","o":["2","1","0","3"],"a":[1],"w":"% returns the remainder: 7 = 2*3 + 1."},{"s":2,"t":"What is the output of the following code?","c":"print(2 ** 3 ** 2)","o":["64","512","36","128"],"a":[1],"w":"** is right-associative: 3 ** 2 = 9, then 2 ** 9 = 512."},{"s":2,"t":"What is the output of the following code?","c":"print(-7 // 2)","o":["-3","-4","3","-3.5"],"a":[1],"w":"// rounds toward negative infinity: -3.5 becomes -4."},{"s":2,"t":"What is the output of the following code?","c":"print(10 / 5)","o":["2","2.0","2.5","5"],"a":[1],"w":"/ always returns a float."},{"s":2,"t":"What is the output of the following code?","c":"print(3 * \"ab\")","o":["ababab","ab3","aaabbb","TypeError"],"a":[0],"w":"Multiplying a string by an int repeats it."},{"s":2,"t":"What is the output of the following code?","c":"print(\"5\" + \"3\")","o":["8","53","TypeError","5 3"],"a":[1],"w":"+ concatenates strings."},{"s":2,"t":"What is the output of the following code?","c":"print(int(\"5\") + 3)","o":["8","53","TypeError","'53'"],"a":[0],"w":"int(\"5\") is the integer 5, so 5 + 3 = 8."},{"s":2,"t":"What type does input() always return?","c":null,"o":["int","float","str","It depends on what the user types"],"a":[2],"w":"input() always returns a string; convert it with int() or float() if needed."},{"s":2,"t":"What is the output of the following code?","c":"print(int(3.9))","o":["4","3","3.9","ValueError"],"a":[1],"w":"int() truncates toward zero; it does not round."},{"s":2,"t":"What is the output of the following code?","c":"print(round(3.14159, 2))","o":["3.1","3.14","3.15","3"],"a":[1],"w":"round(x, 2) rounds to two decimal places."},{"s":2,"t":"What is the output of the following code?","c":"print(bool(\"False\"))","o":["False","True","Error","None"],"a":[1],"w":"Any non-empty string is truthy, even the text \"False\"."},{"s":2,"t":"What is the output of the following code?","c":"print(1 == 1.0)","o":["True","False","Error","None"],"a":[0],"w":"== compares values; 1 and 1.0 are equal."},{"s":2,"t":"What is the output of the following code?","c":"print(not (True and False))","o":["True","False","None","Error"],"a":[0],"w":"True and False is False, and not False is True."},{"s":2,"t":"What is the output of the following code?","c":"print(True or False and False)","o":["True","False","None","Error"],"a":[0],"w":"and has higher priority than or: False and False -> False; True or False -> True."},{"s":2,"t":"What is the output of the following code?","c":"print(5 > 3 > 1)","o":["True","False","Error","None"],"a":[0],"w":"Chained comparison: (5 > 3) and (3 > 1)."},{"s":2,"t":"What is the output of the following code?","c":"print(\"a\" < \"b\")","o":["True","False","Error","None"],"a":[0],"w":"Strings are compared by character code; 'a' comes before 'b'."},{"s":2,"t":"What is the output of the following code?","c":"print(10 - 2 * 3 + 1)","o":["5","9","3","-3"],"a":[0],"w":"Multiplication first: 10 - 6 + 1 = 5."},{"s":2,"t":"What is the output of the following code?","c":"x = 5\nx += 2\nx *= 3\nprint(x)","o":["21","17","15","13"],"a":[0],"w":"x becomes 7, then 7 * 3 = 21."},{"s":2,"t":"What is the output of the following code?","c":"print(len(\"Python\"))","o":["5","6","7","Error"],"a":[1],"w":"\"Python\" has 6 characters."},{"s":2,"t":"What is the output of the following code?","c":"s = \"Python\"\nprint(s[1:4])","o":["Pyt","yth","ytho","tho"],"a":[1],"w":"Slice [1:4] takes indexes 1, 2 and 3 (the end index is excluded)."},{"s":2,"t":"What is the output of the following code?","c":"print(\"Python\"[-1])","o":["P","n","o","IndexError"],"a":[1],"w":"Index -1 is the last character."},{"s":2,"t":"What is the output of the following code?","c":"print(0.1 + 0.2 == 0.3)","o":["True","False","Error","None"],"a":[1],"w":"Floats are stored approximately, so 0.1 + 0.2 is 0.30000000000000004."},{"s":2,"t":"What is the output of the following code?","c":"print(0o17)","o":["17","15","7","Error"],"a":[1],"w":"0o prefix means octal: 1*8 + 7 = 15."},{"s":2,"t":"What is the output of the following code?","c":"print(\"Hello\"[::-1])","o":["Hello","olleH","H","Error"],"a":[1],"w":"A step of -1 reverses the string."},{"s":2,"t":"Which TWO of these types are immutable?","c":null,"o":["list","str","dict","tuple"],"a":[1,3],"w":"Strings and tuples cannot be changed in place; lists and dictionaries can."},{"s":3,"t":"What is the output of the following code?","c":"x = 5\nif x > 3:\n    print(\"A\")\nelif x > 1:\n    print(\"B\")\nelse:\n    print(\"C\")","o":["A","B","C","A B"],"a":[0],"w":"Only the first true branch runs; x > 3 is true."},{"s":3,"t":"What is the output of the following code?","c":"for i in range(3):\n    print(i, end=\" \")","o":["0 1 2","1 2 3","0 1 2 3","1 2"],"a":[0],"w":"range(3) gives 0, 1, 2."},{"s":3,"t":"What is the output of the following code?","c":"print(list(range(2, 10, 3)))","o":["[2, 5, 8]","[2, 5, 8, 11]","[2, 5, 8, 10]","[2, 3, 10]"],"a":[0],"w":"Start 2, step 3, stop before 10: 2, 5, 8."},{"s":3,"t":"What is the output of the following code?","c":"i = 0\nwhile i < 3:\n    i += 1\n    print(i, end=\" \")","o":["0 1 2","1 2 3","1 2 3 4","3"],"a":[1],"w":"i is incremented before it is printed."},{"s":3,"t":"What is the output of the following code?","c":"for i in range(5):\n    if i == 3:\n        break\n    print(i, end=\"\")","o":["012","0123","12","01234"],"a":[0],"w":"break leaves the loop when i is 3."},{"s":3,"t":"What is the output of the following code?","c":"for i in range(5):\n    if i % 2 == 0:\n        continue\n    print(i, end=\"\")","o":["024","13","0134","1234"],"a":[1],"w":"continue skips even numbers; only 1 and 3 are printed."},{"s":3,"t":"What is the output of the following code?","c":"for i in range(3):\n    pass\nelse:\n    print(\"done\")","o":["done","Nothing","SyntaxError","0 1 2"],"a":[0],"w":"The else block of a loop runs when the loop ends without break."},{"s":3,"t":"What is the output of the following code?","c":"i = 0\nwhile i < 5:\n    if i == 2:\n        break\n    i += 1\nelse:\n    print(\"X\")\nprint(i)","o":["2","X then 2","5","X"],"a":[0],"w":"break skips the loop's else block, so only print(i) runs, giving 2."},{"s":3,"t":"How many lines does this code print?","c":"for i in range(2):\n    for j in range(2):\n        print(i, j)","o":["2","3","4","1"],"a":[2],"w":"The inner loop runs 2 times for each of the 2 outer iterations: 2 x 2 = 4."},{"s":3,"t":"What does the pass statement do?","c":null,"o":["Skips the rest of the loop body","Does nothing; it is a placeholder","Exits the program","Raises an exception"],"a":[1],"w":"pass is a null statement used where a statement is required syntactically."},{"s":3,"t":"Which THREE values are evaluated as False in a condition?","c":null,"o":["0","'' (empty string)","[] (empty list)","'0' (string with a zero)"],"a":[0,1,2],"w":"0, empty strings and empty collections are falsy; the string '0' is non-empty, so truthy."},{"s":3,"t":"What is the output of the following code?","c":"x = 7\nif x > 5:\n    print(\"A\", end=\"\")\nif x > 6:\n    print(\"B\", end=\"\")\nelif x > 8:\n    print(\"C\", end=\"\")","o":["A","AB","ABC","B"],"a":[1],"w":"The two ifs are independent. The elif belongs to the second if and is skipped."},{"s":3,"t":"How many times does the body of this loop execute?","c":"for i in range(1, 5):\n    print(i)","o":["5","4","3","6"],"a":[1],"w":"range(1, 5) produces 1, 2, 3, 4."},{"s":3,"t":"Which of these code snippets creates an infinite loop?","c":null,"o":["i = 0\nwhile i < 3:\n    print(i)","for i in range(3):\n    print(i)","i = 0\nwhile i < 3:\n    i += 1","for ch in 'abc':\n    print(ch)"],"a":[0],"w":"In the first snippet i never changes, so the condition is always true."},{"s":3,"t":"What is the output of the following code?","c":"for i in range(10, 0, -3):\n    print(i, end=\" \")","o":["10 7 4 1","10 7 4 1 0","9 6 3","10 7 4"],"a":[0],"w":"Counting down by 3 and stopping before 0: 10, 7, 4, 1."},{"s":3,"t":"What is the output of the following code?","c":"for ch in \"abc\":\n    print(ch.upper(), end=\"\")","o":["abc","ABC","A B C","Error"],"a":[1],"w":"A string is iterable, and upper() converts each letter."},{"s":3,"t":"What is the output of the following code?","c":"i = 1\nwhile i <= 3:\n    print(i * i, end=\" \")\n    i += 1","o":["1 2 3","1 4 9","1 4 9 16","2 4 6"],"a":[1],"w":"Squares of 1, 2 and 3."},{"s":3,"t":"What is the output of the following code?","c":"if True:\nprint(\"x\")","o":["x","IndentationError","NameError","Nothing"],"a":[1],"w":"The body of an if must be indented."},{"s":3,"t":"What is the output of the following code?","c":"a, b = 5, 10\nif a > 3:\n    if b < 5:\n        print(\"1\")\n    else:\n        print(\"2\")","o":["1","2","Nothing","1 and 2"],"a":[1],"w":"a > 3 is true; b < 5 is false, so the inner else prints 2."},{"s":3,"t":"What is the output of the following code?","c":"x = 3\nwhile x:\n    print(x, end=\"\")\n    x -= 1","o":["321","3210","123","Infinite loop"],"a":[0],"w":"The loop stops when x becomes 0 (falsy)."},{"s":3,"t":"What is the output of the following code?","c":"total = 0\nfor i in range(1, 4):\n    total += i\nprint(total)","o":["10","6","3","5"],"a":[1],"w":"1 + 2 + 3 = 6."},{"s":3,"t":"How many asterisks does this code print in total?","c":"for i in range(3):\n    for j in range(3):\n        if j == 1:\n            break\n        print(\"*\", end=\"\")","o":["3","9","6","1"],"a":[0],"w":"break only leaves the inner loop. Each of the 3 outer iterations prints one star (j = 0)."},{"s":3,"t":"Which if statement is syntactically correct?","c":null,"o":["if x = 1:","if x == 1:","if (x == 1)","if x == 1 then:"],"a":[1],"w":"Comparison uses ==, and the line must end with a colon."},{"s":3,"t":"What is the output of the following code?","c":"n = 0\nfor i in range(5):\n    if i % 2:\n        n += i\nprint(n)","o":["4","6","10","2"],"a":[0],"w":"Only odd i (1 and 3) are added: 1 + 3 = 4."},{"s":3,"t":"How many times is \"Hi\" printed?","c":"for i in range(0):\n    print(\"Hi\")","o":["0","1","It raises an error","Infinitely many"],"a":[0],"w":"range(0) is empty, so the loop body never runs."},{"s":4,"t":"What is the output of the following code?","c":"l = [1, 2, 3]\nl.append(4)\nprint(l)","o":["[1, 2, 3, 4]","[4, 1, 2, 3]","[1, 2, 3]","[1, 2, 3, [4]]"],"a":[0],"w":"append() adds one element at the end."},{"s":4,"t":"What is the output of the following code?","c":"l = [1, 2, 3]\nl.insert(1, \"x\")\nprint(l)","o":["[1, 'x', 2, 3]","['x', 1, 2, 3]","[1, 2, 'x', 3]","[1, 2, 3, 'x']"],"a":[0],"w":"insert(index, value) places the value at that index."},{"s":4,"t":"What is the output of the following code?","c":"l = [3, 1, 2]\nl.sort()\nprint(l)","o":["[1, 2, 3]","[3, 2, 1]","None","[3, 1, 2]"],"a":[0],"w":"sort() sorts the list in place."},{"s":4,"t":"What is the output of the following code?","c":"print([10, 20, 30][1:])","o":["[20, 30]","[10, 20]","[20]","[10, 30]"],"a":[0],"w":"[1:] takes everything from index 1 on."},{"s":4,"t":"What is the output of the following code?","c":"l = [1, 2, 3]\ndel l[0]\nprint(l)","o":["[2, 3]","[1, 2]","[1, 3]","[3]"],"a":[0],"w":"del removes the element at index 0."},{"s":4,"t":"What is the output of the following code?","c":"l1 = [1, 2]\nl2 = l1\nl2.append(3)\nprint(l1)","o":["[1, 2, 3]","[1, 2]","[3]","Error"],"a":[0],"w":"l2 = l1 doesn't copy the list; both names refer to the same object."},{"s":4,"t":"What is the output of the following code?","c":"l1 = [1, 2]\nl2 = l1[:]\nl2.append(3)\nprint(l1)","o":["[1, 2]","[1, 2, 3]","[2, 3]","Error"],"a":[0],"w":"l1[:] creates a copy, so l1 stays unchanged."},{"s":4,"t":"What is the output of the following code?","c":"t = (1, 2, 3)\nt[0] = 5\nprint(t)","o":["(5, 2, 3)","TypeError","IndexError","(1, 2, 3)"],"a":[1],"w":"Tuples are immutable; item assignment raises TypeError."},{"s":4,"t":"Which expression creates a one-element tuple?","c":null,"o":["(1)","(1,)","[1]","{1}"],"a":[1],"w":"The trailing comma makes the tuple. (1) is just the integer 1 in brackets."},{"s":4,"t":"What is the output of the following code?","c":"d = {\"a\": 1, \"b\": 2}\nprint(d[\"a\"])","o":["1","a","2","KeyError"],"a":[0],"w":"Dictionary lookup by key returns the value."},{"s":4,"t":"What is the output of the following code?","c":"d = {\"a\": 1}\nprint(d.get(\"z\", 0))","o":["0","None","KeyError","z"],"a":[0],"w":"get() returns the default (0) when the key is missing."},{"s":4,"t":"What is the output of the following code?","c":"d = {\"a\": 1}\nprint(d[\"z\"])","o":["None","0","KeyError","IndexError"],"a":[2],"w":"Accessing a missing key with [] raises KeyError."},{"s":4,"t":"What is the output of the following code?","c":"d = {\"a\": 1, \"b\": 2}\nfor k in d:\n    print(k, end=\" \")","o":["a b","1 2","a 1 b 2","('a', 1) ('b', 2)"],"a":[0],"w":"Iterating over a dictionary yields its keys."},{"s":4,"t":"What is the output of the following code?","c":"for k, v in {\"x\": 1}.items():\n    print(k, v)","o":["x 1","('x', 1)","x","1"],"a":[0],"w":"items() yields (key, value) pairs that are unpacked into k and v."},{"s":4,"t":"What is the output of the following code?","c":"print(2 in [1, 2, 3])","o":["True","False","2","Error"],"a":[0],"w":"The in operator checks membership."},{"s":4,"t":"What is the output of the following code?","c":"def f(a, b=2):\n    return a + b\n\nprint(f(1))","o":["3","1","Error","None"],"a":[0],"w":"b uses its default value 2, so 1 + 2 = 3."},{"s":4,"t":"What is the output of the following code?","c":"def f():\n    pass\n\nprint(f())","o":["None","0","(empty line)","Error"],"a":[0],"w":"A function with no return statement returns None."},{"s":4,"t":"What is the output of the following code?","c":"x = 1\ndef f():\n    x = 2\n\nf()\nprint(x)","o":["1","2","NameError","None"],"a":[0],"w":"The x inside f is a local variable and doesn't change the global x."},{"s":4,"t":"What is the output of the following code?","c":"x = 1\ndef f():\n    global x\n    x = 2\n\nf()\nprint(x)","o":["2","1","NameError","None"],"a":[0],"w":"global makes f modify the global variable x."},{"s":4,"t":"What is the output of the following code?","c":"def f(a, b):\n    return a - b\n\nprint(f(b=1, a=5))","o":["4","-4","5","TypeError"],"a":[0],"w":"Keyword arguments are matched by name: a=5, b=1."},{"s":4,"t":"What is the output of the following code?","c":"def f():\n    return 1, 2\n\nprint(f())","o":["(1, 2)","1","[1, 2]","2"],"a":[0],"w":"Returning several values returns a tuple."},{"s":4,"t":"What is the output of the following code?","c":"def f(n):\n    if n <= 1:\n        return 1\n    return n * f(n - 1)\n\nprint(f(4))","o":["24","10","4","16"],"a":[0],"w":"4 * 3 * 2 * 1 = 24 (recursion)."},{"s":4,"t":"What is the output of the following code?","c":"m = [[1, 2], [3, 4]]\nprint(m[1][0])","o":["3","2","1","4"],"a":[0],"w":"m[1] is [3, 4]; its element 0 is 3."},{"s":4,"t":"What is the output of the following code?","c":"print(\"a,b,c\".split(\",\"))","o":["['a', 'b', 'c']","a b c","('a','b','c')","'a,b,c'"],"a":[0],"w":"split() returns a list of strings."},{"s":4,"t":"What is the output of the following code?","c":"l = [1, 2, 3]\nprint(l.pop(), l)","o":["3 [1, 2]","1 [2, 3]","3 [1, 2, 3]","None [1, 2]"],"a":[0],"w":"pop() removes and returns the last element."},{"s":4,"t":"What is the purpose of the return statement?","c":null,"o":["It ends the function and sends a value back to the caller","It prints a value on the screen","It declares a variable","It imports a module"],"a":[0],"w":"return exits the function immediately and hands a result back to the caller."},{"s":4,"t":"What is the output of the following code?","c":"import math\nprint(math.sqrt(16))","o":["4.0","4","16","Error"],"a":[0],"w":"math.sqrt() returns a float."},{"s":4,"t":"What is the output of the following code?","c":"l = [3, 1, 2]\nprint(sorted(l), l)","o":["[1, 2, 3] [3, 1, 2]","[1, 2, 3] [1, 2, 3]","None [1, 2, 3]","[3, 1, 2] [1, 2, 3]"],"a":[0],"w":"sorted() returns a new sorted list and leaves the original unchanged."}];
+const SEC={1:"Python Fundamentals",2:"Data Types & I/O",3:"Control Flow",4:"Collections & Functions"};
+const BP={1:5,2:9,3:8,4:8};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+let S=null;
 
-<div class="grid" aria-label="Quick answers">
-<a href="#q1"><b>Question 1</b><span>D · 5,471</span></a>
-<a href="#q2"><b>Question 2</b><span>C</span></a>
-<a href="#q3"><b>Question 3</b><span>D</span></a>
-<a href="#q4"><b>Question 4</b><span>C</span></a>
-<a href="#q5"><b>Question 5</b><span>D · 152,102</span></a>
-<a href="#q6"><b>Question 6</b><span>B · 81,987</span></a>
-<a href="#q7"><b>Question 7</b><span>A · 30.97</span></a>
-<a href="#q8"><b>Question 8</b><span>D · 7,200</span></a>
-<a href="#q9"><b>Question 9</b><span>105 flowers</span></a>
-<a href="#q10"><b>Question 10</b><span>39 miles</span></a>
-</div>
+function home(){
+  if(S)clearInterval(S.t);S=null;
+  $("#app").innerHTML=`<h1>PCEP Practice Quiz</h1>
+  <p class="mut">${Q.length} exam-style questions for the Certified Entry-Level Python Programmer exam. Answer options are shuffled every time.</p>
+  <div class="card"><h2>Full test</h2><p class="mut">All ${Q.length} questions, with an explanation after each answer.</p><button onclick="start('full')">Start</button></div>
+  <div class="card"><h2>Exam simulation</h2><p class="mut">30 questions, 45 minutes, no feedback until the end. Pass mark 70%.</p><button onclick="start('exam')">Start</button></div>
+  <div class="card"><h2>Practice by section</h2><div class="row">${Object.keys(SEC).map(k=>`<button class="alt" onclick="start('sec',${k})">${SEC[k]} (${Q.filter(x=>x.s==k).length})</button>`).join("")}</div></div>
+  <div class="card"><h2>Quick 10</h2><p class="mut">A fast random warm-up.</p><button onclick="start('quick')">Start</button></div>`;
+  scrollTo(0,0);
+}
 
-<section class="q" id="q1">
-<h2><small>1</small>A 4 that is 10 times the 4 in 41</h2>
-<p class="ask">Choices: A 1,234 · B 3,643 · C 4,352 · D 5,471</p>
-<p class="ans">Answer: D, 5,471</p>
-<h3>Steps</h3>
-<ol>
-<li>In 41, the 4 is in the tens place, so it is worth <mark>40</mark>.</li>
-<li>10 times 40 is <mark>400</mark>, so we need a 4 in the hundreds place.</li>
-<li>Check each choice:
-<div class="scroll"><table class="pv"><tr><td class="t">Choice</td><td class="t">Where is the 4?</td><td class="t">Worth</td></tr>
-<tr><td>1,234</td><td class="t">tens</td><td>40</td></tr>
-<tr><td>3,643</td><td class="t">tens</td><td>40</td></tr>
-<tr><td>4,352</td><td class="t">thousands</td><td>4,000</td></tr>
-<tr><td><b>5,471</b></td><td class="t"><b>hundreds</b></td><td><b>400 ✔</b></td></tr></table></div></li>
-</ol>
-</section>
+function start(m,sec){
+  let p;
+  if(m=="exam")p=Object.keys(BP).flatMap(k=>shuf(Q.filter(x=>x.s==k)).slice(0,BP[k]));
+  else if(m=="sec")p=Q.filter(x=>x.s==sec);
+  else if(m=="quick")p=shuf(Q).slice(0,10);
+  else p=Q;
+  S={m,i:0,end:m=="exam"?Date.now()+45*60000:0,t:0,
+     items:shuf(p).map(q=>({q,o:shuf(q.o.map((_,i)=>i)),p:[]}))};
+  if(S.end)S.t=setInterval(tick,1000);
+  show();
+}
 
-<section class="q" id="q2">
-<h2><small>2</small>Game 2 in expanded notation</h2>
-<p class="ask">Game 2 attendance is <b>43,398</b>.</p>
-<p class="ans">Answer: C, 40,000 + 3,000 + 300 + 90 + 8</p>
-<h3>Steps</h3>
-<ol><li>Split 43,398 by place value:
-<div class="scroll"><table class="pv"><tr><td>4</td><td>3</td><td>3</td><td>9</td><td>8</td></tr>
-<tr><td class="t">ten thousands</td><td class="t">thousands</td><td class="t">hundreds</td><td class="t">tens</td><td class="t">ones</td></tr>
-<tr><td>40,000</td><td>3,000</td><td>300</td><td>90</td><td>8</td></tr></table></div></li>
-<li>Add the parts: <code>40,000 + 3,000 + 300 + 90 + 8</code>.</li>
-<li>B leaves out the 300. D has 3,000 twice. A only lists digits.</li></ol>
-</section>
+function tick(){
+  const r=S.end-Date.now();
+  if(r<=0)return finish();
+  const e=$("#tm");
+  if(e)e.textContent="⏱ "+Math.floor(r/60000)+":"+String(Math.floor(r%60000/1000)).padStart(2,"0");
+}
 
-<section class="q" id="q3">
-<h2><small>3</small>Three hundred forty-eight thousand, nine hundred twenty</h2>
-<p class="ans">Answer: D, 300,000 + 40,000 + 8,000 + 900 + 20</p>
-<h3>Steps</h3>
-<ol>
-<li>Write the number: <mark>348,920</mark>.</li>
-<li>Split it by place value:
-<div class="scroll"><table class="pv"><tr><td>3</td><td>4</td><td>8</td><td>9</td><td>2</td><td>0</td></tr>
-<tr><td>300,000</td><td>40,000</td><td>8,000</td><td>900</td><td>20</td><td>0</td></tr></table></div></li>
-<li>Choice D matches every part. The other choices break a place value (for example, C uses 48 instead of 48,000).</li></ol>
-</section>
+function show(){
+  const it=S.items[S.i],q=it.q,n=S.items.length,multi=q.a.length>1,fb=S.m!="exam",last=S.i==n-1;
+  $("#app").innerHTML=`<div class="top"><span>Question ${S.i+1}/${n} · ${SEC[q.s]}</span>${S.end?'<b id="tm"></b>':""}</div>
+  <div class="bar"><i style="width:${S.i/n*100}%"></i></div>
+  <div class="card"><p class="qt">${esc(q.t)}${multi?` <em>(select ${q.a.length})</em>`:""}</p>
+  ${q.c?`<pre>${esc(q.c)}</pre>`:""}
+  <div id="opts">${it.o.map((oi,k)=>`<label class="opt" data-i="${oi}"><input type="${multi?"checkbox":"radio"}" name="o"><span><b>${"ABCD"[k]}</b>  ${esc(q.o[oi])}</span></label>`).join("")}</div>
+  <div id="fb"></div><div class="row"><button id="go"></button></div></div>`;
+  const go=$("#go"),inputs=[...document.querySelectorAll("#opts input")];
+  let checked=false;
+  const nextLbl=last?"See results":"Next";
+  go.textContent=fb?"Check answer":nextLbl;
+  go.disabled=fb;
+  inputs.forEach(e=>e.onchange=()=>{
+    it.p=inputs.map((x,k)=>x.checked?it.o[k]:-1).filter(x=>x>=0);
+    go.disabled=fb&&!it.p.length;
+  });
+  go.onclick=()=>{
+    if(fb&&!checked){
+      checked=true;
+      const ok=it.p.length==q.a.length&&q.a.every(x=>it.p.includes(x));
+      inputs.forEach(e=>e.disabled=true);
+      document.querySelectorAll(".opt").forEach(l=>{
+        const oi=+l.dataset.i;
+        if(q.a.includes(oi))l.classList.add("ok");else if(it.p.includes(oi))l.classList.add("bad");
+      });
+      $("#fb").innerHTML=`<p class="${ok?"good":"nope"}"><b>${ok?"Correct!":"Not quite."}</b></p><p class="mut">${esc(q.w)}</p>`;
+      go.textContent=nextLbl;
+      return;
+    }
+    last?finish():(S.i++,show());
+  };
+  if(S.i>0)scrollTo(0,0);
+  tick&&S.end&&tick();
+}
 
-<section class="q" id="q4">
-<h2><small>4</small>Compare September and October</h2>
-<p class="ask">September: 234,567. October: 234,576.</p>
-<p class="ans">Answer: C, September had fewer passengers than October</p>
-<h3>Steps</h3>
-<ol>
-<li>Compare digits from the left. 2, 3, 4, 5 are the same in both numbers.</li>
-<li>The first difference is in the tens place: September has <mark>6</mark> tens, October has <mark>7</mark> tens.</li>
-<li>6 &lt; 7, so <code>234,567 &lt; 234,576</code>. September is smaller.</li></ol>
-</section>
-
-<section class="q" id="q5">
-<h2><small>5</small>Rounds to 200,000 (nearest hundred thousand)</h2>
-<p class="ask">Choices: A 21,428 · B 143,788 · C 148,245 · D 152,102</p>
-<p class="ans">Answer: D, 152,102</p>
-<h3>Steps</h3>
-<ol>
-<li>Look at the hundred thousands digit and the number after it. Rounding to 200,000 means the number is between <mark>150,000</mark> and <mark>249,999</mark>.</li>
-<li>Check each choice:
-<ul>
-<li class="bad">21,428 is about 0 (too small)</li>
-<li class="bad">143,788 is below 150,000, so it rounds to 100,000</li>
-<li class="bad">148,245 is below 150,000, so it rounds to 100,000</li>
-<li><b>152,102 is above 150,000, so it rounds to 200,000 ✔</b></li></ul></li></ol>
-</section>
-
-<section class="q" id="q6">
-<h2><small>6</small>Sum of 55,498 and 26,489</h2>
-<p class="ans">Answer: B, 81,987</p>
-<h3>Add column by column (right to left)</h3>
-<ol>
-<li>Ones: 8 + 9 = 17. Write 7, carry 1.</li>
-<li>Tens: 9 + 8 + 1 = 18. Write 8, carry 1.</li>
-<li>Hundreds: 4 + 4 + 1 = 9.</li>
-<li>Thousands: 5 + 6 = 11. Write 1, carry 1.</li>
-<li>Ten thousands: 5 + 2 + 1 = 8.</li></ol>
-<p>Result: <code>81,987</code></p>
-</section>
-
-<section class="q" id="q7">
-<h2><small>7</small>Find the difference: 82.5 − 51.53</h2>
-<p class="ans">Answer: A, 30.97</p>
-<h3>Steps</h3>
-<ol>
-<li>Line up the decimal points. Write 82.5 as <mark>82.50</mark> so both numbers have two decimal places.</li>
-<li>Subtract: <code>82.50 − 51.53</code>.</li>
-<li>Hundredths: 0 − 3 needs a borrow, so 10 − 3 = 7. The 5 tenths become 4.</li>
-<li>Tenths: 4 − 5 needs a borrow, so 14 − 5 = 9. The 2 ones become 1.</li>
-<li>Ones: 1 − 1 = 0. Tens: 8 − 5 = 3.</li>
-<li>Result: <code>30.97</code></li></ol>
-<p>Check by adding back: 30.97 + 51.53 = 82.50 ✔</p>
-</section>
-
-<section class="q" id="q8">
-<h2><small>8</small>Multiply: 8 × 900</h2>
-<p class="ans">Answer: D, 7,200</p>
-<h3>Steps</h3>
-<ol>
-<li>Ignore the zeros for now: 8 × 9 = <mark>72</mark>.</li>
-<li>900 has two zeros, so put two zeros after 72.</li>
-<li>Result: <code>7,200</code></li></ol>
-<p>Another way: 900 is 9 hundreds. 8 × 9 hundreds = 72 hundreds = 7,200.</p>
-</section>
-
-<section class="q" id="q9">
-<h2><small>9</small>Javier's flower arrangements</h2>
-<p class="ask">7 arrangements, 15 flowers in each. How many flowers in total?</p>
-<p class="ans">Answer: 105 flowers</p>
-<h3>Steps</h3>
-<ol>
-<li>Equal groups means multiply: <code>7 × 15</code>.</li>
-<li>Break 15 into 10 + 5.
-<ul><li>7 × 10 = 70</li><li>7 × 5 = 35</li></ul></li>
-<li>Add: 70 + 35 = <mark>105</mark>.</li></ol>
-<p>Write in the box: <b>105 flowers</b></p>
-</section>
-
-<section class="q" id="q10">
-<h2><small>10</small>The missing value in the strip diagram</h2>
-<p class="ask">How many more miles did Nikolas and Jayson run in total last year than this year?</p>
-<p class="ans">Answer: 39 miles</p>
-<h3>Steps</h3>
-<ol>
-<li>Last year total: 376 + 452 = <mark>828</mark></li>
-<li>This year total: 483 + 306 = <mark>789</mark></li>
-<li>The ? is the gap between the two totals: 828 − 789 = <mark>39</mark></li></ol>
-<div class="scroll">
-<div class="strip"><div style="flex:376">376</div><div style="flex:452">452</div></div>
-<div class="strip"><div style="flex:483">483</div><div style="flex:306">306</div><div style="flex:39;border-style:dashed">?</div></div></div>
-<p>The top bar (last year) is 828 long. The bottom bar (this year) is 789 long. The dashed piece, <b>39</b>, is how much is missing.</p>
-</section>
-</div>
+function finish(){
+  clearInterval(S.t);
+  const R=S.items.map(it=>({it,ok:it.p.length==it.q.a.length&&it.q.a.every(x=>it.p.includes(x))}));
+  const sc=R.filter(r=>r.ok).length,n=R.length,pct=Math.round(sc/n*100);
+  const by=Object.keys(SEC).map(k=>{
+    const r=R.filter(x=>x.it.q.s==k);if(!r.length)return"";
+    const g=r.filter(x=>x.ok).length,p=Math.round(g/r.length*100);
+    return `<div class="sec"><span>${SEC[k]}</span><span>${g}/${r.length}</span><div class="bar"><i style="width:${p}%"></i></div></div>`;
+  }).join("");
+  const bad=R.filter(r=>!r.ok);
+  $("#app").innerHTML=`<h1>${pct>=70?"Passed! 🎉":"Keep practising"}</h1>
+  <div class="card"><p class="big">${sc}/${n} (${pct}%)</p><p class="mut">Pass mark: 70%. Unanswered questions count as wrong.</p>${by}
+  <div class="row"><button onclick="home()">Back to start</button></div></div>
+  ${bad.length?`<h2>Review: ${bad.length} to learn from</h2>`+bad.map(r=>{const q=r.it.q;
+    return `<div class="card"><p class="qt">${esc(q.t)}</p>${q.c?`<pre>${esc(q.c)}</pre>`:""}
+    <p><b>Correct:</b> <span style="white-space:pre-wrap">${q.a.map(i=>esc(q.o[i])).join("  |  ")}</span></p><p class="mut">${esc(q.w)}</p></div>`}).join(""):""}`;
+  S.t=0;scrollTo(0,0);
+}
+home();
+</script>
 </body>
 </html>
